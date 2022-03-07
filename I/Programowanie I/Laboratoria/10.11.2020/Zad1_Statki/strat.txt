@@ -1,0 +1,14 @@
+0 - puste
+1,2,3,4 - masztowce
+gdy jest statek wokół dać -1
+
+x1 4
+x2 3
+x3 2
+x4 1 masztowiec
+
+/wypełnić tablice -1
+/losuje x,y
+/losuje kierunek
+patrze czy można wstawić
+jeśli tak to wstawiam i daje -1 wokół
