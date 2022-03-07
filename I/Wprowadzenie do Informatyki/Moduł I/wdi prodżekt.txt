@@ -1,0 +1,6 @@
+input,realizacja, output
+
+najważniejsza część programu, pokaz kodu
+
+rozbudować funkcjonalność programu
+

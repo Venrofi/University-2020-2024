@@ -1,0 +1,11 @@
+Zad 4
+a) Top 10 programów użytkowych w wersji portable:
+- Grafika: Gimp, Inkscape, Blender
+- Audio/Wideo: Audacity, OBS, VLC
+- Biuro: LibreOffice, 
+- Bezpieczeństwo: KeePass, 
+- Inne: 7-zip, CPU-Z, HWiNFO, CrystalDisk Info, 
+
+b) Sposoby automatyzacji instalacji oprogramowania w środowisku MS Windows 10:
+- stworzenie obrazu dysku z zainstalowanym oprogramowaniem w celu szybszej instalacji na innych maszynach,
+- 

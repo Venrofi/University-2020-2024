@@ -1,0 +1,54 @@
+game = 'Y'
+while game == 'Y' or game == 'y':
+    print("KALKULATOR TEMPERATUR I WALUT")
+    print("1. KALKULATOR TEMPERATUR")
+    print("2. KALKULATOR WALUT")
+    ans0 = int(input("Podaj wybor: "))
+    if ans0 == 1:
+        print("KALKULATOR TEMPERATUR")
+        print("1. Celsjusze na Fahrenheity")
+        print("2. Fahrenheity na Celsjusze")
+        ans = int(input("Podaj wybor: "))
+        game = 'Y'
+        while game == 'Y' or game == 'y':
+            if ans == 1:
+                temp_in = float(input("Podaj temperature w Celsjuszach: "))
+                temp_out = (9 / 5) * temp_in + 32
+                print("Temperatura w Fahrenheitach wynosi: ", temp_out)
+            elif ans == 2:
+                temp_in = float(input("Podaj temperature w Fahrenheitach: "))
+                temp_out = (temp_in - 32) * (5 / 9)
+                print("Temperatura w Celsjuszach wynosi: ", temp_out)
+            else:
+                print("Blad!")
+            game = input("Ponowne uruchomienie kalkulatora / Powrot do poczatku (Y/N): ")
+    elif ans0 == 2:
+        game = 'Y'
+        while game == 'Y' or game == 'y':
+            print("KALKULATOR WALUT")
+            print("AKTUALNY KURS V-DOLARA TO: 116.78987")   #TODO LIVE DATA
+            cash = float(input("Ile cebulionow(PLN) do wymiany? "))
+            cash *= 116.78987
+            print("Ilosc V-DOLAROW po wymianie: ", cash)
+            game = input("Ponowne uruchomienie kalkulatora / Powrot do poczatku (Y/N): ")
+    else:
+        print("Blad!")
+    game = input("Powrot na start / Koniec programu (Y/N) ")
+
+
+    #TODO opuszczanie petli tylko 'n' lub 'N'
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome()
+driver.get("http://www.python.org")
+assert "Python" in driver.title
+elem = driver.find_element_by_name("q")
+elem.clear()
+elem.send_keys("pycon")
+elem.send_keys(Keys.RETURN)
+assert "No results found." not in driver.page_source
+driver.close()
+
+

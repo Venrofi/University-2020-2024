@@ -1,0 +1,16 @@
+The ThingBox to gotowy zestaw oprogramowania umożliwiający obsługę IoT.
+Pobieramy gotową paczkę oprogramowania dla Raspberry Pi, który jest mikrokomputerem i przekazujemy mu je za pomocą karty SD.
+
+IoT, czyli Internet of Things to koncepcja informatyczna rozszerzająca komunikacje internetową poza komputery i telefony i inne urządzenia peryferyjne. 
+IoT obejmuje każdy przedmiot, który można podłączyć do sieci. Mogą być to sprzęty RTV i AGD, oświetlenie, istalacja grzewcza, liczniki, czujniki czy zegary. Jest to kolejny krok w celu usprawnienia codziennego życia.
+
+W tej paczce oprogramowania znajduje się program Node-RED oraz Mosquitto.
+
+Node-RED umożliwia tworzenie programów do obsługi sprzętu i łączenia urządzeń przy pomocy zwykłej przeglądarki internetowej. Pracuje w środowisku node.js. Proste aplikacje nie wymagają od użytkownika specjalistycznej wiedzy programistycznej. 
+Tworzenie programów polega na łączeniu różnych bloków posiadających rozmaite funkcje. W blokach typu function możemy pisać własny kod w języku JavaScript. 
+
+Mosquitto to program do wymiany danych między urządzeniami. Używa protokołu MQTT, który jest idealny dla urządzeń niewymagających dużej przepustowości. Mosquitto pełni role serwera, a urządzenia są klientami. 
+Z protokołu MQTT korzysta m. in. Facebook Messenger!
+MQTT - MQ Telemetry Transport
+
+Podsumowując The ThingBox pozwala na tworzenie aplikacji w sposób graficzny do obsługi urządzeń przy pomocy zwykłej przeglądarki.

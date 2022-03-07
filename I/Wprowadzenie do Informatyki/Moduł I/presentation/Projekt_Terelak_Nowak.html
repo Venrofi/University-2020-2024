@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDI PROJECT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/styles/ir-black.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;900&display=swap" rel="stylesheet"> 
+</head>
+    
+	
+<style>
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body{
+    background-color: #f1faee;
+}
+
+.intro{
+    height: 100vh;
+    text-align: center;
+    margin: 5% 0;
+}
+
+.i_1{
+    background-color: #e63946;
+    color: white;
+    padding: 1% 0;
+}
+.i_2{
+    background-color: #457b9d;
+    color: white;
+    margin: 5% 30%;
+    padding: 2%;
+    font-weight: 400;
+}
+
+.s1{
+    background-color: #a8dadc;
+    padding: 1%;
+}
+
+.s2{
+    margin: 10% 0;
+    background-color: #a8dadc;
+    padding: 1%
+}
+.s3{
+    height: 100vh;
+    padding: 5% 0;
+}
+.s3 p{
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+}
+.outro{
+
+    background-color: #457b9d;
+    color: white;
+    margin: 5% 30%;
+    padding: 2%;
+    font-weight: 400;}
+h1{
+    font-weight: 700;
+    text-align: center;
+}
+h1 + p {
+    margin: 1% 0;
+}
+
+</style>
+
+<body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <div class="heh">
+    <div class="slide intro">
+        <div class="i_1">
+            <h1>Wprowadzenie do Informatyki</h1>
+            <p>Sekcja 004</p>
+        </div>
+        <div class="i_2">
+            <h1>Założenia projektu</h1>
+            <p><b>Zadanie I.5</b> </br> Zaprogramuj w języku Python (002) program typu przelicznik, który pozwala na przeliczanie stopni Celsjusza na stopnie Fahrenheita i na odwrót lub kalkulator walutowy.</p>
+        </div>
+    </div>
+    <div class="slide s1">
+        <h1>Implementacja w języku Python</h1>
+        <pre>
+            <code class="python">
+                from selenium import webdriver
+
+                game = 'Y'
+                while game == 'Y' or game == 'y':
+                    print("KALKULATOR TEMPERATUR I WALUT")
+                    print("1. KALKULATOR TEMPERATUR")
+                    print("2. KALKULATOR WALUT")
+                    ans0 = int(input("Podaj wybor: "))
+                    if ans0 == 1:
+                        print("KALKULATOR TEMPERATUR")
+                        print("1. Celsjusze na Fahrenheity")
+                        print("2. Fahrenheity na Celsjusze")
+                        ans = int(input("Podaj wybor: "))
+                        if ans == 1:
+                            temp_in = float(input("Podaj temperature w Celsjuszach: "))
+                            temp_out = (9 / 5) * temp_in + 32
+                            print("Temperatura w Fahrenheitach wynosi: ", temp_out)
+                        elif ans == 2:
+                            temp_in = float(input("Podaj temperature w Fahrenheitach: "))
+                            temp_out = (temp_in - 32) * (5 / 9)
+                            print("Temperatura w Celsjuszach wynosi: ", temp_out)
+                        else:
+                            print("Blad!")
+                    elif ans0 == 2:
+                            print("KALKULATOR WALUT")
+                            driver = webdriver.Chrome()
+                            driver.get("https://www.xe.com/currencyconverter/convert/?Amount=1&From=EUR&To=PLN")
+                            driver.minimize_window()
+                            ex_rate = driver.find_element_by_css_selector('span.converterresult-toAmount').text
+                            ex_rate = float(ex_rate)
+                            print("AKTUALNY KURS 1EUR TO: ", ex_rate, "zł")
+                            cash = float(input("Ile Euro do wymiany? "))
+                            cash *= ex_rate
+                            print("Ilosc PLN po wymianie: ", cash, "zł")
+                            driver.close()
+                    else:
+                        print("Blad!")
+                    game = input("Powrot na start -> Y/y ")
+
+            </code>
+        </pre>
+    </div>
+    <div class="slide s2">
+        <h1>Implementacja w języku C++</h1>
+        <pre>
+            <code class="c++">
+                #include &lt;iostream&gt;
+
+                    using namespace std;
+                    
+                    int main()
+                    {
+                        int wyb0{}, wyb1{};
+                        float temp_in{}, temp_out{};
+                        double cash{};
+                        char restart{};
+                      do
+                      {
+                          cout << "KALKULATOR TEMPERATUR I WALUT" << endl;
+                          cout << "1. KALKULATOR TEMPERATUR" << endl;
+                          cout << "2. KALKULATOR WALUT" << endl;
+                          cin >> wyb0;
+                          switch(wyb0)
+                          {
+                            case 1:
+                                cout << "KALKULATOR TEMPERATUR" << endl;
+                                cout << "1. Celsjusze na Fahrenheity" << endl;
+                                cout << "2. Fahrenheity na Celsjusze" << endl;
+                                cin >> wyb1;
+                                switch(wyb1)
+                                {
+                                    case 1:
+                                        cout << "Podaj temperature w Celsjuszach: "; cin >> temp_in;
+                                        temp_out = (9 / 5) * temp_in + 32;
+                                        cout << "Temperatura w Fahrenheitach wynosi: " << temp_out << endl;
+                                        break;
+                                    case 2:
+                                        cout << "Podaj temperature w Fahrenheitach: "; cin >> temp_in;
+                                        temp_out = (temp_in - 32) * (5 / 9);
+                                        cout << "Temperatura w Celsjuszach wynosi: " <<  temp_out << endl;
+                                        break;
+                                    default: 
+                                        cout << "Blad!" << endl;
+                                }
+                                break;
+                            case 2:
+                                cout << "KALKULATOR WALUT" << endl;
+                                cout << "Aktualny kurs V-DOLARA to: 116.78987" << endl;
+                                cout << "Ile cebulionow chcesz wymienic? " << endl;
+                                cin >> cash;
+                                cash *= 116.78987;
+                                cout << "Ilość V-Dolarow po wymianie: " << cash << endl;
+                                break;  
+                            default:
+                                cout << "Blad!" << endl;
+                                break;
+                          }
+                        cout << "Uruchomic ponownie program? (Y/y)" << endl;
+                        cin >> restart;
+                      }while(restart == 'Y' || restart == 'y');
+                      
+                    }
+                    
+            </code>
+        </pre>
+    </div>
+    <div class="slide s3">
+        <div class="outro">
+            <h1>Projekt wykonali:</h1>
+            <p>Jakub Nowak<br>Radosław Terelak</p>
+        </div>
+    </div>
+    </div>
+</body>
+
+
+</html>
