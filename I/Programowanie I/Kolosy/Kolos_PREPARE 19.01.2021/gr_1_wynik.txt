@@ -1,0 +1,6 @@
+Œrednia: 7.53676
+Œrednia: 13.3764
+Œrednia: 12.2716
+Œrednia: 14.2131
+n = 5 Œrednia: 14.2131
+n = 5 Œrednia: 14.2131
