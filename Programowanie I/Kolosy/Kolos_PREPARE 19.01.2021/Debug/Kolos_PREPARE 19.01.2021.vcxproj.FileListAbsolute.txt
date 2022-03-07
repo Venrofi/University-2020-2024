@@ -1,0 +1,2 @@
+C:\Users\User\Desktop\C++\Kolos_PREPARE 19.01.2021\Debug\Kolos_PREPARE 19.01.2021.exe
+C:\Users\User\Desktop\C++\Kolos_PREPARE 19.01.2021\Debug\Kolos_PREPARE 19.01.2021.pdb

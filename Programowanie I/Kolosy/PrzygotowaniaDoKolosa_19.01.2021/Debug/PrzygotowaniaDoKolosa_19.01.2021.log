@@ -1,0 +1,8 @@
+﻿  PrzygotowaniaDoKolosa_19.01.2021.cpp
+C:\Users\User\Desktop\PrzygotowaniaDoKolosa_19.01.2021\PrzygotowaniaDoKolosa_19.01.2021.cpp(40,35): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\User\Desktop\PrzygotowaniaDoKolosa_19.01.2021\PrzygotowaniaDoKolosa_19.01.2021.cpp(65,27): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\User\Desktop\PrzygotowaniaDoKolosa_19.01.2021\PrzygotowaniaDoKolosa_19.01.2021.cpp(67,31): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\User\Desktop\PrzygotowaniaDoKolosa_19.01.2021\PrzygotowaniaDoKolosa_19.01.2021.cpp(177,23): warning C4244: "inicjowanie": konwersja z "std::streamoff" do "int", możliwa utrata danych
+C:\Users\User\Desktop\PrzygotowaniaDoKolosa_19.01.2021\PrzygotowaniaDoKolosa_19.01.2021.cpp(248,14): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\Users\User\Desktop\PrzygotowaniaDoKolosa_19.01.2021\PrzygotowaniaDoKolosa_19.01.2021.cpp(258,14): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  PrzygotowaniaDoKolosa_19.01.2021.vcxproj -> C:\Users\User\Desktop\PrzygotowaniaDoKolosa_19.01.2021\Debug\PrzygotowaniaDoKolosa_19.01.2021.exe
