@@ -1,0 +1,3 @@
+Jan Kowalski;01.10.1920;Gliwice;Polska;01.10.2018;Katowice;Polska
+Sauron;01.10.1918;Mordor;Śródziemie;01.10.2018;Mordor;Śródziemie
+Saruman;01.10.1918;Isengard;Śródziemie;01.10.2018;Rohan;Śródziemie

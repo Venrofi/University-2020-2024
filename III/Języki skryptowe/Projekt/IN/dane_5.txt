@@ -1,0 +1,4 @@
+5
+33;44;88
+462
+Błąd ilości worków względem podanych wyciągnieć

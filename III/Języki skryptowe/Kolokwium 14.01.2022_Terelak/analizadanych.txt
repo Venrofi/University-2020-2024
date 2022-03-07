@@ -1,0 +1,5 @@
+Osoba | żył lat | ur. i zm. w tym samym mieście | ur. i zm. w tym samym kraju
+-----------------------------------------------------------------------------
+Jan Kowalski    |     98 lat    |      Nie      |      Tak      
+Sauron          |    100 lat    |      Tak      |      Tak      
+Saruman         |    100 lat    |      Nie      |      Tak      

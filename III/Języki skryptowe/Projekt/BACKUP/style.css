@@ -1,0 +1,26 @@
+html{
+    font-family: 'Oswald', sans-serif;
+}
+body{
+    background-color: #0775be;
+    background-repeat: no-repeat;
+    color: white;
+}
+table, td, th {
+    border: 1px solid black;
+    text-align: center;
+}
+table{
+    margin: 0 auto;
+    width: 70%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-bottom: 5rem;
+    padding: 5rem;
+    background-color: white;
+    color: black;
+}
+h1{
+    text-align: center;
+    font-weight: 600;
+}
