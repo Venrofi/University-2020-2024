@@ -1,0 +1,31 @@
+﻿  GameState.cpp
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\GameState.cpp(192,50): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\GameState.cpp(197,67): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\GameState.cpp(321,183): warning C4244: "argument": konwersja z "double" do "float", możliwa utrata danych
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\GameState.cpp(321,104): warning C4244: "argument": konwersja z "double" do "float", możliwa utrata danych
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\GameState.cpp(354,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\GameState.cpp(379,21): warning C4244: "inicjowanie": konwersja z "_Rep" do "unsigned int", możliwa utrata danych
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\GameState.cpp(412,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\GameState.cpp(437,21): warning C4244: "inicjowanie": konwersja z "_Rep" do "unsigned int", możliwa utrata danych
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\GameState.cpp(586,37): warning C4244: "+=": konwersja z "float" do "int", możliwa utrata danych
+  MainMenuState.cpp
+  NegativeEndingState.cpp
+  PauseState.cpp
+  PositiveEndingState.cpp
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\TextBox.h(59,21): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\TextBox.h(86,29): warning C4018: "<=": niezgodność typu ze znakiem/bez znaku
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\TextBox.h(90,34): warning C4018: ">": niezgodność typu ze znakiem/bez znaku
+C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\MemoryGame_NowakTerelak\TextBox.h(129,17): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  RankingState.cpp
+  SplashState.cpp
+  main.cpp
+  Generowanie kodu...
+  MemoryGame_NowakTerelak.vcxproj -> C:\SFML-2.5.1\Projekty\MemoryGame_NowakTerelak\Debug\MemoryGame_NowakTerelak.exe
