@@ -1,0 +1,115 @@
+Zadania 21-40
+Radosław Terelak 4G
+
+21. @echo off 
+    dir > pliki_katalogi.txt 
+    PAUSE
+
+22. @echo off 
+    dir %1\*.txt >%2
+    PAUSE
+
+23. @echo off
+    dir %1\*.%2 > lista.txt
+    PAUSE
+
+24. @echo off
+    mkdir kopia_zapasowa
+    xcopy %1 kopia_zapasowa /s /d
+    PAUSE
+
+25. @echo off
+    del %1\*.tmp
+    PAUSE
+
+26. @echo off
+    set /p imie_uzytkownika= "Jak masz na imie? "
+    echo Dzien dobry %imie_uzytkownika% !
+    PAUSE
+
+27. @echo off
+    echo "Zmienna PATH z wartosciami systemowymi: "         echo %PATH%
+    echo "Sciezka lokalna ustawiona na C: "
+    SETLOCAL
+    PATH="C:\"
+    echo %PATH%
+    ENDLOCAL
+    echo "Zmienna PATH po ENDLOCAL: "
+    echo %PATH%
+    PAUSE
+
+28. @echo off
+    echo Zaczynam skrypt..
+    echo Haslo to..
+    goto end
+    echo Ukryte polecenia, ktore sie nie wykonaja
+    echo Zaq12wsx
+    mkdir Radek_Terelak
+    :end
+    echo Koniec skryptu..
+    PAUSE
+
+29. @echo off
+    echo Zaczynam skrypt..
+    PAUSE
+    echo Kontynuacja
+    PAUSE
+
+30. @echo off
+    set /p imie="Podaj imie: "
+    title %imie%
+    PAUSE
+
+31. @echo off
+    echo Witaj %1!
+    title %1
+    PAUSE
+
+32. @echo off
+    shift /2
+    echo %1
+    echo %2
+    echo %3
+    echo %4
+    echo %5
+    PAUSE
+
+33. @echo off
+    call zad31.bat %1
+    dir %1
+    PAUSE
+
+34. @echo off
+    set /p adres="Podaj katalog docelowy: "
+    set /p nazwa="Podaj nazwe pliku: "
+    call zad33.bat %adres% > %nazwa%
+    PAUSE
+
+35. @echo off
+    for %%i in (x1 x2 x3 x4 x5) do (echo Element: %%i)
+    PAUSE
+
+36. @echo off
+    copy *.txt %1
+    PAUSE
+
+37. @echo off
+    echo Konwertuje pliki jpg i png w eps..
+    ren *.jpg *.eps
+    ren *.png *.eps
+    PAUSE
+
+38. @echo off
+    set /p adres="Podaj katalog docelowy: "
+    for /l %%i in (0,1,%1) do (echo %%i >> %adres%\liczby.txt) 
+    echo %1 liczb zostalo zapisanych w pliku liczby.txt w podanej lokalizacji :)
+    PAUSE
+
+39. @echo off
+    call zad37.bat 
+    dir *.eps
+    PAUSE
+
+40. @echo off
+    dir /a:d /b
+    PAUSE

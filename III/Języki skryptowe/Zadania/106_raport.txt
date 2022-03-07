@@ -1,0 +1,6 @@
+RAPORT ALGORYTMÓW SORTOWANIA
+    NAZWA    --    LICZBA SORTOWANYCH PLIKÓW  --  ŒREDNI CZAS             
+
+1. b¹belkowe       --       1000x100       --    5.5414344
+2. wstawianie      --       1000x100       --    0.05978269999999952
+3. szybkie         --       1000x100       --    9.7349866

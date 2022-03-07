@@ -1,0 +1,4 @@
+Pierwotne dane: [77, 44, 10, 33, 88, 14]
+a) Sortowanie b¹belkowe: [10, 14, 33, 44, 77, 88]
+b) Sortowanie przez wstawianie: [10, 14, 33, 44, 77, 88]
+c) Sortowanie szybkie: [10, 14, 33, 44, 77, 88]

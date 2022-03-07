@@ -1,0 +1,375 @@
+Zadania 41-66
+Radosław Terelak 4G
+
+41. @echo off 
+    dir /a:d /b > %1
+
+42. @echo off
+    del *.tmp
+
+43. @echo off
+    del %1\*.tmp
+
+44. @echo off
+    set /p plik=Podaj typ pliku do sprawdzenia 
+
+    if exist *.%plik% (goto usun) else (goto brak)
+
+    :usun
+    echo Usuwam pliki %plik%
+    del *.%plik%
+    goto koniec
+
+    :brak
+    echo Brak plikow o takim rozszerzeniu!
+
+    :koniec
+    PAUSE
+
+45. @echo off
+    set /p n=Podaj ile liczb zapisac 
+    for /l %%i in (1,1,%n%) do (echo %%i >> %1.txt) 
+
+    echo %n% liczb zostalo zapisanych w pliku %1.txt :)
+
+    PAUSE
+
+46. @echo off
+    REM Skrypt jest taki sam, ponieważ już wcześniej użyłem komendy SET by ustalić ilość iteracji pętli
+
+    set /p n=Podaj ile liczb zapisac 
+    for /l %%i in (1,1,%n%) do (echo %%i >> %1.txt) 
+
+    echo %n% liczb zostalo zapisanych w pliku %1.txt :)
+
+    PAUSE 
+
+47. @echo off
+    echo Podaj parametr (-dodaj / -usun): 
+    set /p parametr=
+
+    if /i %parametr%==-dodaj ( goto dodawanie )
+    if /i %parametr%==-usun ( goto usuwanie )
+    
+    echo Zly parametr!
+    goto koniec
+   
+    :dodawanie
+    type nul > test.txt
+    echo Utworzono plik test.txt
+    goto koniec
+
+    :usuwanie
+    del test.txt
+    echo Usunieto plik test.txt
+    goto koniec
+
+    :koniec
+    PAUSE
+
+48. @echo off 
+    REM Lokalizacja pliku skryptowego ma duże znaczenie, należy go uruchomić z poziomu dysku C:, bez dodatkowych zagnieżdżeń w folderach
+
+    for %%i in (C: D:) do ( 
+    %%i 
+    cd %%i 
+    dir /s %1 )
+
+    PAUSE
+
+49. @echo off 
+    del %1\*.tmp
+    
+
+50. @echo off 
+ 
+    if /i "%1"=="/a" goto akcja
+    if /i "%1"=="/h" goto hilfe
+
+    del "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\*.*" /p /f 
+    reg delete HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /va
+    PAUSE 
+    goto:EOF 
+ 
+    :akcja
+    del "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\*.*" /f 
+    reg delete HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /va /f 
+    PAUSE
+    goto:EOF 
+ 
+    :hilfe
+    cls
+    echo Program usuwa wpisy z podmenu Autostart menu Start. 
+    echo Kasuje rowniez wpisy w edytorze rejestru odpowiedzialne
+    echo za automatyczne uruchamianie programow przy starcie systemu
+    echo Atrybuty: 
+    echo /a Program usuwa wszystkie wpisy
+    echo /h Program wyswietla pomoc
+    PAUSE
+
+51. @echo off 
+    :dalej
+    cls
+    echo Podaj pierwsza liczbe:
+    set /p liczba1= 
+
+
+    echo Wybierz operacje
+    echo Dodawanie: 1, Odejmowanie: 2,
+    echo Mnozenie: 3, Dzielenie: 4
+
+    set /p dzialanie=
+
+    echo Podaj druga liczbe:
+    set /p liczba2= 
+    set wynik=0
+
+    if %dzialanie%==1 (set /a wynik = %liczba1% + %liczba2%) 
+    if %dzialanie%==2 (set /a wynik = %liczba1% – %liczba2%) 
+    if %dzialanie%==3 (set /a wynik = %liczba1% * %liczba2%) 
+    if %dzialanie%==4 (set /a wynik = %liczba1% / %liczba2%) 
+    echo Wynik operacji to: %wynik%
+
+    echo Czy chcesz wykonac kolejne obliczenie?[y/n]
+ 
+    set /p dalej=
+    if %dalej%==y goto :dalej
+    PAUSE
+
+52. @echo off 
+    set /a konwersja=0x%1
+    echo Liczba %1 w zapisie dziesietnym: %konwersja%
+    PAUSE
+
+53. @echo off 
+    :dalej
+    echo Podaj liczbe HEX do konwersji:
+    set /p hex=
+    set /a dec=0x%hex%
+    echo Liczba %hex% w zapisie dziesietnym: %dec%
+
+    echo Czy chcesz zamienic kolejna liczbe?[y/n]
+ 
+    set /p dalej=
+    if %dalej%==y goto :dalej
+    PAUSE
+
+54. @echo off
+    if %1==styczen (echo Numer miesiaca: 1
+    ) else if %1==luty (echo Numer miesiaca: 2
+    ) else if %1==marzec (echo Numer miesiaca: 3
+    ) else if %1==kwiecien (echo Numer miesiaca: 4
+    ) else if %1==maj (echo Numer miesiaca: 5
+    ) else if %1==czerwiec (echo Numer miesiaca: 6
+    ) else if %1==lipiec (echo Numer miesiaca: 7
+    ) else if %1==sierpien (echo Numer miesiaca: 8
+    ) else if %1==wrzesien (echo Numer miesiaca: 9
+    ) else if %1==pazdziernik (echo Numer miesiaca: 10
+    ) else if %1==listopad (echo Numer miesiaca: 11
+    ) else if %1==grudzien (echo Numer miesiaca: 12
+    ) else (echo Zly parametr!)
+
+    PAUSE
+
+55. @echo off
+    cls
+
+    :dalej
+    echo Podaj miesiac:
+    set /p miesiac=
+
+    if %miesiac%==styczen (echo Numer miesiaca: 1
+    ) else if %miesiac%==luty (echo Numer miesiaca: 2
+    ) else if %miesiac%==marzec (echo Numer miesiaca: 3
+    ) else if %miesiac%==kwiecien (echo Numer miesiaca: 4
+    ) else if %miesiac%==maj (echo Numer miesiaca: 5
+    ) else if %miesiac%==czerwiec (echo Numer miesiaca: 6
+    ) else if %miesiac%==lipiec (echo Numer miesiaca: 7
+    ) else if %miesiac%==sierpien (echo Numer miesiaca: 8
+    ) else if %miesiac%==wrzesien (echo Numer miesiaca: 9
+    ) else if %miesiac%==pazdziernik (echo Numer miesiaca: 10
+    ) else if %miesiac%==listopad (echo Numer miesiaca: 11
+    ) else if %miesiac%==grudzien (echo Numer miesiaca: 12
+    ) else (echo Zle dane, podaj nazwe miesiaca malymi literami!)
+
+    echo Czy chcesz sprawdzic inny miesiac?[y/n]
+ 
+    set /p dalej=
+    if %dalej%==y goto :dalej
+    PAUSE
+
+56. @echo off
+    set /p miesiac=<miesiac.txt
+
+    echo %miesiac%
+    if %miesiac%==styczen (echo Numer miesiaca: 1
+    ) else if %miesiac%==luty (echo Numer miesiaca: 2
+    ) else if %miesiac%==marzec (echo Numer miesiaca: 3
+    ) else if %miesiac%==kwiecien (echo Numer miesiaca: 4
+    ) else if %miesiac%==maj (echo Numer miesiaca: 5
+    ) else if %miesiac%==czerwiec (echo Numer miesiaca: 6
+    ) else if %miesiac%==lipiec (echo Numer miesiaca: 7
+    ) else if %miesiac%==sierpien (echo Numer miesiaca: 8
+    ) else if %miesiac%==wrzesien (echo Numer miesiaca: 9
+    ) else if %miesiac%==pazdziernik (echo Numer miesiaca: 10
+    ) else if %miesiac%==listopad (echo Numer miesiaca: 11
+    ) else if %miesiac%==grudzien (echo Numer miesiaca: 12
+    ) else (echo Zle dane, nazwa miesiaca musi być zapisana malymi literami!)
+
+    PAUSE
+
+57. @echo off
+    cls
+
+    :dalej
+    echo Podaj tekst:
+    set /p tekst=
+
+    echo %tekst:~0,2% %tekst:~4,6%
+
+    echo Chcesz podac inny tekst?[y/n]
+    set /p dalej=
+    if %dalej%==y goto :dalej
+    
+    PAUSE
+
+58. @echo off 
+    echo Podaj tekst:
+    set /p tekst= 
+    set tekst=%tekst:nie=%
+    echo Tekst bez slowa 'nie': %tekst%
+
+    PAUSE
+
+59. @echo off 
+    echo Tekst bez slowa 'nie':
+
+    setlocal enabledelayedexpansion 
+    for /f "tokens=* delims=" %%i in (%1) do ( 
+    set string=%%i 
+    echo !string:nie=! 
+    ) 
+    endlocal
+
+    PAUSE
+
+60. @echo off 
+    echo Podaj pierwszy tekst:
+    set /p tekst1=
+    echo Podaj drugi tekst: 
+    set /p tekst2=
+
+    set "wynik=%tekst1%%tekst2%"
+
+    echo Wynik polaczenia obu tekstow: %wynik%
+    
+    PAUSE
+
+61. @echo off 
+    echo Podaj lokalizacje pierwszego pliku txt:
+    set /p lokalizacja1=
+    echo Podaj lokalizacje drugiego pliku txt:
+    set /p lokalizacja2=
+
+    set /p tekst1=<%lokalizacja1%
+    set /p tekst2=<%lokalizacja2%
+
+    set "wynik=%tekst1%%tekst2%"
+
+    echo Wynik polaczenia obu tekstow: %wynik%
+
+    PAUSE
+
+62. @echo off
+    set sciezka="%~dpf0"
+
+    for /f "delims=" %%i in (%sciezka%) do set sciezka_bez=%%i
+
+    echo Sciezka z cudzyslowem: %sciezka%
+    echo Sciezka bez cudzyslowu: %sciezka_bez%
+
+    PAUSE
+
+
+63. @echo off 
+    :menu 
+    cls 
+    echo ******  MENU  ******
+    echo ))) 1. Skrypt 1 (((
+    echo ))) 2. Skrypt 2 (((
+    echo ))) 3. Skrypt 3 ((( 
+    echo   ) 4. Wyjscie  ( 
+    echo. 
+    set /p wybor="Wybierz skrypt do wykonania:" 
+    IF %wybor%==1 GOTO nr1
+    IF %wybor%==2 GOTO nr2 
+    IF %wybor%==3 GOTO nr3 
+    IF %wybor%==4 GOTO exit 
+    
+    :nr1 
+    echo Uruchamiam Skrypt 1..
+    pause 
+    call skrypt1.bat 
+    goto menu
+
+    :nr2 
+    echo Uruchamiam Skrypt 2..
+    pause
+    call skrypt2.bat 
+    goto menu
+    
+    :nr3 
+    echo Uruchamiam Skrypt 3..
+    pause 
+    call skrypt3.bat
+    goto menu 
+
+    :exit 
+    echo Wyjscie..
+
+    PAUSE
+
+64. @echo off 
+    set /p tekst=<%1
+
+    echo Przed zmiana: %tekst%
+
+    set tekst=%tekst:nie=tak!%
+
+    echo Po zmianie: %tekst%
+
+    PAUSE
+
+65. @echo off 
+    set /p tekst=<%1
+
+    echo Przed zmiana: %tekst%
+    echo.
+    set tekst=%tekst:nie=tak!%
+
+    echo Po zmianie: %tekst%
+    echo %tekst%>%2
+    echo.
+    echo Zaktualizowany tekst zostal zapisany w pliku %2
+
+    PAUSE
+
+66. @echo off 
+    ren %1\*.txt *.xtx
+
+    echo Zamieniono wszystkie pliki .txt na .xtx
+
+    if "%~2"=="" goto end 
+    if %2==c (goto kopiowanie) else (goto end) 
+
+    :kopiowanie 
+    set /p katalog="Podaj katalog: " 
+    set /p data="Podaj date: " 
+
+    if not exist %1\%katalog% mkdir %1\%katalog% 
+    forfiles /p %1 /m *.xtx /c "cmd /c copy @path %katalog%\@file" /d -%data% 
+
+    echo Skopiowano odpowiednie pliki do %katalog%
+
+    :end 
+    PAUSE  

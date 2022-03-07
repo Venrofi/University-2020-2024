@@ -1,0 +1,31 @@
+Zadania 1-20
+Radosław Terelak 4G
+
+1. chkdsk
+2. tree
+3. clipbrd
+4. dir C:\Users\Radosław_Terelak\Desktop
+   dir C:\Users\Radosław_Terelak\Desktop /p
+5. dir C: /s
+   tree :c
+6. comp /d /a /l
+7. forfiles /P "C:\Users\Radosław_Terelak" /C "cmd /c xcopy @path C:Users\Radosław_Terelak\Desktop\wczesniej_niz_4_mies" /D -120 /S
+8. forfiles /p wczesniej_niz_4_mies /m *.* /c "cmd /c type @path"
+9. fc
+10. ver
+11. systeminfo & ipconfig /all
+    diskpart
+    listvolume
+12. dir c:\*.exe /s
+13. ping adminakademia.pl
+14. tasklist
+15. echo (<tekst do posortowania>) > plik.txt
+    sort plik.txt
+16. chat(komenda ta działa tylko na wersjach windows server)
+    winchat (chat w Windows XP)
+17. forfiles /p %userprofile% /m *.txt /c "cmd /c type @path >> wszystkie_pliki.txt"
+18. forfiles /p %userprofile%\wczesniej_niz_4_mies /m *.txt /c "cmd /c attrib +a @path" 
+19. forfiles /p %userprofile%\wczesniej_niz_4_mies /m *.txt /c "cmd /c del @path"
+20. @echo off
+    echo Witaj
+    PAUSE
