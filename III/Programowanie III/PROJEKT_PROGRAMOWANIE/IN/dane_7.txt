@@ -1,0 +1,4 @@
+7
+5;3;4;6;0;5;4
+75
+Błąd użycia 0 jako ilość wyciągniętych monet

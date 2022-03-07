@@ -1,0 +1,402 @@
+Kolokwium 2 - Programowanie III - Radosław Terelak 4G
+
+### Zadanie 1 ###
+
+package kolokwium2_radosław_terelak_4g;
+
+import java.util.Scanner;
+
+public class Kolokwium2_Radosław_Terelak_4G {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner (System.in);
+        System.out.print("Podaj jakiej dlugosci maja byc wektory: ");
+        try{
+            int wielkoscWektora = scan.nextInt();
+            Double [] wektor1 = new Double[wielkoscWektora];
+            Double [] wektor2 = new Double[wielkoscWektora];
+            for(int i = 0; i < wielkoscWektora; i++){
+                System.out.print("Wektor 1. Podaj współrzędną " + (i+1) + ": ");
+                wektor1[i] = scan.nextDouble();
+            }
+            for(int i = 0; i < wielkoscWektora; i++){
+                System.out.print("Wektor 2. Podaj współrzędną " + (i+1) + ": ");
+                wektor2[i] = scan.nextDouble();
+            }
+            Algorytm alg = new Algorytm();
+            System.out.printf("Iloczyn skalarny wynosi: " + alg.IloczynSkalarny(wektor1, wektor2));
+        }
+        catch(Exception e){
+            System.out.print("Wystąpił błąd! \n" + e);
+        }
+    } 
+}
+
+class Algorytm{    
+    public Double IloczynSkalarny(Double[] a, Double[] b) throws Exception{
+        if(a.length != b.length)
+        {
+            Exception e = new Exception("Nie da sie obliczyc iloczynu skalarnego wektorow o roznych dlugosciach!");
+            throw e;
+        }
+        Double iloczyn = 0.0;
+        for(int i = 0; i < a.length; i++){
+            iloczyn += a[i]*b[i];
+        }
+        return iloczyn;
+    }  
+}
+
+
+### Zadanie 2 ###
+
+package kolokwium2_radosław_terelak_4g;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Kolokwium2_Radosław_Terelak_4G {
+
+    public static void main(String[] args) throws FileNotFoundException{
+        try{
+            File plik = new File("zadanie2.txt");
+            Scanner scan = new Scanner(plik);
+            Algorytm alg = new Algorytm();
+            ArrayList<Integer> dane = new ArrayList<>();
+
+            while(scan.hasNextInt()){
+                dane.add(scan.nextInt());
+            }
+
+            System.out.println("Dane:");
+            for (int liczba : dane) {
+                System.out.println(liczba);
+            }
+            dane = alg.BubbleSort(dane);
+            System.out.println("Posortowane dane: ");
+            for (int liczba : dane) {
+                System.out.println(liczba);
+            }
+        }
+        catch (Exception e){
+            System.out.print("Wystąpił błąd! \n" + e);
+        }
+    } 
+}
+
+class Algorytm{    
+    public ArrayList<Integer> BubbleSort(ArrayList<Integer> dane){
+        for (int i=0; i < dane.size() - 1; i++){
+            for (int j=0; j < dane.size() - i - 1; j++){
+                int a = dane.get(j);
+                int b = dane.get(j+1);
+                if(a > b){
+                    dane.set(j, b);
+                    dane.set(j+1, a);
+                }
+            }
+        }
+        
+        return dane;
+    }    
+}
+
+
+### Zadanie 3 ###
+
+package kolokwium2_radosław_terelak_4g;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
+import java.io.FileNotFoundException;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Kolokwium2_Radosław_Terelak_4G {
+
+    public static void main(String[] args){
+        FillFrame ramka = new FillFrame();
+        ramka.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ramka.setVisible(true);
+    } 
+}
+
+class FillFrame extends JFrame {
+    public static final int SZEROKOSC = 400;
+    public static final int WYSOKOSC = 400;
+    public FillFrame()
+    {
+        setTitle("Zadanie 3");
+        setSize(SZEROKOSC,WYSOKOSC);
+        PanelWypelnienia panel = new PanelWypelnienia();
+        Container powZawartosci = getContentPane();
+        powZawartosci.add(panel);
+    }
+}
+
+class PanelWypelnienia extends JPanel{
+    @Override
+    public void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        Rectangle2D prostokat = new Rectangle2D.Double(100,100,200,150);
+        g2.setPaint(Color.red);
+        g2.fill(prostokat);
+        Ellipse2D elipsa = new Ellipse2D.Double();
+        elipsa.setFrame(prostokat);
+        g2.setPaint(new Color(0,128,128));
+        g2.fill(elipsa);
+    }
+}
+
+
+### Zadanie 4 ###
+
+package kolokwium2_radosław_terelak_4g;
+
+public class Kolokwium2_Radosław_Terelak_4G {
+
+    public static void main(String[] args){
+        //Wywołanie konstruktora klasy bazowej nie jest konieczne jeżeli klasa bazowa posiada konstruktor domyślny albo domniemany
+        
+        Pracownik_projekt p1 = new Pracownik_projekt();
+        System.out.println(p1.getNazwaPracownika());
+        System.out.println(p1.getWynagrodzeniePracownika());
+        System.out.println(p1.getNazwaProjektu());
+        System.out.println(p1.getOpisProjektu() + "\n");
+        
+        Pracownik_projekt p2 = new Pracownik_projekt("Marek Nowak", 5000, "Matematyka I", "Wielomiany");
+        System.out.println(p2.getNazwaPracownika());
+        System.out.println(p2.getWynagrodzeniePracownika());
+        System.out.println(p2.getNazwaProjektu());
+        System.out.println(p2.getOpisProjektu() + "\n");
+        
+        Pracownik_projekt p3 = new Pracownik_projekt("Algorytmy", "Wyszukiwanie wzorca");
+        System.out.println(p3.getNazwaPracownika());
+        System.out.println(p3.getWynagrodzeniePracownika());
+        System.out.println(p3.getNazwaProjektu());
+        System.out.println(p3.getOpisProjektu());
+    } 
+}
+
+class Pracownik{
+    protected String nazwa_pracownika;
+    protected double wynagrodzenie_pracownika;
+    
+    public Pracownik(String nazwa, double wynagrodzenie) {
+        this.nazwa_pracownika = nazwa;
+        this.wynagrodzenie_pracownika = wynagrodzenie;
+    }
+    public Pracownik() {
+        this.nazwa_pracownika = "Radosław Terelak";
+        this.wynagrodzenie_pracownika = 3500;
+    }
+    
+    public String getNazwaPracownika(){
+        return this.nazwa_pracownika;
+    }
+    public double getWynagrodzeniePracownika(){
+        return this.wynagrodzenie_pracownika;
+    }
+    
+    public void setNazwaPracownika(String nazwa){
+        this.nazwa_pracownika = nazwa;
+    }
+    public void setNazwaPracownika(double wynagrodzenie){
+        this.wynagrodzenie_pracownika = wynagrodzenie;
+    }
+}
+
+class Pracownik_projekt extends Pracownik{
+    protected String nazwa_projektu;
+    protected String opis_projektu;
+    
+    public Pracownik_projekt(String nazwa_pracownika, double wynagrodzenie, String nazwa_projektu, String opis) {
+        super(nazwa_pracownika, wynagrodzenie);
+        this.nazwa_projektu = nazwa_projektu;
+        this.opis_projektu = opis;
+    }
+    public Pracownik_projekt(String nazwa_projektu, String opis) {
+        this.nazwa_projektu = nazwa_projektu;
+        this.opis_projektu = opis;
+    }
+    public Pracownik_projekt() {
+        this.nazwa_projektu = "Projekt Programowanie III";
+        this.opis_projektu = "Zadanie 1 'Monety' Algorytmion 2011";
+    }
+    
+    public String getNazwaProjektu(){
+        return this.nazwa_projektu;
+    }
+    public String getOpisProjektu(){
+        return this.opis_projektu;
+    }
+    public void setNazwaProjektu(String nazwa){
+        this.nazwa_projektu = nazwa;
+    }
+    public void setOpisProjektu(String opis){
+        this.opis_projektu = opis;
+    }
+}
+
+
+### Zadanie 5 ###
+
+package kolokwium2_radosław_terelak_4g;
+
+public class Kolokwium2_Radosław_Terelak_4G {
+
+    public static void main(String[] args){
+        Punkt3DKolor punkt1 = new Punkt3DKolor();
+        Punkt3DKolor punkt2 = new Punkt3DKolor(100,200,500);
+        Punkt3DKolor punkt3 = new Punkt3DKolor(10,20,30,2,22,222);
+        
+        System.out.println("\nWyświetlanie danych:");
+        punkt1.wyswietlDane();
+        punkt2.wyswietlDane();
+        punkt3.wyswietlDane();
+        
+        System.out.print("\nZmiana RGB w 'punkt1'..");
+        punkt1.setRGB(5, 5, 5);
+
+        System.out.println("\n\nWyświetlanie danych:");
+        punkt1.wyswietlDane();
+        punkt2.wyswietlDane();
+        punkt3.wyswietlDane();
+        
+        System.out.println("\nWyświetlanie współrzędnych:");
+        punkt1.wyswietlXYZ();
+        punkt2.wyswietlXYZ();
+        punkt3.wyswietlXYZ();
+        
+        System.out.println("\nUstawianie nowych współrzędnych..");
+        punkt1.setX(6);
+        punkt1.setY(6);
+        punkt1.setZ(6);
+        punkt2.setX(-5);
+        punkt2.setY(5);
+        punkt2.setZ(-5);
+        punkt3.setX(7);
+        punkt3.setY(8);
+        punkt3.setZ(9);
+        
+        System.out.println("\nWyświetlanie współrzędnych:");
+        punkt1.wyswietlXYZ();
+        punkt2.wyswietlXYZ();
+        punkt3.wyswietlXYZ();
+    } 
+}
+
+class Punkt2D{
+    protected double x, y;
+    
+    public Punkt2D(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
+    public Punkt2D(){
+        this.x = 5;
+        this.y = 10;
+    }
+    public void wyswietlXY(){
+        System.out.println("Współrzędne: " + this.x + ", " + this.y);
+    }
+    
+    public void setX(double x){
+        this.x = x;
+    }
+    public void setY(double y){
+        this.y = y;
+    }
+    
+    public double getX(){
+        return this.x;
+    }
+    public double getY(){
+        return this.y;
+    } 
+}
+
+class Punkt3D extends Punkt2D{
+    protected double z;
+    
+    public Punkt3D(double x, double y, double z){
+        super(x,y);
+        this.z = z;
+    }
+    public Punkt3D(double z){
+        this.z = z;
+    }
+    public Punkt3D(){
+        this.z = 15;
+    }
+    public void wyswietlXYZ(){
+        System.out.println("Współrzędne: " + this.x + ", " + this.y +", " + this.z);
+    }
+    
+    public void setZ(double z){
+        this.z = z;
+    }
+    public double getZ(){
+        return this.z;
+    }
+}
+
+class Punkt3DKolor extends Punkt3D{
+    protected int R, G, B;
+    
+    public Punkt3DKolor(double x, double y, double z, int r, int g, int b){
+        super(x,y,z);
+        if((r >= 0 && r <= 255) && (g >= 0 && g <= 255) && (b >= 0 && b <= 255)){
+            this.R = r;
+            this.G = g; 
+            this.B = b; 
+        }
+        else{
+            System.out.println("Wartość spoza zakresu!");
+        }
+    }
+    public Punkt3DKolor(int r, int g, int b){
+        if((r >= 0 && r <= 255) && (g >= 0 && g <= 255) && (b >= 0 && b <= 255)){
+            this.R = r;
+            this.G = g; 
+            this.B = b; 
+        }
+        else{
+            System.out.println("Wartość spoza zakresu!");
+        }
+    }
+    public Punkt3DKolor(){
+        this.R = 50;
+        this.G = 100;
+        this.B = 150;
+    }
+    
+    public int[] getRGB(){
+        int[] RGB = new int[]{this.R, this.G, this.B};
+        return RGB;
+    }
+    
+    public void setRGB(int r, int g, int b){
+        if((r >= 0 && r <= 255) && (g >= 0 && g <= 255) && (b >= 0 && b <= 255)){
+            this.R = r;
+            this.G = g; 
+            this.B = b; 
+        }
+        else{
+            System.out.println("Wartość spoza zakresu!");
+        }
+    }
+    
+    public void wyswietlDane(){
+        System.out.println("Współrzędne: " + this.x + ", " + this.y +", " + this.z);
+        System.out.println("RGB: " + this.R + ", " + this.G + ", " + this.B);
+    }
+}

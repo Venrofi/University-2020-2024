@@ -1,0 +1,1 @@
+Fałszywym jest worek o numerze: 10

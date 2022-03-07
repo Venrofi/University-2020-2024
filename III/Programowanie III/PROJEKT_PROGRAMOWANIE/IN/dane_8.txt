@@ -1,0 +1,4 @@
+7
+5;X;4;6;5;2;4
+73
+Błąd znaku 'X' zamiast cyfry
