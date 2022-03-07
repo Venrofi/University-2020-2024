@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Algorytmy Grafowe_Terelak", "Algorytmy Grafowe_Terelak.pyproj", "{1DAB0EBE-F2C2-4731-B2F4-92069E784D32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DAB0EBE-F2C2-4731-B2F4-92069E784D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DAB0EBE-F2C2-4731-B2F4-92069E784D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65A8106B-1398-41EE-995A-7BB05C77C40C}
+	EndGlobalSection
+EndGlobal

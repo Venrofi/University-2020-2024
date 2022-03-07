@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "OdwrotnaNotacjaPolska_Terelak", "OdwrotnaNotacjaPolska_Terelak.pyproj", "{BCBF15FF-C95A-4419-BB69-A6A39EF41EF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCBF15FF-C95A-4419-BB69-A6A39EF41EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCBF15FF-C95A-4419-BB69-A6A39EF41EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6E1F38D-EC01-47EA-8FBA-409F58E382F4}
+	EndGlobalSection
+EndGlobal
