@@ -1,0 +1,2 @@
+CTRL+J - template do wklejania prostego kodu (pętle, warunki itd)
+
