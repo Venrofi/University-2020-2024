@@ -1,0 +1,49 @@
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\bin\Debug\Quiz App_NowakTerelak.exe.config
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\bin\Debug\Quiz App_NowakTerelak.exe
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\bin\Debug\Quiz App_NowakTerelak.pdb
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\MainWindow.g.cs
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak_MarkupCompile.cache
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak_MarkupCompile.lref
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\MainWindow.baml
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.g.resources
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\Quiz_App_NowakTerelak.Properties.Resources.resources
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.exe
+C:\Users\User\Desktop\Programowanie IV\quizGenerator 31.03.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.pdb
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\bin\Debug\Quiz App_NowakTerelak.exe.config
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\bin\Debug\Quiz App_NowakTerelak.exe
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\bin\Debug\Quiz App_NowakTerelak.pdb
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.csproj.AssemblyReference.cache
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\MainWindow.g.cs
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\App.g.cs
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak_MarkupCompile.cache
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak_MarkupCompile.lref
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\MainWindow.baml
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.g.resources
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\Quiz_App_NowakTerelak.Properties.Resources.resources
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.csproj.GenerateResource.cache
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.csproj.CoreCompileInputs.cache
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.exe
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.pdb
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\ResultWindow.g.cs
+C:\Users\Kubica\Documents\C#_STUDIA\Quiz App_NowakTerelak\obj\Debug\ResultWindow.baml
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\bin\Debug\Quiz App_NowakTerelak.exe.config
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\bin\Debug\Quiz App_NowakTerelak.exe
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\bin\Debug\Quiz App_NowakTerelak.pdb
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\MainWindow.g.cs
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\ResultWindow.g.cs
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak_MarkupCompile.cache
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak_MarkupCompile.lref
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\MainWindow.baml
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\ResultWindow.baml
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.g.resources
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\Quiz_App_NowakTerelak.Properties.Resources.resources
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.exe
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\Quiz App_NowakTerelak\obj\Debug\Quiz App_NowakTerelak.pdb

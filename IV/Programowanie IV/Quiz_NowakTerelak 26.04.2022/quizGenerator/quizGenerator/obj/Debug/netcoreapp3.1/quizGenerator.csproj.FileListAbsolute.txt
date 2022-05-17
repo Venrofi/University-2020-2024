@@ -1,0 +1,38 @@
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.exe
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.deps.json
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.runtimeconfig.json
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.runtimeconfig.dev.json
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.dll
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.pdb
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.csproj.AssemblyReference.cache
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator_MarkupCompile.cache
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator_MarkupCompile.lref
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.g.resources
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.AssemblyInfoInputs.cache
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.AssemblyInfo.cs
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.csproj.CoreCompileInputs.cache
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.dll
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.pdb
+C:\Users\Kubica\Documents\C#_STUDIA\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.genruntimeconfig.cache
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.exe
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.deps.json
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.runtimeconfig.json
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.runtimeconfig.dev.json
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.dll
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\bin\Debug\netcoreapp3.1\quizGenerator.pdb
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator_MarkupCompile.cache
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator_MarkupCompile.lref
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.g.resources
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.AssemblyInfo.cs
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.dll
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.pdb
+C:\Users\User\Desktop\Programowanie IV\Quiz FINAL 25.04.2022\quizGenerator\quizGenerator\obj\Debug\netcoreapp3.1\quizGenerator.genruntimeconfig.cache
