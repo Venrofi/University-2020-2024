@@ -1,0 +1,71 @@
+﻿<mah:MetroWindow x:Class="MiniTC_Terelak.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:vm1="clr-namespace:MiniTC_Terelak.ViewModels" 
+        xmlns:local="clr-namespace:MiniTC_Terelak.Views" 
+        mc:Ignorable="d"
+        Title="Mini Total Commander - Radosław Terelak" Height="450" Width="800">
+
+    <mah:MetroWindow.Resources>
+        <vm1:MainViewModel x:Key="viewModel"/>
+    </mah:MetroWindow.Resources>
+
+    <Grid DataContext="{StaticResource viewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Row 0, Left Panel -->
+            <local:PanelTC Grid.Column="0" 
+                           Text="{Binding Path=LeftPanel.Path, Mode=TwoWay}" 
+                           CbItemsSource="{Binding Path=LeftPanel.DriveArray, Mode=TwoWay}"
+                           CbSelectedItem="{Binding Path=LeftPanel.DriveSelected, Mode=TwoWay}"
+                           LsItemsSource="{Binding Path=LeftPanel.ContentCollection, Mode=TwoWay}"
+                           LsSelectedItem="{Binding Path=LeftPanel.ListSelected, Mode=TwoWay}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DriverChanged">
+                        <i:InvokeCommandAction Command="{Binding LeftDriverChanged}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding LeftSelectionChanged}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </local:PanelTC>
+
+            <!-- Row 0, Right Panel -->
+            <local:PanelTC Grid.Column="1" 
+                           Text="{Binding Path=RightPanel.Path, Mode=TwoWay}" 
+                           CbItemsSource="{Binding Path=RightPanel.DriveArray, Mode=TwoWay}"
+                           CbSelectedItem="{Binding Path=RightPanel.DriveSelected, Mode=TwoWay}"
+                           LsItemsSource="{Binding Path=RightPanel.ContentCollection, Mode=TwoWay}"
+                           LsSelectedItem="{Binding Path=RightPanel.ListSelected, Mode=TwoWay}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DriverChanged">
+                        <i:InvokeCommandAction Command="{Binding RightDriverChanged}"/>
+                    </i:EventTrigger>
+
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding RightSelectionChanged}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </local:PanelTC>
+        </Grid>
+
+        <!-- Row 1 -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="button" Grid.Row="1" Width="150" Height="30" Content="Copy >>" Command="{Binding CopyClick}"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

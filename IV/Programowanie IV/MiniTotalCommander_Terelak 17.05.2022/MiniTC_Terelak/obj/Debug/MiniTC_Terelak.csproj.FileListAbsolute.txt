@@ -1,0 +1,62 @@
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\MiniTC_Terelak.exe.config
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\MiniTC_Terelak.exe
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\MiniTC_Terelak.pdb
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\Views\MainWindow.g.cs
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\Views\PanelTC.g.cs
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak_MarkupCompile.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak_MarkupCompile.lref
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\Views\MainWindow.baml
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\Views\PanelTC.baml
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.g.resources
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.Properties.Resources.resources
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.exe
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.pdb
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\ControlzEx.dll
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\MahApps.Metro.dll
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\ControlzEx.pdb
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\ControlzEx.xml
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\MahApps.Metro.pdb
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\MahApps.Metro.xml
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\bin\Debug\de\MahApps.Metro.resources.dll
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\App.baml
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.CopyComplete
+C:\Users\User\Desktop\Programowanie IV\MiniTC_Terelak\MiniTC_Terelak\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\MiniTC_Terelak.exe.config
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\MiniTC_Terelak.exe
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\MiniTC_Terelak.pdb
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\ControlzEx.dll
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\MahApps.Metro.dll
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\ControlzEx.pdb
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\ControlzEx.xml
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\MahApps.Metro.pdb
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\MahApps.Metro.xml
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\bin\Debug\de\MahApps.Metro.resources.dll
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.SuggestedBindingRedirects.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\Views\MainWindow.g.cs
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\Views\PanelTC.g.cs
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak_MarkupCompile.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak_MarkupCompile.lref
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\App.baml
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\Views\MainWindow.baml
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\Views\PanelTC.baml
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.g.resources
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.Properties.Resources.resources
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.csproj.CopyComplete
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.exe
+C:\Users\User\Desktop\Programowanie IV\MiniTotalCommander_Terelak 17.05.2022\MiniTC_Terelak\obj\Debug\MiniTC_Terelak.pdb
