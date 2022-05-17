@@ -1,0 +1,18 @@
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\Formularz Dodawania Kierowcy.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\MainWindow.g.cs
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\TextBoxWithErrorProvider.g.cs
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\Formularz Dodawania Kierowcy_MarkupCompile.cache
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\Formularz Dodawania Kierowcy_MarkupCompile.lref
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\bin\Debug\Formularz Dodawania Kierowcy.exe.config
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\bin\Debug\Formularz Dodawania Kierowcy.exe
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\bin\Debug\Formularz Dodawania Kierowcy.pdb
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\MainWindow.baml
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\TextBoxWithErrorProvider.baml
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\Formularz Dodawania Kierowcy.g.resources
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\Formularz_Dodawania_Kierowcy.Properties.Resources.resources
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\Formularz Dodawania Kierowcy.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\Formularz Dodawania Kierowcy.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\Formularz Dodawania Kierowcy.exe
+C:\Users\User\Desktop\Programowanie IV\Formularz Dodawania Kierowcy 15.03.2022\obj\Debug\Formularz Dodawania Kierowcy.pdb

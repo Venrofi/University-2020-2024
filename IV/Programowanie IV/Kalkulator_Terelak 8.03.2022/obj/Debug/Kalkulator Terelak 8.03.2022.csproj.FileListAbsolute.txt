@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\bin\Debug\Kalkulator Terelak 8.03.2022.exe.config
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\bin\Debug\Kalkulator Terelak 8.03.2022.exe
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\bin\Debug\Kalkulator Terelak 8.03.2022.pdb
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\Kalkulator Terelak 8.03.2022.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\MainWindow.g.cs
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\App.g.cs
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\Kalkulator Terelak 8.03.2022_MarkupCompile.cache
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\Kalkulator Terelak 8.03.2022_MarkupCompile.lref
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\MainWindow.baml
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\Kalkulator Terelak 8.03.2022.g.resources
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\Kalkulator_Terelak_8._03._2022.Properties.Resources.resources
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\Kalkulator Terelak 8.03.2022.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\Kalkulator Terelak 8.03.2022.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\Kalkulator Terelak 8.03.2022.exe
+C:\Users\User\Desktop\Programowanie IV\Kalkulator Terelak 8.03.2022\obj\Debug\Kalkulator Terelak 8.03.2022.pdb
