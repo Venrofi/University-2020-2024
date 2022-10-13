@@ -47,6 +47,11 @@ h2{
   font-weight: 700;
   user-select: none;
 }
+h3{
+    font-size: 24px;
+    font-weight: 400;
+    user-select: none;
+}
 
 p{
   font-size: 24px;
@@ -71,7 +76,7 @@ p{
     button{
         font-size: 24px;
     }
-    p{
+    p, h3{
         font-size: 18px;
     }
 }
