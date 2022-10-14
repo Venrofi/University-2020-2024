@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Urbanist:wght@100;300;400;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* COLORS */
+:root{
+    --dark-blue: #00112B;
+    --light-blue: #011b42;
+    --dark-red: #DA2424;
+    --light-red: #FF2A2A;
+    --white: #FFF;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Urbanist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  background-color: var(--dark-blue);
+  color: white;
+  text-align: center;
+}
+
+/* TYPOGRAPHY */
+
+h1{
+  font-size: 64px;
+  font-weight: 700;
+  user-select: none;
+}
+h2{
+  font-size: 32px;
+  font-weight: 700;
+  user-select: none;
+}
+
+p{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+*:focus{
+  outline: none;
+}
+
+
+header, main, footer{
+    margin-inline: 2rem;
+}
+.calculator input{
+    width: 30vw;
+    padding: 1rem 2rem;
+    font-size: 24px;
+    border: none;
+    cursor: default;
+}
+
+.calculator button{
+    padding: 1rem 2rem;
+    font-size: 24px;
+    border: none;
+}
+
+.calculator p{
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.buttons button{
+    padding: 2rem;
+    font-size: 24px;
+    border-radius: 0;
+    border: none;
+    margin: 2rem 0.25rem;
+}
+
+.operators button{
+    padding: 2rem;
+    font-size: 24px;
+    border-radius: 0;
+    border: none;
+    margin: 1rem 0.25rem;
+}
+
+.cleanup button{
+    padding: 2rem;
+    font-size: 24px;
+    border-radius: 0;
+    border: none;
+    margin: 1rem 0.25rem;
+}
+
+footer{
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+}

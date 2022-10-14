@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator ONP</title>
+    <script src="ONP.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Kalkulator ONP</h1>
+    </header>
+    <main>
+        <div class="calculator">
+            <input type="text" placeholder="Wprowadź formułę ONP" id="formula" readonly>
+            <button onclick="ONP()">Oblicz</button>
+            <p id="wynik"></p>
+        </div>
+        <div class="buttons">
+            <button value="0">0</button>
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button value="4">4</button>
+            <button value="5">5</button>
+            <button value="6">6</button>
+            <button value="7">7</button>
+            <button value="8">8</button>
+            <button value="9">9</button>
+        </div>
+        <div class="operators">
+            <button value="+">+</button>
+            <button value="-">-</button>
+            <button value="/">/</button>
+            <button value="*">*</button>
+        </div>
+        <div class="cleanup">
+            <button id="clear" onclick="clearAll()">Clear</button>
+            <button id="backspace" onclick="backspace()">Backspace</button>
+        </div>
+    </main>
+    <footer>
+        <p>
+            Coded by <a href="https://venrofi.netlify.app/" target="_blank">Radosław Terelak</a>
+        </p>
+    </footer> 
+</body>
+</html>
