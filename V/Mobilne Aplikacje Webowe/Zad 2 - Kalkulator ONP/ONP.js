@@ -29,9 +29,8 @@ function ONP(){
     var stos = [];
 
     if (formula.length === 0) return 0;
-
     formula = formula.replace(/\s/g, '').split('');
-    debugger;
+
     for (let i = 0; i < formula.length; i++) {
         var element = formula[i];
     
@@ -60,5 +59,4 @@ function ONP(){
             result.innerHTML = 'Błędnie skonstruowana formuła!';
         }
     }
-
 }
