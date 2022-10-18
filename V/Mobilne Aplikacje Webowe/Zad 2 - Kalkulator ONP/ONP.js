@@ -1,6 +1,7 @@
 var textbox = document.getElementById('formula');
 var valueButtons = document.querySelectorAll('.buttons button');
 var operatorButtons = document.querySelectorAll('.operators button');
+var result = document.getElementById('wynik');
 
 for (let i=0; i < valueButtons.length; i++) {
     valueButtons[i].addEventListener("click", (e) => {
@@ -16,6 +17,7 @@ for (let i=0; i < operatorButtons.length; i++) {
 
 function clearAll(){
     if(textbox.value.length > 0) textbox.value = '';
+    result.innerHTML = '';
 }
 
 function backspace(){
@@ -24,13 +26,12 @@ function backspace(){
 
 function ONP(){
     var formula = document.getElementById('formula').value;
-    var wynik = document.getElementById('wynik');
     var stos = [];
 
     if (formula.length === 0) return 0;
 
     formula = formula.replace(/\s/g, '').split('');
-
+    debugger;
     for (let i = 0; i < formula.length; i++) {
         var element = formula[i];
     
@@ -38,15 +39,26 @@ function ONP(){
     
         else {
             if (stos.length < 2) {
-                wynik.innerHTML = 'Niewystarczająca ilość wartości liczbowych w formule!';
+                result.innerHTML = 'Niewystarczająca ilość wartości liczbowych w formule!';
                 break;
             }
 
             var y = stos.pop();
             var x = stos.pop();
+
+            if(y === 0 && element === '/'){
+                result.innerHTML = 'W formule występuje dzielenie przez 0!';
+                break;
+            }
             stos.push(eval(x + element + y));
         }
-        wynik.innerHTML = Math.round(stos * 100) / 100;
+
+        if(!Number.isNaN(stos) && stos.length == 1){
+            result.innerHTML = Math.round(stos * 100) / 100;
+        }
+        else{
+            result.innerHTML = 'Błędnie skonstruowana formuła!';
+        }
     }
 
 }
