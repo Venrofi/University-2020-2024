@@ -49,14 +49,45 @@ function ONP(){
                 result.innerHTML = 'W formule występuje dzielenie przez 0!';
                 break;
             }
-            stos.push(eval(x + element + y));
+
+            if(element ==='^') stos.push(eval(x ** y));
+            else stos.push(eval(x + element + y));
         }
 
-        if(!Number.isNaN(stos) && stos.length == 1){
-            result.innerHTML = Math.round(stos * 100) / 100;
+        if(!Number.isNaN(stos) && stos.length == 1) {
+            result.innerHTML = Math.round(stos);
+            primeDecomposition(Math.round(stos));
         }
-        else{
-            result.innerHTML = 'Błędnie skonstruowana formuła!';
+        else result.innerHTML = 'Błędnie skonstruowana formuła!';
+    }
+}
+
+function primeDecomposition(number){
+    if (!isNaN(number) && number > 1){
+        var primeTextbox = document.querySelector('.prime-decomp');
+        var result = 'Rozkład na liczby pierwsze: \\(' + number;
+        var firstPrime = true;
+        var i = 2;
+        var e = Math.floor(Math.sqrt(number));
+
+        while (i <= e) {
+            while ((number % i) == 0) {
+                if(firstPrime) {
+                    result += '=' + i;
+                    firstPrime = false;
+                }
+                else result += '*' + i;
+
+                number = Math.floor(number / i);
+                e = Math.floor(Math.sqrt(number));
+            }
+            i++;
         }
+
+        if (number > 1) result += `*${number}\\)`;
+        else result += '\\)';
+        
+        primeTextbox.innerHTML = result;
+        MathJax.typeset();
     }
 }
