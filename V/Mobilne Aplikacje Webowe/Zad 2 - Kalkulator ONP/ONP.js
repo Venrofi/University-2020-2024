@@ -70,26 +70,31 @@ function ONP(){
 
 function primeDecomposition(number){
     if (!isNaN(number) && number > 1){
-        let result = 'Rozkład na liczby pierwsze: \\(' + number;
-        let firstPrime = true;
+        let result = `Rozkład na liczby pierwsze: \\( ${number} = `;
         let i = 2;
         let e = Math.floor(Math.sqrt(number));
+        let decompNumbers = [];
 
         while (i <= e) {
             while ((number % i) == 0) {
-                if(firstPrime) {
-                    result += '=' + i;
-                    firstPrime = false;
-                }
-                else result += '*' + i;
+                decompNumbers.push(i);
 
                 number = Math.floor(number / i);
                 e = Math.floor(Math.sqrt(number));
             }
             i++;
         }
-        if (number > 1) result += `*${number}\\)`;
-        else result += '\\)';
+        if (number > 1) decompNumbers.push(number);
+
+        let uniqueDecompNumbers = [... new Set(decompNumbers)];
+
+        for(let i=0; i < uniqueDecompNumbers.length; i++){
+            let numberOfOccurance = decompNumbers.filter((v) => (v === uniqueDecompNumbers[i])).length;
+
+            if (numberOfOccurance > 1) result += `${uniqueDecompNumbers[i]} ^ ${numberOfOccurance}`;
+            else result += `* ${uniqueDecompNumbers[i]}`;
+        }
+        result += '\\)';
         
         primeTextbox.innerHTML = result;
         MathJax.typeset();
