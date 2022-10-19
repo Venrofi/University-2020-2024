@@ -1,7 +1,11 @@
 var textbox = document.getElementById('formula');
+var primeTextbox = document.querySelector('.prime-decomp');
+var primeSumTextbox = document.querySelector('.prime-sum');
+
 var valueButtons = document.querySelectorAll('.buttons button');
 var operatorButtons = document.querySelectorAll('.operators button');
 var result = document.getElementById('wynik');
+
 
 for (let i=0; i < valueButtons.length; i++) {
     valueButtons[i].addEventListener("click", (e) => {
@@ -18,6 +22,8 @@ for (let i=0; i < operatorButtons.length; i++) {
 function clearAll(){
     if(textbox.value.length > 0) textbox.value = '';
     result.innerHTML = '';
+    primeTextbox.innerHTML = '';
+    primeSumTextbox.innerHTML = '';
 }
 
 function backspace(){
@@ -53,22 +59,21 @@ function ONP(){
             if(element ==='^') stos.push(eval(x ** y));
             else stos.push(eval(x + element + y));
         }
-
-        if(!Number.isNaN(stos) && stos.length == 1) {
-            result.innerHTML = Math.round(stos);
-            primeDecomposition(Math.round(stos));
-        }
-        else result.innerHTML = 'Błędnie skonstruowana formuła!';
     }
+    if(!Number.isNaN(stos) && stos.length == 1) {
+        result.innerHTML = Math.round(stos);
+        primeDecomposition(Math.round(stos));
+        primeEvenSumDecomposition(Math.round(stos));
+    }
+    else result.innerHTML = 'Błędnie skonstruowana formuła!';
 }
 
 function primeDecomposition(number){
     if (!isNaN(number) && number > 1){
-        var primeTextbox = document.querySelector('.prime-decomp');
-        var result = 'Rozkład na liczby pierwsze: \\(' + number;
-        var firstPrime = true;
-        var i = 2;
-        var e = Math.floor(Math.sqrt(number));
+        let result = 'Rozkład na liczby pierwsze: \\(' + number;
+        let firstPrime = true;
+        let i = 2;
+        let e = Math.floor(Math.sqrt(number));
 
         while (i <= e) {
             while ((number % i) == 0) {
@@ -83,11 +88,33 @@ function primeDecomposition(number){
             }
             i++;
         }
-
         if (number > 1) result += `*${number}\\)`;
         else result += '\\)';
         
         primeTextbox.innerHTML = result;
+        MathJax.typeset();
+    }
+}
+
+function isPrime(number){
+    if(number <= 1) return false;
+
+    for(let i=2; i < number; i++){
+        if(number % i == 0) return false;
+    }
+    return true;
+}
+
+function primeEvenSumDecomposition(number){
+    if (!isNaN(number) && number >= 4 && number % 2 === 0){
+        let result = ``;
+        
+        for(let i=2; i < number; i++){
+            if(isPrime(i) && isPrime(number - i)) {
+                result = `Rozkład parzystej liczby na sumę liczb pierwszych: \\( ${number} = ${i} + ${number - i} \\)`;
+            }
+        }
+        primeSumTextbox.innerHTML = result;
         MathJax.typeset();
     }
 }
