@@ -41,11 +41,6 @@ h1{
   font-weight: 700;
   user-select: none;
 }
-h2{
-  font-size: 32px;
-  font-weight: 700;
-  user-select: none;
-}
 
 p{
   font-size: 18px;
@@ -61,22 +56,37 @@ a, a:hover, a:focus, a:active {
   outline: none;
 }
 
+button{
+  cursor: pointer;
+}
 
 header, main, footer{
     margin-inline: 2rem;
 }
+
 .calculator input{
     width: 30vw;
     padding: 1rem 2rem;
+    margin-inline: 0.25rem;
     font-size: 24px;
     border: none;
     cursor: default;
 }
-
 .calculator button{
     padding: 1rem 2rem;
     font-size: 24px;
     border: none;
+    background-color: #012863;
+    color: white;
+    font-weight: bold;
+}
+.calculator button:hover, .calculator button:focus{
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #012863; }
 }
 
 .calculator p{
@@ -84,28 +94,74 @@ header, main, footer{
     font-weight: 700;
 }
 
+.buttons, .operators, .cleanup, .decomposition{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem; 
+}
+
 .buttons button{
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     font-size: 24px;
     border-radius: 0;
     border: none;
-    margin: 2rem 0.25rem;
+    min-width: 50px;
+    transition: 0.25s;
+}
+
+.buttons button:hover, .buttons button:focus{
+  box-shadow: inset 0 0 0 2em var(--light-red);
+  color: white;
 }
 
 .operators button{
-    padding: 2rem;
+    padding: 1.5rem 0;
     font-size: 24px;
     border-radius: 0;
     border: none;
-    margin: 1rem 0.25rem;
+    min-width: 70px;
+    transition: 0.25s;
+}
+
+.operators button:hover, .operators button:focus{
+  box-shadow: inset 0 -3.25em 0 0 #012863;
+  color: white;
 }
 
 .cleanup button{
-    padding: 2rem;
+    padding: 1.5rem 0;
     font-size: 24px;
     border-radius: 0;
     border: none;
-    margin: 1rem 0.25rem;
+    min-width: 180px;
+}
+
+#clear, #backspace{
+  background-color: var(--dark-red);
+  color: white;
+  font-weight: bold;
+  transition: 0.25s;
+  overflow: visible;
+}
+
+#clear:hover, #clear:focus{
+  box-shadow: 
+    inset -4em 0 0 0 var(--light-red),
+    inset 4em 0 0 0 var(--light-red); 
+}
+
+#backspace{
+  background-color: var(--light-blue);
+}
+
+#backspace:hover, #backspace:focus{
+  box-shadow: inset 7.5em 0 0 0 #012863;
+}
+.decomposition{
+  flex-direction: column;
+  margin-bottom: 5rem;
 }
 
 footer{
@@ -114,4 +170,51 @@ footer{
     text-align: center;
     bottom: 0;
     margin: 0 auto;
+}
+
+a:hover {
+  color: var(--dark-red);
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 1200px){
+  .calculator input{
+    width: 50vw;
+  }
+}
+
+@media (max-width: 600px){
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .calculator input{
+    width: 100%;
+    margin-inline: 0;
+  }
+  .calculator button{
+    width: 50%;
+    font-size: 20px;
+  }
+
+  .buttons button, .operators button{
+    min-width: 100px;
+  }
+
+  .cleanup button{
+    min-width: 75%;
+  }
+
+  h1{
+    font-size: 48px;
+    line-height: 1.2;
+    padding: 1rem 0.5rem;
+  }
+  header, main{
+    margin-inline: 1rem;
+  }
 }
