@@ -91,9 +91,11 @@ function primeDecomposition(number){
         for(let i=0; i < uniqueDecompNumbers.length; i++){
             let numberOfOccurance = decompNumbers.filter((v) => (v === uniqueDecompNumbers[i])).length;
 
-            if (numberOfOccurance > 1) result += `${uniqueDecompNumbers[i]} ^ ${numberOfOccurance}`;
-            else result += `* ${uniqueDecompNumbers[i]}`;
+            if (numberOfOccurance > 1) result += `${uniqueDecompNumbers[i]} ^{${numberOfOccurance}} *`;
+            else result += `${uniqueDecompNumbers[i]} *`;
         }
+
+        result = result.slice(0, -1);
         result += '\\)';
         
         primeTextbox.innerHTML = result;
