@@ -12,7 +12,6 @@ var stack = [];
 
 document.body.addEventListener("keyup", (e) => {
     e.preventDefault();
-    console.log(e.key);
 
     valueButtons.forEach(button => {
         if(button.value === e.key) mainTextbox.value += e.key;
@@ -49,6 +48,17 @@ function clearAll(){
 
 function backspace(){
     if(mainTextbox.value.length > 0) mainTextbox.value = mainTextbox.value.slice(0, -1);
+}
+
+function NWD(a, b){
+    if(b === 0) return a;
+
+    return NWD(b, a % b);
+}
+
+function swap(a, b){
+    stack.push(b);
+    return a;
 }
 
 function pushOnStack(){
@@ -94,6 +104,8 @@ function calculateONP(operator){
     }
 
     if(operator ==='^') inputValue = eval(x ** y);
+    else if(operator === "SWAP") inputValue = swap(x, y);
+    else if(operator === "NWD") inputValue = NWD(x, y);
     else inputValue = Math.round(eval(x + operator + y));
 
     mainTextbox.value = inputValue;
@@ -165,12 +177,3 @@ function primeEvenSumDecomposition(number){
         MathJax.typeset();
     }
 }
-
-/*
-    ✅1. Zamiast "Oblicz" jest "Enter"
-    ✅2. W inpucie wprowadzamy liczbę, po kliknięciu "Enter" input się czyści, wartość trafia do stosu. Można wprowadzać nieskończoną ilość elementów do stostu.
-    ✅3. Po kliknięciu operatora bierze on dwa górne elementy ze stosu i generuje wynik. 
-    4. Dodać kolejne operatory NWD i SWAP: bierze dwie górne liczby ze stosu i oblicza NWD / zamienia miejscami
-    ✅5. Dodać widoczny stos z boku strony: mniejsze opacity, wymagane tylko top3 pozycje stosu.
-    ✅6. Jeśli w inpucie jest liczba to bierze ją i pierwszą liczbę ze stosu do kalkulacji po wciśnięciu operatora. Jeśli jest pusty to bierze dwie liczby ze stosu.
-*/
