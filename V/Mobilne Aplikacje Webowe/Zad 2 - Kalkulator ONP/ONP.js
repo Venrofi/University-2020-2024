@@ -1,71 +1,111 @@
-var textbox = document.getElementById('formula');
+var mainTextbox = document.getElementById('numberInput');
 var primeTextbox = document.querySelector('.prime-decomp');
 var primeSumTextbox = document.querySelector('.prime-sum');
 
 var valueButtons = document.querySelectorAll('.buttons button');
 var operatorButtons = document.querySelectorAll('.operators button');
-var result = document.getElementById('wynik');
 
+var stackView = document.getElementById('stos');
+var errorText = document.getElementById('error');
 
-for (let i=0; i < valueButtons.length; i++) {
-    valueButtons[i].addEventListener("click", (e) => {
-        textbox.value += e.target.value
-	});
-};
+var stack = [];
 
-for (let i=0; i < operatorButtons.length; i++) {
-    operatorButtons[i].addEventListener("click", (e) => {
-        textbox.value += e.target.value
-	});
-};
+document.body.addEventListener("keyup", (e) => {
+    e.preventDefault();
+    console.log(e.key);
+
+    valueButtons.forEach(button => {
+        if(button.value === e.key) mainTextbox.value += e.key;
+    });
+
+    operatorButtons.forEach(operator => {
+        if(operator.value === e.key) calculateONP(operator.value);
+    });
+
+    var enterButton = document.querySelector('.calculator button');
+    if(enterButton.value === e.key) pushOnStack();
+    
+    var backspaceButton = document.querySelector('#backspace');
+    if(backspaceButton.value === e.key) backspace();
+
+});
+
+valueButtons.forEach(button => {
+    button.addEventListener("click", (e) => mainTextbox.value += e.target.value );
+});
+
+operatorButtons.forEach(operator => {
+    operator.addEventListener("click", () => calculateONP(operator.value) );
+});
 
 function clearAll(){
-    if(textbox.value.length > 0) textbox.value = '';
-    result.innerHTML = '';
+    if(mainTextbox.value.length > 0) mainTextbox.value = '';
+    stackView.innerHTML = '';
+    errorText.innerHTML = '';
     primeTextbox.innerHTML = '';
     primeSumTextbox.innerHTML = '';
+    stack = [];
 }
 
 function backspace(){
-    if(textbox.value.length > 0) textbox.value = textbox.value.slice(0, -1);
+    if(mainTextbox.value.length > 0) mainTextbox.value = mainTextbox.value.slice(0, -1);
 }
 
-function ONP(){
-    var formula = document.getElementById('formula').value;
-    var stos = [];
+function pushOnStack(){
+    let inputValue = document.getElementById('numberInput').value;
+    if (inputValue.length === 0) return;
 
-    if (formula.length === 0) return 0;
-    formula = formula.replace(/\s/g, '').split('');
+    stack.push(parseInt(inputValue));
+    mainTextbox.value = '';
+    errorText.innerHTML = '';
 
-    for (let i = 0; i < formula.length; i++) {
-        var element = formula[i];
-    
-        if (!Number.isNaN(+element)) stos.push(parseFloat(element));
-    
-        else {
-            if (stos.length < 2) {
-                result.innerHTML = 'Niewystarczająca ilość wartości liczbowych w formule!';
-                break;
-            }
+    if(stackView.innerHTML === '') stackView.innerHTML += `Stos: ${stack.at(-1)}`;
+    else stackView.innerHTML += `, ${stack.at(-1)}`;
+}
 
-            var y = stos.pop();
-            var x = stos.pop();
+function calculateONP(operator){
+    let inputValue = document.getElementById('numberInput').value;
+    var x, y;
 
-            if(y === 0 && element === '/'){
-                result.innerHTML = 'W formule występuje dzielenie przez 0!';
-                break;
-            }
-
-            if(element ==='^') stos.push(eval(x ** y));
-            else stos.push(eval(x + element + y));
-        }
+    if(inputValue.length === 0 && stack.length < 2 || inputValue.length > 0 && stack.length === 0) {
+        errorText.innerHTML = 'Niewystarczająca ilość wartości liczbowych!';
+        return;
     }
-    if(!Number.isNaN(stos) && stos.length == 1) {
-        result.innerHTML = Math.round(stos);
-        primeDecomposition(Math.round(stos));
-        primeEvenSumDecomposition(Math.round(stos));
+
+    if(inputValue.length === 0 && stack.length > 1){
+        y = stack.pop();
+        x = stack.pop();
     }
-    else result.innerHTML = 'Błędnie skonstruowana formuła!';
+
+    if(inputValue.length > 0 && stack.length > 0){
+        y = parseInt(inputValue);
+        x = stack.pop();
+    }
+
+    if(y === 0 && operator === '/'){
+        errorText.innerHTML = 'W formule występuje dzielenie przez 0!';
+        stackView.innerHTML = '';
+
+        stack.forEach(element => {
+            if(stackView.innerHTML === '') stackView.innerHTML += `Stos: ${element}`;
+            else stackView.innerHTML += `, ${element}`;
+        });
+        return;
+    }
+
+    if(operator ==='^') inputValue = eval(x ** y);
+    else inputValue = Math.round(eval(x + operator + y));
+
+    mainTextbox.value = inputValue;
+
+    stackView.innerHTML = '';
+    stack.forEach(element => {
+        if(stackView.innerHTML === '') stackView.innerHTML += `Stos: ${element}`;
+        else stackView.innerHTML += `, ${element}`;
+    });
+
+    primeDecomposition(Math.round(inputValue));
+    primeEvenSumDecomposition(Math.round(inputValue));
 }
 
 function primeDecomposition(number){
@@ -127,10 +167,10 @@ function primeEvenSumDecomposition(number){
 }
 
 /*
-    1. Zamiast "Oblicz" jest "Enter"
-    2. W inpucie wprowadzamy liczbę, po kliknięciu "Enter" input się czyści, wartość trafia do stosu. Można wprowadzać nieskończoną ilość elementów do stostu.
-    3. Po kliknięciu operatora bierze on dwa górne elementy ze stosu i generuje wynik. 
+    ✅1. Zamiast "Oblicz" jest "Enter"
+    ✅2. W inpucie wprowadzamy liczbę, po kliknięciu "Enter" input się czyści, wartość trafia do stosu. Można wprowadzać nieskończoną ilość elementów do stostu.
+    ✅3. Po kliknięciu operatora bierze on dwa górne elementy ze stosu i generuje wynik. 
     4. Dodać kolejne operatory NWD i SWAP: bierze dwie górne liczby ze stosu i oblicza NWD / zamienia miejscami
-    5. Dodać widoczny stos z boku strony: mniejsze opacity, wymagane tylko top3 pozycje stosu.
-    6. Jeśli w inpucie jest liczba to bierze ją i pierwszą liczbę ze stosu do kalkulacji po wciśnięciu operatora. Jeśli jest pusty to bierze dwie liczby ze stosu.
+    ✅5. Dodać widoczny stos z boku strony: mniejsze opacity, wymagane tylko top3 pozycje stosu.
+    ✅6. Jeśli w inpucie jest liczba to bierze ją i pierwszą liczbę ze stosu do kalkulacji po wciśnięciu operatora. Jeśli jest pusty to bierze dwie liczby ze stosu.
 */

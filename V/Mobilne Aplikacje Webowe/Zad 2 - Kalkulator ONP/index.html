@@ -17,9 +17,10 @@
     </header>
     <main>
         <div class="calculator">
-            <input type="text" placeholder="Wprowadź formułę ONP" id="formula" readonly>
-            <button onclick="ONP()">Oblicz</button>
-            <p id="wynik"></p>
+            <input type="text" placeholder="Wprowadź liczbę" id="numberInput" readonly>
+            <button onclick="pushOnStack()" value="Enter">Enter</button>
+            <p id="stos"></p>
+            <p id="error"></p>
         </div>
         <div class="buttons">
             <button value="0">0</button>
@@ -43,7 +44,7 @@
         </div>
         <div class="cleanup">
             <button id="clear" onclick="clearAll()">Clear</button>
-            <button id="backspace" onclick="backspace()">Backspace</button>
+            <button id="backspace" onclick="backspace()" value="Backspace">Backspace</button>
         </div>
         <div class="decomposition">
             <p class="prime-decomp"></p>
