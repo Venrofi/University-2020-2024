@@ -89,9 +89,14 @@ header, main, footer{
   0% { box-shadow: 0 0 0 0 #012863; }
 }
 
-.calculator p{
+#error, #stack{
     font-size: 36px;
     font-weight: 700;
+}
+
+#stack{
+  font-size: 20px;
+  opacity: 0.9;
 }
 
 .buttons, .operators, .cleanup, .decomposition{
@@ -216,5 +221,12 @@ a:hover {
   }
   header, main{
     margin-inline: 1rem;
+  }
+
+  #error{
+    font-size: 24px;
+  }
+  #stack{
+    font-size: 16px;
   }
 }

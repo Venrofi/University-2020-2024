@@ -5,7 +5,7 @@ var primeSumTextbox = document.querySelector('.prime-sum');
 var valueButtons = document.querySelectorAll('.buttons button');
 var operatorButtons = document.querySelectorAll('.operators button');
 
-var stackView = document.getElementById('stos');
+var stackView = document.getElementById('stack');
 var errorText = document.getElementById('error');
 
 var stack = [];
