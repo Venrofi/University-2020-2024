@@ -97,7 +97,7 @@ function primeDecomposition(number){
 
         result = result.slice(0, -1);
         result += '\\)';
-        
+
         primeTextbox.innerHTML = result;
         MathJax.typeset();
     }
@@ -125,3 +125,12 @@ function primeEvenSumDecomposition(number){
         MathJax.typeset();
     }
 }
+
+/*
+    1. Zamiast "Oblicz" jest "Enter"
+    2. W inpucie wprowadzamy liczbę, po kliknięciu "Enter" input się czyści, wartość trafia do stosu. Można wprowadzać nieskończoną ilość elementów do stostu.
+    3. Po kliknięciu operatora bierze on dwa górne elementy ze stosu i generuje wynik. 
+    4. Dodać kolejne operatory NWD i SWAP: bierze dwie górne liczby ze stosu i oblicza NWD / zamienia miejscami
+    5. Dodać widoczny stos z boku strony: mniejsze opacity, wymagane tylko top3 pozycje stosu.
+    6. Jeśli w inpucie jest liczba to bierze ją i pierwszą liczbę ze stosu do kalkulacji po wciśnięciu operatora. Jeśli jest pusty to bierze dwie liczby ze stosu.
+*/
