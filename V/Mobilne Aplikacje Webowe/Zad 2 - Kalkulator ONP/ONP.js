@@ -116,8 +116,10 @@ function calculateONP(operator){
         else stackView.innerHTML += `, ${element}`;
     });
 
-    primeDecomposition(Math.round(inputValue));
-    primeEvenSumDecomposition(Math.round(inputValue));
+    if(operator !== "SWAP"){
+        primeDecomposition(Math.round(inputValue));
+        primeEvenSumDecomposition(Math.round(inputValue));
+    }
 }
 
 function primeDecomposition(number){
