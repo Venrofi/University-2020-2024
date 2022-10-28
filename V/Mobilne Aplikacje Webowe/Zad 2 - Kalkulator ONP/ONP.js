@@ -125,7 +125,7 @@ function calculateONP(operator){
         else stackView.innerHTML += `, ${element}`;
     });
 
-    if(operator !== "SWAP"){
+    if(operator !== "SWAP" && inputValue <= maxNumber){
         primeDecomposition(Math.round(inputValue));
         primeEvenSumDecomposition(Math.round(inputValue));
     }
@@ -154,12 +154,13 @@ function primeDecomposition(number){
         for(let i=0; i < uniqueDecompNumbers.length; i++){
             let numberOfOccurance = decompNumbers.filter((v) => (v === uniqueDecompNumbers[i])).length;
 
-            if (numberOfOccurance > 1) result += `${uniqueDecompNumbers[i]} ^{${numberOfOccurance}} *`;
-            else result += `${uniqueDecompNumbers[i]} *`;
+            if (numberOfOccurance > 1) result += `${uniqueDecompNumbers[i]} ^{${numberOfOccurance}} \\cdot `;
+            else result += `${uniqueDecompNumbers[i]} \\cdot `;
         }
-
-        result = result.slice(0, -1);
+        console.log(result);
+        result = result.slice(0, -6);
         result += '\\)';
+        console.log(result);
 
         primeTextbox.innerHTML = result;
         MathJax.typeset();
