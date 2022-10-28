@@ -11,12 +11,30 @@ var errorText = document.getElementById('error');
 var stack = [];
 const maxNumber = Number.MAX_SAFE_INTEGER;
 const maxNumberForDecomp = Math.pow(2,25);
+var newNumber = true;
 
-document.body.addEventListener("keyup", (e) => {
+document.body.addEventListener("keypress", (e) => {
     e.preventDefault();
 
     valueButtons.forEach(button => {
-        if(button.value === e.key) mainTextbox.value += e.key;
+        let inputValue = mainTextbox.value;
+        
+        // if(button.value === e.key && newNumber === true) {
+        //     if(inputValue.length > 0 && inputValue <= maxNumber) {
+        //         stack.push(inputValue);
+        //         stackView.innerHTML = '';
+        //         stack.forEach(element => {
+        //             if(stackView.innerHTML === '') stackView.innerHTML += `Stos: ${element}`;
+        //             else stackView.innerHTML += `, ${element}`;
+        //         });
+        //     }
+            
+        //     console.log("Number clicked: ", e.key, stack)
+        //     mainTextbox.value = e.key;
+        //     newNumber = false;
+        // }
+        console.log(button.value, e.key, newNumber)
+        if(button.value === e.key && newNumber === false) inputValue += e.key;
     });
 
     operatorButtons.forEach(operator => {
@@ -26,13 +44,29 @@ document.body.addEventListener("keyup", (e) => {
     var enterButton = document.querySelector('.calculator button');
     if(enterButton.value === e.key) pushOnStack();
     
+    
+});
+
+document.body.addEventListener("keyup", (e) => {
+    e.preventDefault();
+    
     var backspaceButton = document.querySelector('#backspace');
     if(backspaceButton.value === e.key) backspace();
-
 });
 
 valueButtons.forEach(button => {
-    button.addEventListener("click", (e) => mainTextbox.value += e.target.value );
+    button.addEventListener("click", (e) => {
+        let inputValue = document.getElementById('numberInput').value;
+
+        if(newNumber === false) mainTextbox.value += e.target.value;
+
+        if(newNumber === true) {
+            if(inputValue <= maxNumber) stack.push(inputValue);
+
+            mainTextbox.value = e.target.value;
+            newNumber = false;
+        }
+    });
 });
 
 operatorButtons.forEach(operator => {
@@ -68,7 +102,8 @@ function pushOnStack(){
     if (inputValue.length === 0) return;
 
     stack.push(parseInt(inputValue));
-    mainTextbox.value = '';
+    newNumber = true;
+    // mainTextbox.value = '';
     errorText.innerHTML = '';
 
     if(stackView.innerHTML === '') stackView.innerHTML += `Stos: ${stack.at(-1)}`;
@@ -79,9 +114,14 @@ function calculateONP(operator){
     let inputValue = document.getElementById('numberInput').value;
     var x, y;
 
-    if(inputValue.length === 0 && stack.length < 2 || inputValue.length > 0 && stack.length === 0) {
+    if(inputValue.length === 0 && stack.length < 2) {
         errorText.innerHTML = 'Niewystarczająca ilość wartości liczbowych!';
         return;
+    }
+    
+    if(inputValue.length > 0 && stack.length === 0){
+        y = parseInt(inputValue);
+        x = parseInt(inputValue);
     }
 
     if(inputValue.length === 0 && stack.length > 1){
@@ -113,10 +153,14 @@ function calculateONP(operator){
     if(inputValue <= maxNumber) {
         errorText.innerHTML = '';
         mainTextbox.value = inputValue;
+        console.log('input po obliczeniu: ', inputValue);
+        newNumber = true;
     }
     else {
         mainTextbox.value = '';
         errorText.innerHTML = 'Za duży wynik!';
+        primeSumTextbox.innerHTML = '';
+        primeTextbox.innerHTML = '';
     }
 
     stackView.innerHTML = '';
@@ -157,10 +201,8 @@ function primeDecomposition(number){
             if (numberOfOccurance > 1) result += `${uniqueDecompNumbers[i]} ^{${numberOfOccurance}} \\cdot `;
             else result += `${uniqueDecompNumbers[i]} \\cdot `;
         }
-        console.log(result);
         result = result.slice(0, -6);
         result += '\\)';
-        console.log(result);
 
         primeTextbox.innerHTML = result;
         MathJax.typeset();
