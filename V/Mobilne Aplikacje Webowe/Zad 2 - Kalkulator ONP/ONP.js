@@ -9,6 +9,8 @@ var stackView = document.getElementById('stack');
 var errorText = document.getElementById('error');
 
 var stack = [];
+const maxNumber = Number.MAX_SAFE_INTEGER;
+const maxNumberForDecomp = Math.pow(2,25);
 
 document.body.addEventListener("keyup", (e) => {
     e.preventDefault();
@@ -108,7 +110,14 @@ function calculateONP(operator){
     else if(operator === "NWD") inputValue = NWD(x, y);
     else inputValue = Math.round(eval(x + operator + y));
 
-    mainTextbox.value = inputValue;
+    if(inputValue <= maxNumber) {
+        errorText.innerHTML = '';
+        mainTextbox.value = inputValue;
+    }
+    else {
+        mainTextbox.value = '';
+        errorText.innerHTML = 'Za duży wynik!';
+    }
 
     stackView.innerHTML = '';
     stack.forEach(element => {
@@ -167,12 +176,15 @@ function isPrime(number){
 }
 
 function primeEvenSumDecomposition(number){
-    if (!isNaN(number) && number >= 4 && number % 2 === 0){
+    primeSumTextbox.innerHTML = '';
+
+    if (!isNaN(number) && number >= 4 && number % 2 === 0 && number <= maxNumberForDecomp){
         let result = ``;
         
         for(let i=2; i < number; i++){
             if(isPrime(i) && isPrime(number - i)) {
                 result = `Rozkład parzystej liczby na sumę liczb pierwszych: \\( ${number} = ${i} + ${number - i} \\)`;
+                break;
             }
         }
         primeSumTextbox.innerHTML = result;
