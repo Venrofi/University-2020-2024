@@ -11,7 +11,27 @@
 </head>
 <body>
     <header>
-        <h1>Hello from Canvas!</h1>
+        <div>
+            <p>Nazwa obrazu:</p>
+            <input type="text" id="drawingName" placeholder="Podaj nazwę rysunku">
+        </div>
+        <div>
+            <p>Grubość linii: <span id="displayLineWidth">10</span></p>
+            <input type="range" min="1" max="25" value="10" id="lineWidth">
+        </div>
+        <div>
+            <p>Kolor linii</p>
+            <input type="color" id="lineColor">
+        </div>
+        <div class="drawTypeButtons">
+            <button onclick="setCurve()">Linia krzywa</button>
+            <button onclick="setStraight()">Linia prosta</button>
+            <button>Okrąg</button>
+            <button>Prostokąt</button>
+        </div>
+        <div>
+            <button id="canvasReset" onclick="resetCanvas()">RESET</button>
+        </div>
     </header>
     <main>
         <canvas id="canvas"></canvas>

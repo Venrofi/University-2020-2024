@@ -73,11 +73,42 @@ button:hover, button:focus{
     0% { box-shadow: 0 0 0 0 #012863; }
 }
 
-header, footer{
+header{
     margin-inline: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding-block: 1rem;
+}
+
+#drawingName{
+    padding: .5rem;
+}
+
+button{
+    padding: .5rem 1rem;
+    font-size: 16px;
+    border: none;
+    background-color: #012863;
+    color: white;
+}
+
+.active{
+    background-color: var(--dark-red);
+}
+
+input[type="color"]{
+    border: none;
+    cursor: pointer;
+}
+
+#canvasReset{
+    background-color: var(--dark-red);
 }
 
 footer{
+    margin-inline: 2rem;
     position: absolute;
     width: 100%;
     text-align: center;
@@ -91,5 +122,6 @@ a:hover {
 }
 
 #canvas{
-    border: 2px solid white;
+    border-radius: 2rem;
+    background-color: white;
 }
