@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">minutnik_terelak</string>
+    <string name="startButton">Start</string>
+    <string name="stopButton">Stop</string>
+    <string name="resetButton">Reset</string>
+    <string name="lastMinuteNumber">0</string>
+    <string name="firstMinuteNumber">0</string>
+    <string name="firstSecondNumber">0</string>
+    <string name="lastSecondNumber">0</string>
+    <string name="semicolon">:</string>
+    <string name="plusButton">+</string>
+    <string name="minusButton">-</string>
+</resources>

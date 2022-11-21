@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/startButton"
+        app:backgroundTint="@color/light_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:text="@string/startButton"
+        app:layout_constraintBottom_toBottomOf="@+id/stopButton"
+        app:layout_constraintEnd_toStartOf="@+id/stopButton"
+        app:layout_constraintTop_toTopOf="@+id/stopButton" />
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stopButton"
+        app:backgroundTint="@color/dark_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.928" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        app:backgroundTint="@color/light_red"
+        android:text="@string/resetButton"
+        app:layout_constraintBottom_toBottomOf="@+id/stopButton"
+        app:layout_constraintStart_toEndOf="@+id/stopButton"
+        app:layout_constraintTop_toTopOf="@+id/stopButton" />
+
+    <TextView
+        android:id="@+id/lastMinute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/lastMinuteNumber"
+        android:textSize="90sp"
+        app:layout_constraintBottom_toBottomOf="@+id/semicolon"
+        app:layout_constraintEnd_toStartOf="@+id/semicolon"
+        app:layout_constraintTop_toTopOf="@+id/semicolon" />
+
+    <TextView
+        android:id="@+id/firstMinute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/firstMinuteNumber"
+        android:textSize="90sp"
+        android:lineSpacingExtra="90sp"
+        android:lineSpacingMultiplier="2.5"
+        app:layout_constraintBottom_toBottomOf="@+id/semicolon"
+        app:layout_constraintEnd_toStartOf="@+id/lastMinute"
+        app:layout_constraintTop_toTopOf="@+id/semicolon" />
+
+    <TextView
+        android:id="@+id/firstSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/firstSecondNumber"
+        android:textSize="90sp"
+        app:layout_constraintBottom_toBottomOf="@+id/semicolon"
+        app:layout_constraintStart_toEndOf="@+id/semicolon"
+        app:layout_constraintTop_toTopOf="@+id/semicolon" />
+
+    <TextView
+        android:id="@+id/lastSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lastSecondNumber"
+        android:textSize="90sp"
+        app:layout_constraintBottom_toBottomOf="@+id/semicolon"
+        app:layout_constraintStart_toEndOf="@+id/firstSecond"
+        app:layout_constraintTop_toTopOf="@+id/semicolon" />
+
+    <TextView
+        android:id="@+id/semicolon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/semicolon"
+        android:textSize="64sp"
+        app:layout_constraintBottom_toTopOf="@+id/stopButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/firstMinutePlusButton"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:text="@string/plusButton"
+        app:layout_constraintBottom_toTopOf="@+id/firstMinute"
+        app:layout_constraintEnd_toStartOf="@+id/lastMinute"
+        app:layout_constraintStart_toStartOf="@+id/firstMinute" />
+
+    <Button
+        android:id="@+id/lastMinutePlusButton"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:text="@string/plusButton"
+        app:layout_constraintBottom_toTopOf="@+id/lastMinute"
+        app:layout_constraintEnd_toEndOf="@+id/lastMinute"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="@+id/lastMinute" />
+
+    <Button
+        android:id="@+id/firstSecondPlusButton"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:text="@string/plusButton"
+        app:layout_constraintBottom_toTopOf="@+id/firstSecond"
+        app:layout_constraintEnd_toEndOf="@+id/firstSecond"
+        app:layout_constraintStart_toStartOf="@+id/firstSecond" />
+
+    <Button
+        android:id="@+id/lastSecondPlusButton"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:text="@string/plusButton"
+        app:layout_constraintBottom_toTopOf="@+id/lastSecond"
+        app:layout_constraintEnd_toEndOf="@+id/lastSecond"
+        app:layout_constraintStart_toEndOf="@+id/firstSecond" />
+
+    <Button
+        android:id="@+id/lastSecondMinusButton"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:text="@string/minusButton"
+        app:layout_constraintEnd_toEndOf="@+id/lastSecond"
+        app:layout_constraintStart_toEndOf="@+id/firstSecond"
+        app:layout_constraintTop_toBottomOf="@+id/lastSecond" />
+
+    <Button
+        android:id="@+id/firstSecondMinusButton"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:text="@string/minusButton"
+        app:layout_constraintEnd_toEndOf="@+id/firstSecond"
+        app:layout_constraintStart_toStartOf="@+id/firstSecond"
+        app:layout_constraintTop_toBottomOf="@+id/firstSecond" />
+
+    <Button
+        android:id="@+id/lastMinuteMinusButton"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:text="@string/minusButton"
+        app:layout_constraintEnd_toEndOf="@+id/lastMinute"
+        app:layout_constraintStart_toEndOf="@+id/firstMinute"
+        app:layout_constraintTop_toBottomOf="@+id/lastMinute" />
+
+    <Button
+        android:id="@+id/firstMinuteMinusButton"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:text="@string/minusButton"
+        app:layout_constraintEnd_toStartOf="@+id/lastMinute"
+        app:layout_constraintStart_toStartOf="@+id/firstMinute"
+        app:layout_constraintTop_toBottomOf="@+id/firstMinute" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
