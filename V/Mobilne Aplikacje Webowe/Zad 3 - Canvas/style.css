@@ -95,7 +95,7 @@ button{
 }
 
 .active{
-    background-color: var(--dark-red);
+    background-color: var(--light-red);
 }
 
 input[type="color"]{

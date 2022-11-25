@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="canvas.js" defer></script>
 </head>
-<body>
+<body onload="setCurve()">
     <header>
         <div>
             <p>Nazwa obrazu:</p>
@@ -26,8 +26,8 @@
         <div class="drawTypeButtons">
             <button onclick="setCurve()">Linia krzywa</button>
             <button onclick="setStraight()">Linia prosta</button>
-            <button>Okrąg</button>
-            <button>Prostokąt</button>
+            <button onclick="setCircle()">Okrąg</button>
+            <button onclick="setRectangle()">Prostokąt</button>
         </div>
         <div>
             <button id="canvasReset" onclick="resetCanvas()">RESET</button>
