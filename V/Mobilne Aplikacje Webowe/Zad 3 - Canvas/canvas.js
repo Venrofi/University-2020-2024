@@ -24,6 +24,18 @@ window.addEventListener('load', () =>{
 window.addEventListener('resize', () => {
     canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 32;
     canvas.width = window.innerWidth;
+    ctx.lineCap = 'round';
+
+    for (let i = 0; i < existingLines.length; ++i) {
+        let line = existingLines[i];
+        
+        ctx.beginPath();
+        ctx.lineWidth = line.width;
+        ctx.strokeStyle = line.color;
+        ctx.moveTo(line.startX,line.startY);
+        ctx.lineTo(line.endX,line.endY);
+        ctx.stroke();
+    }   
 })
 
 lineWidthInput.oninput = () => lineWidthOutput.innerHTML = lineWidthInput.value; 
@@ -96,7 +108,9 @@ function endPosition(e){
                 startX: startX,
                 startY: startY,
                 endX: mouseX,
-                endY: mouseY
+                endY: mouseY,
+                color: ctx.strokeStyle,
+                width: ctx.lineWidth
             });
             console.log(existingLines);
             
@@ -111,7 +125,6 @@ function draw(e){
     if(!painting) return;
 
     ctx.lineWidth = lineWidthInput.value;
-    ctx.fillStyle = lineColorInput.value;
     ctx.strokeStyle = lineColorInput.value;
 
     ctx.lineTo(e.clientX, e.clientY - header.offsetHeight);
@@ -120,21 +133,21 @@ function draw(e){
     ctx.moveTo(e.clientX, e.clientY - header.offsetHeight);
 }
 
-function drawStraight(){
-    ctx.lineWidth = lineWidthInput.value;
-    ctx.fillStyle = lineColorInput.value;
-    ctx.strokeStyle = lineColorInput.value;
-
+function drawStraight(){    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.beginPath();
-				
+    
     for (let i = 0; i < existingLines.length; ++i) {
         let line = existingLines[i];
+        
+        ctx.beginPath();
+        ctx.lineWidth = line.width;
+        ctx.strokeStyle = line.color;
         ctx.moveTo(line.startX,line.startY);
         ctx.lineTo(line.endX,line.endY);
-    }
-
-    ctx.stroke();
+        ctx.stroke();
+    }    
+    
+    ctx.lineWidth = lineWidthInput.value;
 				
     if (isDrawing) {
         ctx.strokeStyle = "grey";
@@ -143,6 +156,8 @@ function drawStraight(){
         ctx.lineTo(mouseX, mouseY);
         ctx.stroke();
     }
+    
+    ctx.strokeStyle = lineColorInput.value;
 }
 
 function resetCanvas(){
