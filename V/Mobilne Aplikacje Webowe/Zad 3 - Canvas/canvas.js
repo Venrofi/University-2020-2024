@@ -8,11 +8,11 @@ const allDrawTypeButtons = document.querySelectorAll('.drawTypeButtons button');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-let painting = false;
 let isDrawing = false;
 let straightDrawing = false;
 let startX, startY, mouseX, mouseY = 0;
 let existingLines = [];
+let pointsOfCurve = [];
 
 window.addEventListener('load', () =>{
     // Canvas height: window - 2rem - header - footer 
@@ -26,37 +26,31 @@ window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     ctx.lineCap = 'round';
 
-    for (let i = 0; i < existingLines.length; ++i) {
-        let line = existingLines[i];
-        
-        ctx.beginPath();
-        ctx.lineWidth = line.width;
-        ctx.strokeStyle = line.color;
-        ctx.moveTo(line.startX,line.startY);
-        ctx.lineTo(line.endX,line.endY);
-        ctx.stroke();
-    }   
+    drawExistingLines();  
 })
 
 lineWidthInput.oninput = () => lineWidthOutput.innerHTML = lineWidthInput.value; 
 
-canvas.addEventListener('mousedown', startPosition)
-// canvas.addEventListener('mousemove', currentPosition)
-canvas.addEventListener('mouseup', endPosition)
+canvas.addEventListener('mousedown', startPosition, {passive: true, capture: true})
+canvas.addEventListener('mousemove', currentPosition, {passive: true, capture: true})
+canvas.addEventListener('mouseup', endPosition, {passive: true, capture: true})
 
 function setCurve(){
     allDrawTypeButtons.forEach((button) => {button.classList.remove('active')});
     allDrawTypeButtons[0].classList.toggle('active')
-    canvas.addEventListener('mousemove', draw)
-    straightDrawing = false
+    
+    isDrawing, straightDrawing = false;
+    startX, startY, mouseX, mouseY = 0;
+    pointsOfCurve = [];
 }
 
 function setStraight(){
     allDrawTypeButtons.forEach((button) => {button.classList.remove('active')});
     allDrawTypeButtons[1].classList.toggle('active')
-    canvas.removeEventListener('mousemove', draw)
-    canvas.onmousemove = currentPosition;
-    straightDrawing = true
+
+    straightDrawing = true;
+    isDrawing = false;
+    startX, startY, mouseX, mouseY = 0;
 }
 
 function setCircle(){
@@ -72,35 +66,36 @@ function setRectangle(){
 function startPosition(e){
     if(e.button !== 0) return //Check if the Left Mouse button was clicked
 
-    if(!straightDrawing){
-        painting = true;
-        draw(e);
+    startX = e.clientX;
+    startY = e.clientY - header.offsetHeight;
+
+    if(straightDrawing){
+        if (!isDrawing) isDrawing = true;
+        drawStraight();
     }
     else{
-        if (!isDrawing) {
-            startX = e.clientX;
-            startY = e.clientY - header.offsetHeight;
-            
-            isDrawing = true;
-        }
-        
-        drawStraight();
+        isDrawing = true;
+        draw(e);
     }
 }
 
 function currentPosition(e){
     mouseX = e.clientX;
     mouseY = e.clientY - header.offsetHeight;
+    // console.log(`Start: ${startX}, ${startY} Current: ${mouseX}, ${mouseY}`);
     
-    if (isDrawing) {
-        drawStraight();
-    }
+    if (!isDrawing) return;
+
+    if(straightDrawing) drawStraight();
+    else draw(e);
 }
 
 function endPosition(e){
     if(!straightDrawing){
-        painting = false;
+        isDrawing = false;
         ctx.beginPath();
+        existingLines.push(pointsOfCurve);
+        pointsOfCurve = [];
     }
     else{
         if (isDrawing) {
@@ -111,18 +106,19 @@ function endPosition(e){
                 endY: mouseY,
                 color: ctx.strokeStyle,
                 width: ctx.lineWidth
-            });
-            console.log(existingLines);
-            
+            });            
             isDrawing = false;
         }
-        
         drawStraight();
+        ctx.beginPath();
     }
+
+    console.log(existingLines);
+    console.log(canvas.toDataURL());
 }
 
 function draw(e){
-    if(!painting) return;
+    if(!isDrawing) return;
 
     ctx.lineWidth = lineWidthInput.value;
     ctx.strokeStyle = lineColorInput.value;
@@ -131,21 +127,21 @@ function draw(e){
     ctx.stroke();
     ctx.beginPath();
     ctx.moveTo(e.clientX, e.clientY - header.offsetHeight);
+
+    pointsOfCurve.push({
+        startX: e.clientX,
+        startY: e.clientY - header.offsetHeight,
+        endX: e.clientX,
+        endY: e.clientY - header.offsetHeight,
+        color: ctx.strokeStyle,
+        width: ctx.lineWidth
+    });
 }
 
 function drawStraight(){    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    for (let i = 0; i < existingLines.length; ++i) {
-        let line = existingLines[i];
-        
-        ctx.beginPath();
-        ctx.lineWidth = line.width;
-        ctx.strokeStyle = line.color;
-        ctx.moveTo(line.startX,line.startY);
-        ctx.lineTo(line.endX,line.endY);
-        ctx.stroke();
-    }    
+    drawExistingLines();
     
     ctx.lineWidth = lineWidthInput.value;
 				
@@ -161,8 +157,37 @@ function drawStraight(){
 }
 
 function resetCanvas(){
-    painting, isDrawing, straightDrawing = false;
+    isDrawing = false;
     startX, startY, mouseX, mouseY = 0;
     existingLines = [];
+    pointsOfCurve = [];
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawExistingLines(){
+    existingLines.forEach(line => {
+        ctx.beginPath();
+
+        if(Array.isArray(line)){
+            ctx.lineWidth = line[0].width;
+            ctx.strokeStyle = line[0].color;
+            
+            for (let i = 0; i < line.length - 1; ++i) {
+                ctx.moveTo(line[i].endX, line[i].endY);
+                ctx.lineTo(line[i + 1].endX, line[i + 1].endY);
+                ctx.stroke();
+            }
+        }
+        else{
+            ctx.lineWidth = line.width;
+            ctx.strokeStyle = line.color;
+
+            ctx.moveTo(line.startX, line.startY);
+            ctx.lineTo(line.endX, line.endY);
+            ctx.stroke();
+        }
+    });
+    
+    ctx.lineWidth = lineWidthInput.value;
+    ctx.strokeStyle = lineColorInput.value;
 }
