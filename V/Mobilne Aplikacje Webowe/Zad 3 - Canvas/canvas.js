@@ -9,7 +9,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 let isDrawing = false;
-let straightDrawing = false;
+let drawType = '';
 let startX, startY, mouseX, mouseY = 0;
 let existingLines = [];
 let pointsOfCurve = [];
@@ -39,28 +39,31 @@ function setCurve(){
     allDrawTypeButtons.forEach((button) => {button.classList.remove('active')});
     allDrawTypeButtons[0].classList.toggle('active')
     
-    isDrawing, straightDrawing = false;
+    isDrawing = false;
     startX, startY, mouseX, mouseY = 0;
     pointsOfCurve = [];
+    drawType = 'curve';
 }
 
 function setStraight(){
     allDrawTypeButtons.forEach((button) => {button.classList.remove('active')});
     allDrawTypeButtons[1].classList.toggle('active')
 
-    straightDrawing = true;
     isDrawing = false;
     startX, startY, mouseX, mouseY = 0;
+    drawType = 'straight';
 }
 
 function setCircle(){
     allDrawTypeButtons.forEach((button) => {button.classList.remove('active')});
-    allDrawTypeButtons[2].classList.toggle('active')
+    allDrawTypeButtons[2].classList.toggle('active');
+    drawType = 'circle';
 }
 
 function setRectangle(){
     allDrawTypeButtons.forEach((button) => {button.classList.remove('active')});
-    allDrawTypeButtons[3].classList.toggle('active')
+    allDrawTypeButtons[3].classList.toggle('active');
+    drawType = 'rectangle';
 }
 
 function startPosition(e){
@@ -69,13 +72,25 @@ function startPosition(e){
     startX = e.clientX;
     startY = e.clientY - header.offsetHeight;
 
-    if(straightDrawing){
-        if (!isDrawing) isDrawing = true;
-        drawStraight();
-    }
-    else{
-        isDrawing = true;
-        draw(e);
+    switch(drawType) {
+        case 'curve':
+            isDrawing = true;
+            draw(e);
+            break;
+        case 'straight':
+            if (!isDrawing) isDrawing = true;
+            drawStraight();
+            break;
+        case 'circle':
+            // code block
+            console.log('Drawing Circle..')
+            break;
+        case 'rectangle':
+            // code block
+            console.log('Drawing Rectangle..')
+            break;
+        default:
+            console.log('Wrong draw type..')
     }
 }
 
@@ -83,36 +98,75 @@ function currentPosition(e){
     mouseX = e.clientX;
     mouseY = e.clientY - header.offsetHeight;
     // console.log(`Start: ${startX}, ${startY} Current: ${mouseX}, ${mouseY}`);
+
+    // ctx.beginPath();
+    // ctx.arc(startX, startY, mouseX, mouseY, Math.PI * 2, true);
+    // ctx.stroke();
     
     if (!isDrawing) return;
 
-    if(straightDrawing) drawStraight();
-    else draw(e);
+    switch(drawType) {
+        case 'curve':
+            draw(e);
+            break;
+
+        case 'straight':
+            drawStraight();
+            break;
+
+        case 'circle':
+            // code block
+            console.log('Drawing Circle..')
+            break;
+
+        case 'rectangle':
+            // code block
+            console.log('Drawing Rectangle..')
+            break;
+
+        default:
+            console.log('Wrong draw type..')
+    }
 }
 
 function endPosition(e){
-    if(!straightDrawing){
-        isDrawing = false;
-        ctx.beginPath();
-        existingLines.push(pointsOfCurve);
-        pointsOfCurve = [];
-    }
-    else{
-        if (isDrawing) {
-            existingLines.push({
-                startX: startX,
-                startY: startY,
-                endX: mouseX,
-                endY: mouseY,
-                color: ctx.strokeStyle,
-                width: ctx.lineWidth
-            });            
+    switch(drawType) {
+        case 'curve':
             isDrawing = false;
-        }
-        drawStraight();
-        ctx.beginPath();
-    }
+            ctx.beginPath();
+            existingLines.push(pointsOfCurve);
+            pointsOfCurve = [];
+            break;
 
+        case 'straight':
+            if (isDrawing) {
+                existingLines.push({
+                    startX: startX,
+                    startY: startY,
+                    endX: mouseX,
+                    endY: mouseY,
+                    color: ctx.strokeStyle,
+                    width: ctx.lineWidth
+                });            
+                isDrawing = false;
+            }
+            drawStraight();
+            ctx.beginPath();
+            break;
+
+        case 'circle':
+            // code block
+            console.log('Drawing Circle..')
+            break;
+            
+        case 'rectangle':
+            // code block
+            console.log('Drawing Rectangle..')
+            break;
+
+        default:
+            console.log('Wrong draw type..')
+    }
     console.log(existingLines);
     console.log(canvas.toDataURL());
 }
