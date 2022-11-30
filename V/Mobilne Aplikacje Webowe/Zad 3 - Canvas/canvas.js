@@ -28,6 +28,7 @@ window.addEventListener('resize', () => {
     ctx.lineCap = 'round';
 
     drawExistingLines();  
+    ctx.beginPath();
 })
 
 lineWidthInput.oninput = () => lineWidthOutput.innerHTML = lineWidthInput.value; 
