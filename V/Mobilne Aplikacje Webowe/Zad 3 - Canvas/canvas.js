@@ -98,6 +98,8 @@ function startPosition(e){
 
         case 'rectangle':
             console.log('Drawing Rectangle..')
+            isDrawing = true;
+            drawRectangle();
             break;
 
         default:
@@ -126,7 +128,7 @@ function currentPosition(e){
             break;
 
         case 'rectangle':
-            console.log('Drawing Rectangle..')
+            drawRectangle();
             break;
 
         default:
@@ -178,6 +180,20 @@ function endPosition(e){
             
         case 'rectangle':
             console.log('Drawing Rectangle..')
+            if (isDrawing) {
+                existingLines.push({
+                    startX: startX,
+                    startY: startY,
+                    endX: mouseX,
+                    endY: mouseY,
+                    color: ctx.strokeStyle,
+                    width: ctx.lineWidth,
+                    type: 'rectangle'
+                });            
+                isDrawing = false;
+            }
+            drawRectangle();
+            ctx.beginPath();
             break;
 
         default:
@@ -245,6 +261,23 @@ function drawCircle(){
     ctx.strokeStyle = lineColorInput.value;
 }
 
+function drawRectangle(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    drawExistingLines();
+    
+    ctx.lineWidth = lineWidthInput.value;
+				
+    if (isDrawing) {
+        ctx.strokeStyle = "grey";
+        ctx.beginPath();
+        ctx.rect(startX, startY, mouseX - startX, mouseY - startY);
+        ctx.stroke();
+    }
+    
+    ctx.strokeStyle = lineColorInput.value;
+}
+
 function resetCanvas(){
     isDrawing = false;
     startX, startY, mouseX, mouseY = 0;
@@ -278,8 +311,12 @@ function drawExistingLines(){
             }
 
             if(line?.type === 'circle'){
-                console.log('Hello from circle rendering')
                 ctx.arc(line.startX, line.startY, line.radius, 0, 2 * Math.PI, false);
+                ctx.stroke();
+            }
+
+            if(line?.type === 'rectangle'){
+                ctx.rect(line.startX, line.startY, line.endX - line.startX, line.endY - line.startY)
                 ctx.stroke();
             }
         }
