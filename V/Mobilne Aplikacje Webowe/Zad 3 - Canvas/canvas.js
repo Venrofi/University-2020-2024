@@ -287,6 +287,16 @@ function resetCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+function undoLastDraw(){
+    if(existingLines.length > 0) {
+        existingLines.pop();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawExistingLines();
+        isDrawing = false;
+        ctx.beginPath();
+    }
+}
+
 function drawExistingLines(){
     existingLines.forEach(line => {
         ctx.beginPath();
