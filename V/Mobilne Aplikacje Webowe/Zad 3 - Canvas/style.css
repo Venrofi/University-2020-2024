@@ -76,6 +76,7 @@ button:hover, button:focus{
 header{
     margin-inline: 2rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
     align-items: center;
@@ -124,4 +125,48 @@ a:hover {
 #canvas{
     border-radius: 2rem;
     background-color: white;
+}
+
+.mobileButtons{
+    display: none;
+}
+
+@media (max-width: 1100px){
+    #canvas{
+        border-radius: 1rem;
+    }
+
+    header{
+        gap: 1rem;
+        margin-inline: 1rem;
+    }
+
+    .desktopButtons{
+        display: none;
+    }
+    .mobileButtons{
+        display: block;
+    }
+}
+
+@media (max-width: 850px) {
+    #lineWidth, #drawingName{
+        max-width: 130px;
+    } 
+}
+
+@media (max-width: 500px) {
+    #lineWidth, #drawingName{
+        max-width: 110px;
+    } 
+
+    header{
+        margin-inline: auto;
+    }
+}
+
+@media (orientation: landscape) {
+    footer{
+        display: none;
+    }
 }

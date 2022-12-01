@@ -17,13 +17,13 @@ let circleRadius = 0;
 
 window.addEventListener('load', () =>{
     // Canvas height: window - 2rem - header - footer 
-    canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 32;
+    canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 16;
     canvas.width = window.innerWidth;
     ctx.lineCap = 'round';
 })
 
 window.addEventListener('resize', () => {
-    canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 32;
+    canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 16;
     canvas.width = window.innerWidth;
     ctx.lineCap = 'round';
 
@@ -36,6 +36,10 @@ lineWidthInput.oninput = () => lineWidthOutput.innerHTML = lineWidthInput.value;
 canvas.addEventListener('mousedown', startPosition, {passive: true, capture: true})
 canvas.addEventListener('mousemove', currentPosition, {passive: true, capture: true})
 canvas.addEventListener('mouseup', endPosition, {passive: true, capture: true})
+
+canvas.addEventListener('touchstart', startPosition)
+canvas.addEventListener('touchmove', currentPosition)
+canvas.addEventListener('touchend', endPosition)
 
 function setCurve(){
     allDrawTypeButtons.forEach((button) => {button.classList.remove('active')});
@@ -77,10 +81,11 @@ function setRectangle(){
 
 function startPosition(e){
     if(e.button !== 0) return //Check if the Left Mouse button was clicked
+    e.preventDefault();
 
     startX = e.clientX;
     startY = e.clientY - header.offsetHeight;
-
+    console.log(e);
     switch(drawType) {
         case 'curve':
             isDrawing = true;
@@ -98,7 +103,6 @@ function startPosition(e){
             break;
 
         case 'rectangle':
-            console.log('Drawing Rectangle..')
             isDrawing = true;
             drawRectangle();
             break;
@@ -109,9 +113,12 @@ function startPosition(e){
 }
 
 function currentPosition(e){
+    e.preventDefault();
+
     mouseX = e.clientX;
     mouseY = e.clientY - header.offsetHeight;
     // console.log(`Start: ${startX}, ${startY} Current: ${mouseX}, ${mouseY}`);
+    console.log(e, startX, startY, mouseX, mouseY);
 
     if (!isDrawing) return;
 
@@ -138,6 +145,9 @@ function currentPosition(e){
 }
 
 function endPosition(e){
+    e.preventDefault();
+    console.log(e);
+
     switch(drawType) {
         case 'curve':
             isDrawing = false;
@@ -180,7 +190,6 @@ function endPosition(e){
             break;
             
         case 'rectangle':
-            console.log('Drawing Rectangle..')
             if (isDrawing) {
                 existingLines.push({
                     startX: startX,
@@ -200,8 +209,8 @@ function endPosition(e){
         default:
             console.log('Wrong draw type..')
     }
-    console.log(existingLines);
-    console.log(canvas.toDataURL());
+    // console.log(existingLines);
+    // console.log(canvas.toDataURL());
 }
 
 function draw(e){

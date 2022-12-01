@@ -24,10 +24,22 @@
             <input type="color" id="lineColor">
         </div>
         <div class="drawTypeButtons">
-            <button onclick="setCurve()">Linia krzywa</button>
-            <button onclick="setStraight()">Linia prosta</button>
-            <button onclick="setCircle()">Okrąg</button>
-            <button onclick="setRectangle()">Prostokąt</button>
+            <button onclick="setCurve()">
+                <span class="desktopButtons">Linia krzywa</span>
+                <span class="mobileButtons">〰</span>
+            </button>
+            <button onclick="setStraight()">
+                <span class="desktopButtons">Linia prosta</span>
+                <span class="mobileButtons">╲</span>
+            </button>
+            <button onclick="setCircle()">
+                <span class="desktopButtons">Okrąg</span>
+                <span class="mobileButtons">⭕</span>
+            </button>
+            <button onclick="setRectangle()">
+                <span class="desktopButtons">Prostokąt</span>
+                <span class="mobileButtons">🔳</span>
+            </button>
         </div>
         <div>
             <button id="canvasReset" onclick="resetCanvas()">RESET</button>
@@ -35,7 +47,7 @@
         </div>
     </header>
     <main>
-        <canvas id="canvas"></canvas>
+        <canvas id="canvas">Twoja przeglądarka nie obsługuje znacznika canvas!</canvas>
     </main>
     <footer>
         <p id="coordinates"></p>
