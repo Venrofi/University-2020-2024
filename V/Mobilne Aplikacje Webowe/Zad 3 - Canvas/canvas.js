@@ -15,18 +15,16 @@ let existingLines = [];
 let pointsOfCurve = [];
 let circleRadius = 0;
 
-window.addEventListener('load', () =>{
-    // Canvas height: window - 2rem - header - footer 
-    canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 16;
-    canvas.width = window.innerWidth;
-    ctx.lineCap = 'round';
-})
+window.addEventListener('load', initialCanvas);
 
 window.addEventListener('resize', () => {
-    canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 16;
-    canvas.width = window.innerWidth;
-    ctx.lineCap = 'round';
+    initialCanvas();
+    drawExistingLines();  
+    ctx.beginPath();
+})
 
+window.addEventListener('orientationchange', () => {
+    initialCanvas();
     drawExistingLines();  
     ctx.beginPath();
 })
@@ -304,6 +302,13 @@ function undoLastDraw(){
         isDrawing = false;
         ctx.beginPath();
     }
+}
+
+function initialCanvas(){
+    // Canvas height: window - 1rem - header - footer 
+    canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 16;
+    canvas.width = window.innerWidth;
+    ctx.lineCap = 'round';
 }
 
 function drawExistingLines(){
