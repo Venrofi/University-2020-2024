@@ -1,0 +1,82 @@
+@import "global.css";
+
+header{
+    margin-inline: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding-block: 1rem;
+}
+
+#drawingName{
+    padding: .5rem;
+}
+
+.active{
+    background-color: var(--light-red);
+}
+
+input[type="color"]{
+    border: none;
+    cursor: pointer;
+}
+
+#canvasReset{
+    background-color: var(--dark-red);
+}
+
+a:hover {
+    color: var(--dark-red);
+    transition: all 0.3s ease-in-out;
+}
+
+#canvas{
+    border-radius: 2rem;
+    background-color: white;
+}
+
+.mobileButtons{
+    display: none;
+}
+
+@media (max-width: 1100px){
+    #canvas{
+        border-radius: 1rem;
+    }
+
+    header{
+        gap: 1rem;
+        margin-inline: 1rem;
+    }
+
+    .desktopButtons{
+        display: none;
+    }
+    .mobileButtons{
+        display: block;
+    }
+}
+
+@media (max-width: 850px) {
+    #lineWidth, #drawingName{
+        max-width: 130px;
+    } 
+}
+
+@media (max-width: 500px) {
+    #lineWidth, #drawingName{
+        max-width: 110px;
+    } 
+
+    header{
+        margin-inline: auto;
+    }
+}
+
+/* @media (max-height: 500px) {
+    footer{
+        display: none;
+    }
+} */

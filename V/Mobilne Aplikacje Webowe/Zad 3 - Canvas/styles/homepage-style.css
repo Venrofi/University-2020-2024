@@ -1,0 +1,22 @@
+@import "global.css";
+
+h1{
+    line-height: 1;
+}
+
+header{
+    padding-block: 1rem;
+}
+
+main{
+    padding-block: 2rem;
+}
+
+.newPaintingButton{
+    font-size: 2rem;
+    padding: .5em 1.5em;
+}
+
+.existingDrawings{
+    padding-top: 2rem;
+}

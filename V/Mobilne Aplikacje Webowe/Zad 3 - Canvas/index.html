@@ -4,53 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas - Radosław Terelak</title>
+    <title>Canvas Homepage - Radosław Terelak</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
-    <script src="canvas.js" defer></script>
+    <link rel="stylesheet" href="./styles/homepage-style.css">
+    <script src="./js/homepage.js" defer></script>
 </head>
-<body onload="setCurve()">
+<body>
     <header>
-        <div>
-            <p>Nazwa obrazu:</p>
-            <input type="text" id="drawingName" placeholder="Podaj nazwę rysunku">
-        </div>
-        <div>
-            <p>Grubość linii: <span id="displayLineWidth">10</span></p>
-            <input type="range" min="1" max="25" value="10" id="lineWidth">
-        </div>
-        <div>
-            <p>Kolor linii</p>
-            <input type="color" id="lineColor">
-        </div>
-        <div class="drawTypeButtons">
-            <button onclick="setCurve()">
-                <span class="desktopButtons">Linia krzywa</span>
-                <span class="mobileButtons">〰</span>
-            </button>
-            <button onclick="setStraight()">
-                <span class="desktopButtons">Linia prosta</span>
-                <span class="mobileButtons">╲</span>
-            </button>
-            <button onclick="setCircle()">
-                <span class="desktopButtons">Okrąg</span>
-                <span class="mobileButtons">⭕</span>
-            </button>
-            <button onclick="setRectangle()">
-                <span class="desktopButtons">Prostokąt</span>
-                <span class="mobileButtons">🔳</span>
-            </button>
-        </div>
-        <div>
-            <button id="canvasReset" onclick="resetCanvas()">RESET</button>
-            <button id="undo" onclick="undoLastDraw()">↩</button>
-        </div>
+        <h1>Witaj w Canvas Paint!</h1>
     </header>
     <main>
-        <canvas id="canvas">Twoja przeglądarka nie obsługuje znacznika canvas!</canvas>
+        <div>
+            <button onclick="newPainting()" class="newPaintingButton">Stwórz nowy rysunek</button>
+        </div>
+        <div class="existingDrawings">
+            <h2>Zobacz i Edytuj istniejące rysunki:</h2>
+            <small>Paste DataURL img here with ref buttons..</small>
+        </div>
     </main>
     <footer>
-        <p id="coordinates"></p>
         <p>
             Coded by <a href="https://venrofi.netlify.app/" target="_blank">Radosław Terelak</a>
         </p>

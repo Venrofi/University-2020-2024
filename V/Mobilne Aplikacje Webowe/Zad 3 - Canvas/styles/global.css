@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Urbanist:wght@100;300;400;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* COLORS */
+:root{
+    --dark-blue: #00112B;
+    --light-blue: #011b42;
+    --dark-red: #DA2424;
+    --light-red: #FF2A2A;
+    --white: #FFF;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Urbanist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  background-color: var(--dark-blue);
+  color: white;
+  text-align: center;
+}
+
+html{
+  position: relative;
+}
+
+/* TYPOGRAPHY */
+
+h1{
+  font-size: 64px;
+  font-weight: 700;
+  user-select: none;
+}
+
+p{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+*:focus{
+  outline: none;
+}
+
+button{
+    cursor: pointer;
+    padding: .5rem 1rem;
+    font-size: 16px;
+    border: none;
+    background-color: #012863;
+    color: white;
+}
+
+button:hover, button:focus{
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em transparent;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 #012863; }
+}
+
+footer{
+    margin-inline: 2rem;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: .25rem;
+    margin: 0 auto;
+}
