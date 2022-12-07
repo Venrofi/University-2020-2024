@@ -3,6 +3,7 @@ const footer = document.querySelector('footer');
 const lineWidthInput = document.querySelector('#lineWidth');
 const lineWidthOutput = document.querySelector('#displayLineWidth');
 const lineColorInput = document.querySelector('#lineColor');
+const drawingNameInput = document.querySelector('#drawingName');
 const allDrawTypeButtons = document.querySelectorAll('.drawTypeButtons button');
 
 const canvas = document.getElementById('canvas');
@@ -11,11 +12,15 @@ const ctx = canvas.getContext('2d');
 let isDrawing = false;
 let drawType = '';
 let startX, startY, mouseX, mouseY = 0;
+let drawingThumbnail = "";
 let existingLines = [];
 let pointsOfCurve = [];
 let circleRadius = 0;
 
-window.addEventListener('load', initialCanvas);
+window.addEventListener('load', () => {
+    getExistingDrawing(sessionStorage.drawingID);
+    initialCanvas();
+});
 
 window.addEventListener('resize', () => {
     initialCanvas();
@@ -29,7 +34,8 @@ window.addEventListener('orientationchange', () => {
     ctx.beginPath();
 })
 
-lineWidthInput.oninput = () => lineWidthOutput.innerHTML = lineWidthInput.value; 
+lineWidthInput.oninput = () => lineWidthOutput.innerHTML = lineWidthInput.value;
+drawingNameInput.addEventListener('change', saveDrawing);
 
 canvas.addEventListener('mousedown', startPosition, {passive: true, capture: true})
 canvas.addEventListener('mousemove', currentPosition, {passive: true, capture: true})
@@ -39,9 +45,16 @@ canvas.addEventListener('touchstart', startPosition)
 canvas.addEventListener('touchmove', currentPosition)
 canvas.addEventListener('touchend', endPosition)
 
+function initialCanvas(){
+    // Canvas height: window - 1rem - header - footer 
+    canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 16;
+    canvas.width = window.innerWidth;
+    ctx.lineCap = 'round';
+}
+
 function setCurve(){
     allDrawTypeButtons.forEach((button) => {button.classList.remove('active')});
-    allDrawTypeButtons[0].classList.toggle('active')
+    allDrawTypeButtons[0].classList.toggle('active');
     
     isDrawing = false;
     startX, startY, mouseX, mouseY = 0;
@@ -83,7 +96,7 @@ function startPosition(e){
 
     startX = e.clientX;
     startY = e.clientY - header.offsetHeight;
-    console.log(e);
+    // console.log(e);
     switch(drawType) {
         case 'curve':
             isDrawing = true;
@@ -106,7 +119,7 @@ function startPosition(e){
             break;
 
         default:
-            console.error('Wrong draw type..')
+            console.log('Draw type not picked!');
     }
 }
 
@@ -116,7 +129,7 @@ function currentPosition(e){
     mouseX = e.clientX;
     mouseY = e.clientY - header.offsetHeight;
     // console.log(`Start: ${startX}, ${startY} Current: ${mouseX}, ${mouseY}`);
-    console.log(e, startX, startY, mouseX, mouseY);
+    //console.log(e, startX, startY, mouseX, mouseY);
 
     if (!isDrawing) return;
 
@@ -138,13 +151,13 @@ function currentPosition(e){
             break;
 
         default:
-            console.log('Wrong draw type..')
+            console.error('Wrong draw type..');
     }
 }
 
 function endPosition(e){
     e.preventDefault();
-    console.log(e);
+    //console.log(e);
 
     switch(drawType) {
         case 'curve':
@@ -207,8 +220,8 @@ function endPosition(e){
         default:
             console.log('Wrong draw type..')
     }
-    // console.log(existingLines);
-    // console.log(canvas.toDataURL());
+    drawingThumbnail = canvas.toDataURL();
+    saveDrawing();
 }
 
 function draw(e){
@@ -292,6 +305,8 @@ function resetCanvas(){
     existingLines = [];
     pointsOfCurve = [];
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawingThumbnail = canvas.toDataURL();
+    saveDrawing();
 }
 
 function undoLastDraw(){
@@ -301,14 +316,47 @@ function undoLastDraw(){
         drawExistingLines();
         isDrawing = false;
         ctx.beginPath();
+        drawingThumbnail = canvas.toDataURL();
+        saveDrawing();
     }
 }
 
-function initialCanvas(){
-    // Canvas height: window - 1rem - header - footer 
-    canvas.height = window.innerHeight - header.offsetHeight - footer.offsetHeight - 16;
-    canvas.width = window.innerWidth;
-    ctx.lineCap = 'round';
+function getExistingDrawing(index){
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== 4) return;
+  
+      if (xhr.status === 200 || xhr.status === 304) {
+          try {
+              const responseData = JSON.parse(xhr.responseText)?.data;
+              existingLines = responseData[index]?.lines;
+              drawingNameInput.value = responseData[index]?.name;
+              drawExistingLines();
+          } catch (error) {
+              console.error(error);
+          }
+      }
+    };
+    xhr.open("GET", "./php/getData.php", true);
+    xhr.setRequestHeader("Content-Type", " application/json");
+    xhr.send();
+}
+
+function saveDrawing() {
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        //Call a function when the state changes.
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log('Data saved!', Date());
+        }
+    };
+    xhr.open("POST", `./php/saveData.php?id="${sessionStorage.drawingID}"`, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send('{"lines": ' + JSON.stringify(existingLines) + 
+        ',"thumbnail":' + JSON.stringify(drawingThumbnail) + 
+        ',"name":' + JSON.stringify(drawingNameInput.value) +
+        '}');
 }
 
 function drawExistingLines(){
@@ -324,26 +372,36 @@ function drawExistingLines(){
                 ctx.lineTo(line[i + 1].endX, line[i + 1].endY);
                 ctx.stroke();
             }
+
+            if(line.length === 1){
+                ctx.moveTo(line[0].startX, line[0].startY);
+                ctx.lineTo(line[0].endX, line[0].endY);
+                ctx.stroke();
+            }
         }
         else{
             ctx.lineWidth = line.width;
             ctx.strokeStyle = line.color;
 
-            if(line?.type === 'straight'){
-                ctx.moveTo(line.startX, line.startY);
-                ctx.lineTo(line.endX, line.endY);
-                ctx.stroke();
-            }
+            switch(line?.type){
+                case 'straight':
+                    ctx.moveTo(line.startX, line.startY);
+                    ctx.lineTo(line.endX, line.endY);
+                    break;
+                
+                case 'circle':
+                    ctx.arc(line.startX, line.startY, line.radius, 0, 2 * Math.PI, false);
+                    break;
 
-            if(line?.type === 'circle'){
-                ctx.arc(line.startX, line.startY, line.radius, 0, 2 * Math.PI, false);
-                ctx.stroke();
-            }
+                case 'rectangle':
+                    ctx.rect(line.startX, line.startY, line.endX - line.startX, line.endY - line.startY);
+                    break;
 
-            if(line?.type === 'rectangle'){
-                ctx.rect(line.startX, line.startY, line.endX - line.startX, line.endY - line.startY)
-                ctx.stroke();
+                default:
+                    console.error('Line type not found in drawExistingLines() function!');
+                    break;
             }
+            ctx.stroke();
         }
     });
     

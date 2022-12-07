@@ -20,3 +20,22 @@ main{
 .existingDrawings{
     padding-top: 2rem;
 }
+
+.drawing > img{
+    background-color: white;
+    max-width: 80%;
+    border-radius: 1rem;
+    margin-bottom: .5rem;
+}
+.drawing > button{
+    padding: 1rem 1.5rem;
+}
+.drawing{
+    display: flex;
+    flex-direction: column;
+    margin-block: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
