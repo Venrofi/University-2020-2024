@@ -41,9 +41,9 @@ canvas.addEventListener('mousedown', startPosition, {passive: true, capture: tru
 canvas.addEventListener('mousemove', currentPosition, {passive: true, capture: true})
 canvas.addEventListener('mouseup', endPosition, {passive: true, capture: true})
 
-canvas.addEventListener('touchstart', startPosition)
-canvas.addEventListener('touchmove', currentPosition)
-canvas.addEventListener('touchend', endPosition)
+canvas.addEventListener('touchstart', startPosition);
+canvas.addEventListener('touchmove', currentPosition);
+canvas.addEventListener('touchend', endPosition);
 
 function initialCanvas(){
     // Canvas height: window - 1rem - header - footer 
@@ -91,13 +91,17 @@ function setRectangle(){
 }
 
 function startPosition(e){
-    if(e.button !== 0) return //Check if the Left Mouse button was clicked
-    e.preventDefault();
+    if(e.clientX){
+        if(e.button !== 0) return //Check if the Left Mouse button was clicked
+        
+        startX = e.clientX;
+        startY = e.clientY - header.offsetHeight;
+    } else{
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY - header.offsetHeight;
+    }
 
-    startX = e.clientX;
-    startY = e.clientY - header.offsetHeight;
-    // console.log(e);
-    switch(drawType) {
+    switch(drawType){
         case 'curve':
             isDrawing = true;
             draw(e);
@@ -124,12 +128,13 @@ function startPosition(e){
 }
 
 function currentPosition(e){
-    e.preventDefault();
-
-    mouseX = e.clientX;
-    mouseY = e.clientY - header.offsetHeight;
-    // console.log(`Start: ${startX}, ${startY} Current: ${mouseX}, ${mouseY}`);
-    //console.log(e, startX, startY, mouseX, mouseY);
+    if(e.clientX){
+        mouseX = e.clientX;
+        mouseY = e.clientY - header.offsetHeight;
+    } else{
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY - header.offsetHeight;
+    }
 
     if (!isDrawing) return;
 
@@ -155,10 +160,7 @@ function currentPosition(e){
     }
 }
 
-function endPosition(e){
-    e.preventDefault();
-    //console.log(e);
-
+function endPosition(){
     switch(drawType) {
         case 'curve':
             isDrawing = false;
@@ -230,19 +232,35 @@ function draw(e){
     ctx.lineWidth = lineWidthInput.value;
     ctx.strokeStyle = lineColorInput.value;
 
-    ctx.lineTo(e.clientX, e.clientY - header.offsetHeight);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(e.clientX, e.clientY - header.offsetHeight);
-
-    pointsOfCurve.push({
-        startX: e.clientX,
-        startY: e.clientY - header.offsetHeight,
-        endX: e.clientX,
-        endY: e.clientY - header.offsetHeight,
-        color: ctx.strokeStyle,
-        width: ctx.lineWidth
-    });
+    if(e.clientX){
+        ctx.lineTo(e.clientX, e.clientY - header.offsetHeight);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY - header.offsetHeight);
+    
+        pointsOfCurve.push({
+            startX: e.clientX,
+            startY: e.clientY - header.offsetHeight,
+            endX: e.clientX,
+            endY: e.clientY - header.offsetHeight,
+            color: ctx.strokeStyle,
+            width: ctx.lineWidth
+        });
+    } else {
+        ctx.lineTo(e.touches[0].clientX, e.touches[0].clientY - header.offsetHeight);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(e.touches[0].clientX, e.touches[0].clientY - header.offsetHeight);
+    
+        pointsOfCurve.push({
+            startX: e.touches[0].clientX,
+            startY: e.touches[0].clientY - header.offsetHeight,
+            endX: e.touches[0].clientX,
+            endY: e.touches[0].clientY - header.offsetHeight,
+            color: ctx.strokeStyle,
+            width: ctx.lineWidth
+        });
+    }
 }
 
 function drawStraight(){    
@@ -330,7 +348,6 @@ function getExistingDrawing(index){
       if (xhr.status === 200 || xhr.status === 304) {
           try {
               const responseData = JSON.parse(xhr.responseText)?.data;
-              console.log(responseData, index);
               drawingNameInput.value = responseData[index]?.name;
               drawingThumbnail = responseData[index]?.thumbnail;
               existingLines = responseData[index]?.lines;
