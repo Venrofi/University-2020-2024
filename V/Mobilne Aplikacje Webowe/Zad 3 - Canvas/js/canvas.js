@@ -330,9 +330,11 @@ function getExistingDrawing(index){
       if (xhr.status === 200 || xhr.status === 304) {
           try {
               const responseData = JSON.parse(xhr.responseText)?.data;
-              existingLines = responseData[index]?.lines;
+              console.log(responseData, index);
               drawingNameInput.value = responseData[index]?.name;
-              drawExistingLines();
+              drawingThumbnail = responseData[index]?.thumbnail;
+              existingLines = responseData[index]?.lines;
+              if(existingLines.length > 0) drawExistingLines();
           } catch (error) {
               console.error(error);
           }
@@ -346,7 +348,6 @@ function getExistingDrawing(index){
 function saveDrawing() {
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
-        //Call a function when the state changes.
         if (xhr.readyState == 4 && xhr.status == 200) {
             console.log('Data saved!', Date());
         }

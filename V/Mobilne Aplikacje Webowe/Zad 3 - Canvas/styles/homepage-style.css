@@ -12,7 +12,7 @@ main{
     padding-block: 2rem;
 }
 
-.newPaintingButton{
+.newDrawingButton{
     font-size: 2rem;
     padding: .5em 1.5em;
 }
@@ -39,3 +39,20 @@ main{
     flex-wrap: wrap;
 }
 
+@media (max-width: 1100px){
+    .drawing > img{
+        max-width: 100%;
+        border-radius: .5rem;
+    }
+}
+
+@media (max-width: 650px){
+    h1{
+        font-size: 3rem;
+    }
+
+    .newDrawingButton{
+        font-size: 1.5rem;
+        padding: .5rem 1.5rem;
+    }
+}

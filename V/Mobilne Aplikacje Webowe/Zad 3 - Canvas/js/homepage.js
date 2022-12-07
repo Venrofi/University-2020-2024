@@ -1,13 +1,11 @@
+const existingDrawings = document.querySelector('.existingDrawings');
 let drawingNames = [];
 let drawingThumbnails = [];
-const existingDrawings = document.querySelector('.existingDrawings');
+let existingData = {};
 
-window.onload = () => {
-  getExistingPaintings();
-  // window.setInterval(getExistingPaintings, 1000);
-};
+window.onload = getExistingDrawings();
 
-function getExistingPaintings() {
+function getExistingDrawings() {
   const xhr = new XMLHttpRequest();
   
   xhr.onreadystatechange = () => {
@@ -15,8 +13,8 @@ function getExistingPaintings() {
 
     if (xhr.status === 200 || xhr.status === 304) {
         try {
-            const responseData = JSON.parse(xhr.responseText)?.data;
-            responseData.forEach((element) =>{
+            existingData = JSON.parse(xhr.responseText)?.data;
+            existingData.forEach((element) =>{
                 drawingNames.push(element.name);
                 drawingThumbnails.push(element.thumbnail);
             });
@@ -31,13 +29,31 @@ function getExistingPaintings() {
   xhr.send();
 }
 
-function newPainting(){
+function newDrawing(){
     sessionStorage.drawingID = drawingNames.length;
     console.log('ID:', sessionStorage.drawingID);
-    // window.open('canvas.html', '_self');
+
+    let name = Date();
+    name = name.replace(/\s/g, '');
+    name = name.slice(12, 20);
+    name = 'Nowy Rysunek_' + name;
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log('New Drawing!', Date());
+            window.open('canvas.html', '_self')
+        }
+    };
+    xhr.open("POST", "./php/addNewDrawing.php", true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send('{"lines":[]' + 
+        ',"thumbnail":""' + 
+        ',"name":"' + name +
+        '"}');
 }
 
-function openExistingPainting(){
+function openExistingDrawings(){
     sessionStorage.drawingID = this.dataset.drawingID;
     window.open('canvas.html', '_self');
 }
@@ -45,7 +61,7 @@ function openExistingPainting(){
 function renderDrawings(drawingNames){
     if(drawingNames.length < 1) return;
     
-    drawingNames.forEach((painting, index) =>{
+    drawingNames.forEach((drawing, index) =>{
         let newDrawing = document.createElement('div');
         newDrawing.classList.add('drawing');
         newDrawing.id = `drawing-${index}`;
@@ -54,7 +70,7 @@ function renderDrawings(drawingNames){
         a.href = '#';
 
         const p = document.createElement('p');
-        p.textContent = painting;
+        p.textContent = drawing;
 
         const image = document.createElement('img');
         image.src = drawingThumbnails[index];
@@ -63,7 +79,7 @@ function renderDrawings(drawingNames){
         const button = document.createElement('button');
         button.dataset.drawingID = index;
         button.innerText = 'Otwórz rysunek';
-        button.onclick = openExistingPainting;
+        button.onclick = openExistingDrawings;
         
         existingDrawings.appendChild(newDrawing);
         newDrawing.appendChild(a);
