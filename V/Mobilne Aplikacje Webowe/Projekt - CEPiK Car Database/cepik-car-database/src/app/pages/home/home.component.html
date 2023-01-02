@@ -1,0 +1,11 @@
+<h1>CEPiK - dane pojazdów</h1>
+<main>
+  <div style="display: flex; flex-wrap: wrap; justify-content:center; gap: 1rem;">
+    <div class="wojewodztwa" *ngFor="let wojewodztwo of listaWojewodztw">
+      <button routerLink="/wojewodztwo"
+        (click)="getCarsData( wojewodztwo['klucz-slownika'], wojewodztwo['wartosc-slownika'] )">
+          {{ wojewodztwo['wartosc-slownika'] }}</button>
+      <p>Liczba pojazdów: {{ wojewodztwo['liczba-wystapien'] }}</p>
+    </div>
+  </div>
+</main>

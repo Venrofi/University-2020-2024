@@ -1,0 +1,19 @@
+@import '../styles';
+
+footer{
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+}
+
+a{
+  cursor: pointer;
+
+  &:hover{
+    color: $light-red;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+main{
+  margin-bottom: 2rem;
+}

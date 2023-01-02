@@ -1,0 +1,15 @@
+<h1>{{ wojName | lowercase }}</h1>
+<h4 *ngIf="carsData === null">Wyszukuję dane o pojazdach..</h4>
+<div class="cars">
+  <div class="car-info" *ngFor="let car of carsData | paginate: { itemsPerPage: 20, currentPage: page }" (click)="setCarData(car.attributes)" routerLink="/pojazd">
+    <h4>{{ car.attributes['rodzaj-pojazdu'] }}</h4>
+    <p>{{ car.attributes.marka }} {{ car.attributes.model }}</p>
+  </div>
+</div>
+<pagination-controls class="pagination"
+  (pageChange)="page = $event"
+  *ngIf="carsData !== null"
+  nextLabel="Następna"
+  previousLabel="Poprzednia"></pagination-controls>
+
+<button routerLink="" (click)="resetData()">Powrót</button>

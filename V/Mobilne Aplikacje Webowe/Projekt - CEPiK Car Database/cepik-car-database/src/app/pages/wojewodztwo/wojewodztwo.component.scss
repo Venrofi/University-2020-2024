@@ -1,0 +1,53 @@
+@import '../../../styles';
+
+.car-info{
+  margin-top: 1rem;
+  margin-inline: auto;
+  text-align: center;
+  background-color: $light-blue;
+  min-width: 250px;
+  padding: 1rem;
+  flex: 1;
+
+  cursor: pointer;
+  &:hover{
+    color: $light-red;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.cars{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pagination{
+  margin: 2rem 0;
+}
+
+.pagination ::ng-deep .ngx-pagination{
+  margin: 2rem 0;
+  font-size: 24px;
+
+  @media (max-width: 600px){
+    font-size: 16px;
+  }
+
+  .current{
+    font-weight: bold;
+    background-color: $light-blue;
+  }
+
+  a{
+    color: $white;
+    &:hover{
+      background: $light-blue;
+    }
+  }
+}
+
+button{
+  margin-block: 2rem;
+}

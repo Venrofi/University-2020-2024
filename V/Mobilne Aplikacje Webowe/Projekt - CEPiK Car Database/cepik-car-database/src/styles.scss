@@ -1,0 +1,93 @@
+/* COLORS */
+$dark-blue: #001b43;
+$light-blue: #012254;
+$dark-red: #DA2424;
+$light-red: #FF2A2A;
+$white: #FFF;
+
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Urbanist:wght@100;300;400;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Urbanist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: $dark-blue;
+  color: white;
+  text-align: center;
+  margin-inline: 2rem;
+
+  @media (max-width: 600px){
+    margin-inline: 1rem;
+  }
+}
+
+/* TYPOGRAPHY */
+
+h1{
+  font-size: 64px;
+  font-weight: 700;
+  user-select: none;
+  margin-bottom: 1rem;
+  line-height: 2;
+
+  @media (max-width: 700px){
+    font-size: 48px;
+  }
+  @media (max-width: 600px){
+    font-size: 36px;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+p{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+*:focus{
+  outline: none;
+}
+
+button{
+  cursor: pointer;
+  font-family: inherit;
+  padding: 1rem 2rem;
+  font-size: 24px;
+  border: none;
+  background-color: #012863;
+  color: white;
+  font-weight: bold;
+  min-width: 150px;
+
+  &:hover, &:focus{
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em transparent;
+  }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #012863; }
+}

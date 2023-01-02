@@ -1,0 +1,10 @@
+<h1>{{ carName || 'Nazwa pojazdu'}}</h1>
+<div class="car-parameters" *ngIf="carAttributes !== null">
+  <p><b>Rodzaj: </b>{{ carAttributes['rodzaj-pojazdu'] || '---'}}</p>
+  <p><b>Pochodzenie: </b>{{ carAttributes['pochodzenie-pojazdu'] || '---'}}</p>
+  <p><b>Data pierwszej rejestracji w kraju: </b>{{ carAttributes['data-pierwszej-rejestracji-w-kraju'] || '---'}}</p>
+  <p><b>Pojemność skokowa silnika: </b>{{ carAttributes['pojemnosc-skokowa-silnika'] || '---'}}</p>
+  <p><b>Rodzaj paliwa: </b>{{ carAttributes['rodzaj-paliwa'] || '---'}}</p>
+</div>
+
+<button (click)="resetData()" routerLink="/wojewodztwo">Powrót</button>
