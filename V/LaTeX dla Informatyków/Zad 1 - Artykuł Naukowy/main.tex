@@ -1,0 +1,277 @@
+\documentclass[12pt]{article}
+
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\usepackage[a4paper, width = 160mm, top = 35mm, bottom = 30mm, 
+bindingoffset = 0mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = black,
+  urlcolor = black,
+  citecolor = black}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[R]{\changefont{\mytitle}}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+\setlength{\headheight}{14.5pt}
+\setlength{\parindent}{0pt}
+\interfootnotelinepenalty = 10000
+
+% MAIN -----------------------------------
+
+\newcommand{\mytitle}{Skutki ekonomiczne Igrzysk Olimpijskich dla ich gospodarzy}
+\newcommand{\myname}{Radosław Terelak}
+\newcommand{\changefont}{%
+    \fontsize{8}{11}\selectfont
+}
+
+\renewcommand*\contentsname{Spis treści}
+\renewcommand{\abstractname}{Streszczenie}
+\renewcommand{\figurename}{Obraz}
+\renewcommand{\tablename}{Tabela}
+\begin{document}
+
+% FRONT PAGE ------------------------------------------
+ 
+\begin{titlepage}
+\begin{center}
+    
+\LARGE
+LaTeX dla Informatyków
+    
+\vspace{0.5cm}
+      
+\rule{\textwidth}{1.5pt}
+\LARGE
+\textbf{\mytitle}
+\rule{\textwidth}{1.5pt}
+   
+\vspace{0.5cm}
+      
+\large
+Politechnika Śląska\\
+Wydział Matematyki Stosowanej
+
+\vfill
+
+\Large
+\textbf{\myname}
+
+\vfill
+
+\large
+Gliwice, 2022
+      
+\vfill
+
+\includegraphics[width = 0.5\textwidth]{img/logoMS}
+
+\vfill
+
+\end{center}
+\end{titlepage}
+
+% CONTENTS -------------------------------
+
+\newpage
+\tableofcontents
+\begin{abstract}
+   W niniejszym artykule przeanalizowano wpływ organizacji Igrzysk Olimpijskich na gospodarkę regionalną w krótkim i długim okresie. W celu identyfikacji, zdobywcy drugiego miejsca w olimpijskim procesie przetargowym są wykorzystywani do konstruowania scenariusza alternatywnego dla regionów-gospodarzy igrzysk. W krótkim okresie organizacja letnich Igrzysk Olimpijskich zwiększa regionalny PKB na mieszkańca o około 3 do 4 punktów procentowych w stosunku do poziomu krajowego w roku imprezy i rok wcześniej. Istnieją również dowody na pozytywne skutki długoterminowe, ale wyniki dotyczące tych ostatnich nie są statystycznie pewne. Z kolei zimowe igrzyska olimpijskie nie mają pozytywnego wpływu na regiony goszczące. Prowadzą one do czasowego spadku regionalnego PKB na mieszkańca w latach poprzedzających to wydarzenie.
+\end{abstract}
+
+% CHAPTERS -------------------------------
+    
+\newpage
+\section{Wstęp}        
+Przygotowanie i organizacja Igrzysk Olimpijskich to kosztowne przedsięwzięcie. Miliardy dolarów są inwestowane w obiekty sportowe, ogólną infrastrukturę i organizację wydarzenia. Aby uzasadnić wykorzystanie znacznych kwot funduszy publicznych, zwolennicy politycy wysuwają argument o wysokiej pośredniej rentowności i pozytywnych długoterminowych skutków dla gospodarki i ludności. Akademickie badania ex-post dotyczące skutków organizacji Olimpiady z kolei mają tendencję do znajdowania wpływów bliskich zeru lub ułamka prognoz ex ante (badanie \textit{Baade i Matheson, 2016}). 
+Prace szacujące efekty w odniesieniu do różnych wydarzeń, oparte na metodach kontrfaktycznych, są ogólnie niejednoznaczne, ale te wykorzystujące bardziej staranne strategie identyfikacji nie znalazły znaczącego wpływu na krajowe wyniki gospodarcze krajów goszczących lub wielkość populacji miast goszczących. Niewiele jednak wiadomo o charakterze i zakresie lokalnych skutków gospodarczych dla regionów goszczących olimpiadę. Istniejące studia przypadków dotyczące poszczególnych igrzysk olimpijskich (m.in. \textit{Jasmand i Maennig, 2008; Hotchkiss, 2015}) skupiły się na różnych zmiennych wynikowych i okresach występowania efektów oraz wyciągnęły różne wnioski dotyczące znaku i wielkości efektów (\textit{Baade i Matheson, 2016}).
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale = 0.3]{img/olympics_logo}
+    \caption{Logo Igrzysk Olimpijskich}
+    \label{fig:logo}
+\end{figure}
+
+Podczas gdy powiązana literatura dotycząca megawydarzeń podaje w wątpliwość zarówno wywołane przez wydarzenie długookresowe efekty turystyczne (np. \textit{Fourie i Santana-Gallego, 2011}), jak i spuściznę gospodarczą zbudowanych obiektów sportowych (np. \textit{Coates i Humphreys, 2008}), rosnąca literatura podkreśla pozytywne regionalne efekty gospodarcze inwestycji w infrastrukturę transportową (\textit{Duranton i Turner, 2012; Ghani, 2016; Donaldson, 2018 oraz Brocker, 2019}). Chociaż literatura ta nie jest bezpośrednio związana z mega-wydarzeniami, ustalenia są kluczowe, ponieważ odnowienie infrastruktury ogólnej i transportowej zwykle stanowi dużą część inwestycji w trakcie igrzysk olimpijskich (\textit{Baade i Matheson, 2016; Short, 2018}). Na tym tle niniejsza praca systematycznie analizuje efekty ekonomiczne igrzysk olimpijskich na poziomie regionalnym. Wyciągnięte wyniki i wnioski informują decydentów i opinię publiczną o spodziewanych łącznych efektach dla rozwoju regionalnego, które wynikają z różnych kanałów działania w trakcie przygotowania i organizacji igrzysk olimpijskich. W szczególności koncentrujemy się na skutkach dla regionalnego PKB per capita jako miary regionalnego dobrobytu gospodarczego. Pozwala to na ocenę oczekiwanych korzyści dla społeczeństwa, które zwykle ponosi znaczną część wydatków.\\
+
+Argumentujemy, że krajowe wyniki gospodarcze, na których skupiały się pokrewne prace ekonometryczne, nie są możliwe do zbadania skutków gospodarczych mega wydarzeń, takich jak Igrzyska Olimpijskie, z kilku powodów: 
+
+Po pierwsze, regiony konkurują o zasoby publiczne. Korzyści z inwestycji publicznych w infrastrukturę regionu goszczącego olimpiadę mogą pojawić się kosztem innych regionów kraju, jeśli igrzyska olimpijskie utrudniły inwestycje publiczne, które w przeciwnym razie zostałyby dokonane w tych ostatnich. Podobnie, również inne wydatki poniesione w regionie goszczącym związane z igrzyskami olimpijskimi (inwestycje przedsiębiorstw; lokalni, krajowi i międzynarodowi goście) mogłyby zostać wydane w innych regionach kraju.
+Ponadto pozytywne efekty generowane poprzez uwagę mediów międzynarodowych związaną z wydarzeniem olimpijskim koncentrują się głównie na regionie gospodarza, a nie na całym kraju. Tak więc, nawet jeśli na poziomie krajowym jest to gra o sumie zerowej, gospodarka lokalna może nadal czerpać korzyści z igrzysk olimpijskich. 
+
+Po drugie, kraje goszczące olimpiadę są zazwyczaj dużymi gospodarkami. Nawet jeśli skutki dla regionu goszczącego przewyższają wszelkie potencjalne negatywne skutki dla innych regionów w kraju, całkowite efekty są prawdopodobnie zbyt małe w stosunku do gospodarki krajowej, aby pokazać się w szerokich zagregowanych wskaźnikach krajowych (\textit{Scheu i Preuss, 2017}). Zimowe Igrzyska Olimpijskie w 2002 roku w Saltlake City (Utah) i Letnie Igrzyska Olimpijskie w 1996 roku w 2) Atlancie (Georgia) stanowią ilustrujące przykłady: Udział Utah w PKB USA wyniósł 0,6\% w 1995 roku, roku wyborów Igrzysk Olimpijskich 2002; Udział Gruzji w krajowym PKB wynosił 2,5\% do czasu wyboru igrzysk olimpijskich w 1996 roku. Podobne proporcje dotyczą rosyjskich i koreańskich regionów Krasnodar i Gangwon organizujących zimowe igrzyska olimpijskie w Soczi 2014 i Pyoengchang 2018.\\
+
+
+Ilustruje to, że tylko dość wysokie średnie efekty regionalne będą ostatecznie wykazywały statystycznie mierzalny wpływ na krajowe wyniki gospodarcze. Ponadto, kraje goszczące olimpiady różniły się znacząco pod względem wielkości. Aby zwiększyć krajowy PKB o 0,1\%, igrzyska olimpijskie muszą wygenerować dodatkową działalność gospodarczą o wartości około 20 mld USD w Stanach Zjednoczonych, ale tylko o wartości około 0,2 mld USD w Grecji. Wykorzystanie międzynarodowych standardów geokodowania w odniesieniu do regionalnych podziałów państw zapewnia jednostki gospodarcze, które są znacznie bardziej jednorodne pod względem wielkości niż poziom kraju.
+
+\newpage        
+\section{Literatura pokrewna i tło koncpecyjne}
+W ostatnich dekadach bezpośrednie i pośrednie wydatki związane z organizacją imprezy olimpijskiej wyniosły kwoty od jedno- do dwucyfrowych miliardów dolarów. Jednak w przypadku kilku ostatnich olimpiad oficjalne liczby dotyczące kosztów bezpośrednich, pośrednich i/lub całkowitych, a także wkładu publicznego nawet nie istnieją (\textit{Baade i Matheson, 2016; Short, 2018}). W większości przypadków koszty bezpośrednio związane z wydarzeniem (obiekty sportowe i inna infrastruktura olimpijska, zarządzanie itp.) stanowią jedynie ułamek kosztów pośrednich (inwestycje w transport i inną ogólną infrastrukturę i udogodnienia). Literatura akademicka znajduje niewiele dowodów na korzyści ekonomiczne płynące z olimpijskiej infrastruktury sportowej (\textit{Coates i Humphreys, 2008; Baade i Matheson, 2016}).\\ 
+
+Ponadto zazwyczaj nie ma znaczących długookresowych skutków dla turystyki lub dla wartości niematerialnych, takich jak sukces sportowy lub zwiększony dobrobyt. Jednak teoria ekonomiczna, podkreśliła potencjalne pozytywne efekty regionalne inwestycji infrastrukturalnych, zwłaszcza w odniesieniu do infrastruktury transportowej. W licznych badaniach oceniano koszty i korzyści poszczególnych igrzysk olimpijskich na zasadzie ex-ante lub ex-post. W swoim badaniu \textit{Baade i Matheson (2016)} stwierdzają, że skutki ekonomiczne stwierdzone ex-post są albo bliskie zeru, albo stanowią ułamek tych przewidywanych przez badania ex-ante.\\
+
+Analizując 16 letnich igrzysk olimpijskich, \textit{Rose i Spiegel (2011)} stwierdzają, że przyznanie letnich igrzysk olimpijskich prowadzi do trwałego wzrostu krajowego eksportu aż o 20\%. Znalezienie podobnego wpływu dla krajów, którym nie udało się złożyć oferty, autorzy wnioskują, że efekty te są spowodowane raczej efektem sygnalizacyjnym wynikającym ze składania ofert niż z samego wydarzenia. Jednakże, jak pokazują \textit{Maennig i Richter (2012)}, wyniki są napędzane przez selekcję wynikającą z porównania strukturalnie różnych i niepasujących grup krajów. Na podstawie danych \textit{Rose i Spiegel (2011), Maennig i Richter (2012)} pokazują, że przy zastosowaniu propensity score matching, znaczący wpływ na handel znika. 
+
+\textit{4 Billings i Holladay (2012)} analizują długookresowy wpływ 12 letnich Igrzysk Olimpijskich na wielkość populacji miasta-gospodarza. Aby kontrolować samoselekcję miast w procesie składania ofert olimpijskich, autorzy dopasowują miasta-gospodarzy z miastami, które nie zostały finalistami. Nie znajdują oni znaczącego wpływu ani na liczbę ludności miast-gospodarzy, ani na udział miast-gospodarzy w całkowitej liczbie ludności miejskiej w danym kraju. Ponadto, znajdują jedynie nieistotne efekty dla wskaźników ekonomicznych na poziomie kraju (PKB per capita, otwartość handlowa). 
+
+W podobnym podejściu \textit{Nitsch i Wendland (2017)} wykorzystują półtorawieczny panel do badania efektów dla wielkości populacji miast-gospodarzy na podstawie wszystkich letnich olimpiad od Aten 1896 roku. Autorzy stwierdzają, że długookresowe efekty na populację miasta-gospodarza są nieistotne lub nawet negatywne. Podążając za literaturą szoku informacyjnego, \textit{Bruckner i Pappa (2015)} badają wpływ wiadomości o kandydaturze i wyborach miasta-gospodarza olimpiady na rozwój makroekonomiczny krajów.\\
+
+W przypadku 30 letnich i zimowych igrzysk olimpijskich stwierdzili, że inwestycje, konsumpcja i produkcja znacznie wzrastają od 9 do 7 lat przed imprezą w krajach kandydujących i ponownie od 5 do 2 lat przed igrzyskami w krajach goszczących. Interpretują te odkrycia jako dowód na wiadomości o ofertach olimpijskich, które służą jako sygnały wzrostu inwestycji rządowych. Jednak w odpowiedzi \textit{Langer (2018)} ilustrują, że uwzględnienie szeregu kluczowych determinant wzrostu, których nie uwzględnili \textit{Bruckner i Pappa (2015)} oraz ograniczenie grupy kontrolnej do zbioru strukturalnie podobnych krajów eliminuje wszystkie istotne efekty. W powiązanej literaturze zazwyczaj nie stwierdza się znaczącego lokalnego lub regionalnego wpływu wydarzeń i obiektów sportowych na inne duże jednorazowe wydarzenia, takie jak Mistrzostwa Świata FIFA (\textit{Baade i Matheson, 2004; Pfeifer, 2018}), wydarzenia powtarzające się co roku, takie jak Formuła 1 (\textit{Storm, 2019}), czy lig zawodowych (\textit{Siegfried i Zimbalist, 2000; Coates i Humphreys, 2003}).
+
+\textit{Pfeifer (2018)} oceniają inwestycje infrastrukturalne na Mistrzostwa Świata FIFA 2010 w RPA w wysoce zdezagregowanej skali przestrzennej za pomocą zdjęć satelitarnych. Dostrzegają duży i trwały pozytywny wpływ na zatrudnienie i pozytywne korzyści ekonomiczne netto wynikające z inwestycji w infrastrukturę transportową, zwłaszcza w małych, mniej zaludnionych i mniej rozwiniętych lokalizacjach. Z kolei inwestycje w obiekty sportowe wykazują jedynie efekty krótkoterminowe w okresie budowy, co wiąże się z tworzeniem tymczasowych miejsc pracy.\\
+
+Ogólnie rzecz biorąc, poprzednie artykuły na temat igrzysk olimpijskich pokazały, że wyniki są wrażliwe na konstrukcję scenariusza alternatywnego dla gospodarzy igrzysk. W związku z tym, aby prawidłowo zidentyfikować regionalne skutki gospodarcze imprezy olimpijskiej, grupa kontrolna musi być ograniczona do regionów o podobnych ujawnionych oczekiwaniach i możliwościach związanych z organizacją imprezy, tj. mi. regiony, które podjęły starania o organizację tego samego wydarzenia.
+
+Od lat 80. igrzyska olimpijskie są zwykle kojarzone z istotną transformacją regionalną, w tym z udostępnianiem nowych lub remontem istniejących obiektów, a także dużymi inwestycjami infrastrukturalnymi (\textit{Short, 2018}). Ponadto wartość komercyjna igrzysk olimpijskich dramatycznie wzrosła od lat 80. XX wieku wraz z rosnącym zasięgiem globalnych mediów i mediów społecznościowych oraz komercjalizacją imprezy olimpijskiej.
+
+\newpage
+\section{Dane}
+    \subsection{Definicja regionów i regionalnego PKB na mieszkańca}
+
+    Regionalny poziom analizy to NUTS 1 dla krajów europejskich. W czterech uwzględnionych krajach (Czechy, Finlandia, Norwegia, Słowacja) poziom NUTS 1 jest identyczny z poziomem krajowym (NUTS 0). W takich przypadkach zagregowane regiony NUTS 2 (składające się z regionu NUTS 2 miasta gospodarza i sąsiednich regionów NUTS 2) zamiast NUTS 1 są wykorzystywane do zwiększenia porównywalności regionów pod względem liczby ludności. Dla krajów pozaeuropejskich stosowany jest poziom terytorialny dużych regionów OECD (TL 2). Z jednej strony wybór tego poziomu przestrzennego podyktowany jest znacznie lepszą dostępnością danych wśród krajów spoza UE. Z drugiej strony prawdopodobnie lepiej odzwierciedla regionalne powiązania gospodarcze istotne dla igrzysk olimpijskich (inwestycje, lokalne łańcuchy wartości, poprawa infrastruktury międzyregionalnej, wzorce podróży turystycznych) oraz rozproszenie geograficzne olimpijskich obiektów sportowych (\textit{Jasmand i Maennig, 2008; Hotchkiss, 2015}) niż poziom małej skali NUTS 2 lub OECD TL 3.
+
+    \begin{table}[ht]
+        \caption{Ludność regionalna (w milionach mieszkańców)}
+        \centering
+        \begin{tabular}{@{}llllll@{}}
+            \toprule
+            \textbf{Typ}     & \textbf{Regiony} & \textbf{Średnia} & \textbf{Odch. Stand.} & \textbf{Min} & \textbf{Max} \\ \midrule
+            Letni gospodarz  & 7                & 12.5             & 10.9                  & 3.9          & 35.7         \\
+            Letni kandydat   & 19               & 7.9              & 4.3                   & 2.5          & 19.3         \\
+            Zimowy gospodarz & 8                & 6.0              & 4.6                   & 1.5          & 15.2         \\
+            Zimowy kandydat  & 22               & 4.8              & 3.5                   & 1.7          & 12.5         \\ \bottomrule
+        \end{tabular}
+        \label{Tab:populacja}
+    \end{table}
+    
+    Tabela 1 ilustruje wielkość regionów w próbie pod względem liczby ludności. Pomimo standaryzacji skali przestrzennej do porównywalnych poziomów międzynarodowych regiony nadal znacznie różnią się pod względem wielkości: średnia liczba ludności regionów, w których odbywają się letnie (zimowe) igrzyska olimpijskie, wynosi 12,5 mln mieszkańców, przy odchyleniu standardowym wynoszącym 10,9 mln. Grupa kontrolna regionów, które nie złożyły wniosku NUTS to standard geokodowania służący do określania podziału administracyjnego krajów do celów statystycznych w UE. NUTS 1 to najwyższy poziom poniżej poziomu kraju (główne regiony społeczno-gospodarcze). Odpowiada to na przykład poziomowi niemieckiego Bundeslandu lub regionom statystycznym Anglii. NUTS 2 odpowiada np. poziomowi niemieckich Regierungsbezirke, francuskich regionów czy włoskich regioni.
+    
+    Na przykład w przypadku Stanów Zjednoczonych odpowiada to stanom federalnym, w przypadku Japonii grupom składającym się zazwyczaj z 4-5 Todofuken (Prefektur). Poziom TL 3 w mniejszej skali odpowiada na przykład poziomowi Obszarów Ekonomicznych zdefiniowanych przez Biuro Analiz Ekonomicznych Stanów Zjednoczonych oraz Todofuken. Należy zauważyć, że poziom OECD TL 2 odpowiada poziomowi NUTS 1 lub NUTS 2 w europejskich krajach OECD.
+    
+    PKB (per capita) jest jedyną zmienną ekonomiczną dostępną na poziomie regionalnym dla akceptowalnego zakresu krajów i lat. Dane pozyskiwane są głównie z dwóch źródeł danych. W przypadku regionów UE-28 oraz Norwegii wykorzystywana jest głównie europejska regionalna baza danych Cambridge Econometrics. Źródło to dostarcza rocznych danych na temat realnego PKB za okres 1980-2015 dla regionów w starych państwach członkowskich UE i Norwegii oraz w latach 1990-2015 dla regionów w nowych państwach członkowskich.
+    
+    Dla krajów spoza UE wykorzystuje się dane regionalne OECD, dostępne dla większości krajów od około 1990 lub 2000 do 2016 roku. Dane OECD są również wykorzystywane dla krajów europejskich za 2016 r., ponieważ dane CE kończą się w 2015 r. Dane OECD obejmują również regiony kilku dodatkowych krajów (nienależących do OECD), które ubiegały się o igrzyska olimpijskie objęte próbą (Brazylia, Chiny, Rosja , Republika Południowej Afryki, Turcja). Dane OECD są zastępowane dłuższymi szeregami czasowymi dostępnymi z krajowych urzędów statystycznych dla Stanów Zjednoczonych i Japonii.
+    
+    \subsection{Gospodarze i kandydaci olimpijscy}
+    Licytowanie igrzysk olimpijskich i wybór miasta-gospodarza to procesy publiczne. W związku z tym szczegółowe dane dotyczące przetargów są publicznie dostępne za pośrednictwem wielu różnych źródeł.W analizie gospodarze olimpijscy to grupa regionów poddanych zabiegowi. Grupa regionów kontrolnych składa się z regionów kandydujących, które odniosły porażkę (tj. regionów kandydujących przystępujących do ostatecznych wyborów do miast-gospodarzy) oraz regionów kandydujących, które nie zostały zakwalifikowane przez MKOl (tj. wniosków nieprzyjętych przez MKOl w wyborach końcowych).
+    
+    Najwcześniejsze wydarzenia, o których mowa, to igrzyska olimpijskie w Albertville i Barcelonie w 1992 roku. Wydarzenia te zostały wybrane w 1986 r. Ostatnie uwzględnione wydarzenia to Letnie Igrzyska Olimpijskie w Tokio 2020 wybrane w 2013 r. Późniejsze wydarzenia zostały wykluczone z powodu braku wystarczających danych. Ponadto wykluczono Letnie Igrzyska Olimpijskie 2008 w Pekinie z powodu niewystarczających danych dotyczących regionu przyjmującego.\\
+    
+    Przed 1999 r. wszystkie miasta kandydujące były uważane za kandydujące, biorące udział w wyborach do miasta-gospodarza. Od 1999 roku miasta są wybierane przez Narodowe Komitety Olimpijskie (NOC) i składają formalną ofertę. Na tym etapie są one oficjalnymi miastami kandydującymi. Następnie Komitet Wykonawczy MKOl tworzy krótką listę kandydatów, aby przejść do ostatniego etapu.\\
+
+    Miasta-gospodarze zwykle mają poziomy PKB na mieszkańca powyżej średniej krajowej, ponieważ są one zwykle położone w obszarach metropolitalnych (główne miasta wiejskich regionów górskich). Jak pokazuje Tabela 2, w 7 regionach olimpijskich pcPKB był wyższy w roku zdarzenia (7), niż w roku wyborów (0), ze średnim wzrostem o 3,8 punktu procentowego. Podczas gdy spadki są umiarkowane (między -0,2 a -3,4 punktu procentowego), wzrosty wynoszą ponad 15 punktów procentowych w przypadku igrzysk olimpijskich w Atenach w 2004 r. i w Soczi w 2014 r. Ogólnie rzecz biorąc, z wyjątkiem Sydney 2000, wszystkie regiony o spadającym pcPKB były gospodarzami Zimowych Igrzysk Olimpijskich.\\
+
+    \begin{table}[ht]
+        \caption{PKB per capita w regionach gospodarzy igrzysk}
+        \centering
+        \begin{tabular}{@{}lccc@{}}
+            \toprule
+            \textbf{Region gospodarza} & \multicolumn{2}{c}{\textbf{pcPKB w roku}}                                   & \multicolumn{1}{l}{\textbf{}} \\ 
+                                       & \multicolumn{1}{l}{Wyboru (r = 0)} & \multicolumn{1}{l}{Wydarzenia (r = 7)} & Różnica                       \\
+                                       & \multicolumn{2}{c}{(krajowe pcPKB = 100)}                                   & (w pkt. \%)                   \\ \midrule
+            \textbf{Igrzyska Letnie}   & \multicolumn{1}{l}{}               & \multicolumn{1}{l}{}                   & \multicolumn{1}{l}{}          \\
+            Barcelona 1992             & 108.7                              & 111.7                                  & 3.0                           \\
+            Atlanta 1996               & 95.4                               & 101.9                                  & 6.5                           \\
+            Sydney 2000                & 106.5                              & 106.2                                  & -0.4                          \\
+            Ateny 2004                 & 114.9                              & 130.3                                  & 15.4                          \\
+            Londyn 2012                & 163.7                              & 171.8                                  & 8.0                           \\
+            Rio 2016                   & 145.5                              & -                                      & -                             \\
+            Tokio 2020                 & 119.0                              & -                                      & -                             \\ 
+            \textbf{Igrzyska Zimowe}   &                                    &                                        &                               \\
+            Albertville 1992           & 99.1                               & 97.7                                   & -1.4                          \\
+            Lillehammer 1994           & 79.4                               & 76.1                                   & -3.4                          \\
+            Nagano 1998                & 94.5                               & 94.3                                   & -0.2                          \\
+            Saltlake City 2002         & 84.5                               & 86.2                                   & 1.7                           \\
+            Turyn 2006                 & 123.0                              & 121.1                                  & -1.9                          \\
+            Vancouver 2010             & 91.9                               & 94.0                                   & 2.1                           \\
+            Soczi 2014                 & 60.1                               & 76.3                                   & 16.2                          \\
+            Pyeongchang 2018           & 81.3                               & -                                      & -                             \\ \bottomrule
+        \end{tabular}
+        \label{Tab:pcPKB}
+    \end{table}
+
+    PKB (na mieszkańca) jest niezwykle niestabilny w gospodarkach zdominowanych przez zasoby naturalne, takich jak przemysł naftowy i gazowy.\\
+    
+    Wśród odpowiednich regionów kandydujących tak jest w przypadku amerykańskiego regionu Alaska (region kandydujący do organizacji Zimowych Igrzysk Olimpijskich w 1992 i 1994 r.) oraz rosyjskich regionów Krasnodar (region będący gospodarzem Zimowych Igrzysk Olimpijskich w 2014 r.). Podczas gdy ten pierwszy region sam w sobie jest dużym graczem w tej branży, dwa ostatnie są pośrednio dotknięte silnym wpływem tej branży na rosyjski PKB za pomocą równania (1)17. W związku z tym Alaska i Sankt Petersburg są wyłączone jako regiony kontrolne. Ponadto specyfikacje są również szacowane bez igrzysk olimpijskich w Soczi 2014, aby uniknąć błędu wynikającego z silnego wpływu na pcPKB w regionie krasnodarskim, który może być wywołany niestabilnymi cenami ropy naftowej i gazu, a nie igrzyskami.\\
+    
+    Należy zauważyć, że różnice w pcPKB między gospodarzami a kandydatami są statystycznie nieistotne zgodnie z testami t zarówno dla zimowych, jak i letnich igrzysk olimpijskich. 17 Na przykład pcPKB spada z 2,65 w 5 do 1,93 w 1 na Alasce iz 2,57 w 1 do 2,82 w 0 w Petersburgu. pcPKB wynosi 0,65 w regionie krasnodarskim w 5, po czym spada do 0,53 w 2 i ponownie wzrasta do 0,69 w 2.\\
+
+\newpage
+\section{Strategia identyfikacji i model ekonometryczny}
+
+Strategia identyfikacji w tym artykule opiera się na porównaniu gospodarzy olimpijskich tylko z regionami, które również poczyniły znaczne wysiłki, aby zorganizować te same igrzyska olimpijskie. Zatem grupa kontrolna składa się tylko z regionów o porównywalnych możliwościach i podobnych ujawnionych oczekiwaniach co do stosunku kosztów do korzyści zorganizowania takiego wydarzenia.\\
+
+Poniższy wykres ilustruje średnie zmiany w pcPKB gospodarzy igrzysk i kandydatów na wszystkie 15 igrzysk olimpijskich. Pionowe linie w punktach 0 i 7 wskazują rok wyboru i rok wydarzenia. Dla celów ilustracyjnych pcGDP jest znormalizowane do 100 w 0. Efekty mogą wystąpić już w okresie inwestycyjnym między wyborami miasta gospodarza, a wydarzeniem. Sugeruje to również istnienie nieliniowości. Regiony, które przegrały przetargi krajowe, nie są oficjalnymi regionami kandydującymi. \\
+
+\begin{center}
+\begin{tikzpicture}
+    \draw [red,solid] (4.25,0) -- (4.25,5);
+    \draw [red,solid] (10.25,0) -- (10.25,5);
+    \begin{axis}
+        [
+            xlabel={Lata przed i po Igrzyskach}, 
+            ylabel={pcPKB},
+            xmin=-5, 
+            xmax=10, 
+            ymin=90, 
+            ymax=110,
+            scale only axis, % The height and width argument only apply to the actual axis
+            height=5cm,
+            width=0.8\textwidth,
+        ]
+        \addplot[no marks] table[col sep=comma]{data/PKB_HostsData.txt};
+        \addplot[no marks, dashed] table[col sep=comma]{data/PKB_ApplicantsData.txt};
+        \addlegendentry{Gospodarze}
+        \addlegendentry{Kandydaci}
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+Wszelkie skutki w trakcie badania są nieznane co do okresu, rozmiaru i czasu trwania. Na przykład efekty inwestycji mogą słabnąć wkrótce po ukończeniu nowo wybudowanej infrastruktury, podczas gdy długoterminowe skutki związane z podażą lub zdarzeniami mogą się pojawić dopiero kilka lat po zdarzeniu. Uwzględnienie efektów dynamicznych z nieznanymi opóźnieniami wymaga, aby model ekonometryczny uwzględniał osobne efekty leczenia dla każdej fazy procesu leczenia. Dlatego stosuje się uogólnioną strukturę DD umożliwiającą wykrycie dynamicznych, nieliniowych efektów. Rok 0 oznacza się jako siedem lat poprzedzających rok igrzysk olimpijskich. W analizie za początek okresu leczenia uważa się 1, a nie 0, z dwóch powodów: 
+
+Po pierwsze, gospodarze olimpijscy są zwykle wybierani siedem lat przed zawodami. Miasta-gospodarze Letnich i Zimowych Igrzysk Olimpijskich 1992 oraz Letnich Igrzysk Olimpijskich 1996 zostały wybrane zaledwie sześć lat przed imprezą.
+
+Po drugie, sesje wyborcze MKOl odbywały się między czerwcem a październikiem (a natychmiastowy wpływ na pcPKB w ciągu zaledwie kilku tygodni po wyborach wydaje się niewiarygodny). Oznacza to, że rok 1 jest najwcześniejszym rokiem, który wypada całkowicie po wyborach miasta-gospodarza, podczas gdy dla roku 0 faza przedwyborcza obejmuje dużą część lub nawet cały rok kalendarzowy.
+
+\newpage
+\section{Wyniki}
+    \subsection{Wyniki główne}
+    Jeśli chodzi o zimowe Igrzyska Olimpijskie to wyniki pokazują znaczący pozytywny wpływ goszczenia Olimpiady na PKB tylko dla roku poprzedzającego wydarzenie. Organizacja letnich igrzysk znacząco podnosi PKB w roku imprezy jak i w roku poprzedzającym.
+    
+    Efekty są widoczne na poziomie 5\% w obu przypadkach. Ponadto dane dla letnich igrzysk sugerują trwałe pozytywne efekty również w latach po wydarzeniu, które są na poziomie 10\% w latach 2-4 po igrzyskach i wykazują wartości o podobnej lub nawet większej wielkości, dla pozostałych lat po wydarzeniu. Organizacja letnich igrzysk olimpijskich znacząco podnosi PKB o 3,3 i 3,6 punktów procentowych w roku poprzedzającym oraz roku imprezy. \\
+    
+    Wskazuje to, że pozytywne efekty mogą być trwałe przynajmniej w niektórych przypadkach. Zimowe Igrzyska Olimpijskie z kolei nie wywołują żadnego pozytywnego efektu na PKB regionów goszczących. Organizacja Zimowych Igrzysk Olimpijskich wydaje się mieć tymczasowy negatywny wpływ na pcGDP w latach wokół wydarzenia. Biorąc pod uwagę mniejszą skalę i wartość komercyjną Zimowych Igrzysk Olimpijskich oraz fakt, że odbywają się one głównie w regionach peryferyjnych, mniej korzystne wyniki dla Zimowych Igrzysk Olimpijskich nie są szczególnie zaskakujące. \\
+
+    \subsection{Weryfikacja poprawności}
+    Oprócz testowania różnych specyfikacji i próbek oraz obliczania poziomów istotności, przeprowadzana jest kompleksowa analiza wrażliwości w celu przetestowania odporności wyników uzyskanych w poprzedniej sekcji. Regionalny PKB per capita w stosunku do pozostałych regionów kraju (bez regionu centralnego) jest używany zamiast regionalnego PKB per capita w stosunku do poziomu krajowego (włączając region centralny). 
+    
+    Im większy udział regionów w krajowym PKB, tym silniejszy wpływ regionów na krajowy PKB per capita. W regionach o wysokim udziale w krajowym PKB wpływ zmiany regionalnego PKB per capita na pcPKB będzie więc mniejszy niż taka sama zmiana w regionie o niskim udziale w krajowym PKB. Aby sprawdzić solidność wyników w odniesieniu do obliczenia pcPKB, szacuje się również skutki igrzysk olimpijskich na:\\
+    
+    \[pcPKB_{it} = \frac{pcPKBreg_{it}}{(PKB_{ct} - PKB_{it}) / (Populacja_{ct} - Populacja_{it})}\]
+    
+    Odejmując PKB regionu od krajowego PKB, pcPKB jest miarą PKB per capita w stosunku do innych regionów w kraju. Wyniki pozostają jakościowo niezmienione we wszystkich specyfikacjach. Wzrastają błędy standardowe, co prowadzi do nieznacznego spadku poziomów istotności. Jednak efekty stwierdzone dla Letnich Igrzysk Olimpijskich są nadal znaczące na poziomie 10\%. W zestawieniu dla Letnich Igrzysk wzrost regionalnego pcPKB w stosunku do pozostałych regionów kraju gospodarza wynosi 4,2 punktu procentowego.\\
+    
+\newpage
+\section{Konkluzja}
+Niniejszy artykuł wnosi wkład do literatury, dostarczając analizy przyczynowo-skutkowych skutków ekonomicznych Igrzysk Olimpijskich na poziomie regionalnym. Ostatnie prace nie wykazały znaczącego pozytywnego krótko- lub długoterminowego wpływu na krajowe wyniki gospodarcze lub długoterminową wielkość lokalnej populacji. Jednak ani poziom krajowy (ograniczona wielkość ekonomiczna imprezy olimpijskiej w porównaniu z gospodarkami krajowymi i znaczna niejednorodność wielkości kraju; możliwy negatywny wpływ na inne regiony kraju), ani poziom miasta (tylko liczba ludności, ale brak dostępnych danych na temat wskaźników ekonomicznych; skala przestrzenna zbyt wąska, aby objąć obszar objęty działalnością gospodarczą bezpośrednio lub pośrednio związaną z olimpiadą) wydają się być odpowiednie do badania przeciętnych efektów ekonomicznych organizacji olimpiady. \\
+
+Wyniki dla poziomu regionalnego przedstawione w tym artykule ilustrują szereg interesujących wniosków: 
+
+Po pierwsze, letnie i zimowe igrzyska olimpijskie mają różny wpływ na PKB na mieszkańca w regionach goszczących. Dlatego łączenie igrzysk letnich i zimowych w analizie skutków ekonomicznych ukrywa prawdziwe skutki każdego rodzaju igrzysk olimpijskich. 
+
+Po drugie, letnie igrzyska olimpijskie mają przynajmniej tymczasowy pozytywny wpływ na regiony goszczące. Według najbardziej konserwatywnych szacunków regionalny PKB na mieszkańca znacznie wzrasta o 3,6 punktu procentowego w stosunku do krajowego PKB na mieszkańca w roku, w którym miało miejsce wydarzenie, oraz o 3,3 punktu procentowego w roku poprzednim, w porównaniu ze scenariuszem alternatywnym, który zakłada, że nie będą organizowane igrzyska olimpijskie. Wyniki z tych dwóch lat są dość solidne w porównaniu z szeregiem modyfikacji dokonanych w analizie wrażliwości. Chociaż nie ma solidnych dowodów statystycznych na średnio- lub długoterminowe efekty po zdarzeniu, wyniki nadal wskazują na pozytywne efekty po grze. 
+
+Po trzecie, organizacja Zimowych Igrzysk Olimpijskich nie ma żadnego pozytywnego wpływu na regionalny PKB na mieszkańca. I odwrotnie, bardziej konserwatywne specyfikacje ilustrują nawet tymczasowe negatywne skutki w latach następujących po wydarzeniu: PKB na mieszkańca spada o około 2,3 i 2,7 punktu procentowego w stosunku do poziomu krajowego w roku wydarzenia i w roku następnym w najbardziej pesymistycznej specyfikacji .\\
+
+Wszystkie negatywne skutki stają się nieistotne najpóźniej w 2 roku po wydarzeniu. Mniej korzystne wyniki Igrzysk Zimowych niż Letnich nie są szczególnie zaskakujące. Igrzyska Zimowe mają mniejszą skalę pod względem budżetu, liczby uczestników, zasięgu międzynarodowych mediów, a tym samym wartości komercyjnej. Można zatem oczekiwać, że stymulujące wzrost efekty wywołane inwestycją, jak również efekty wywołane samym wydarzeniem, będą miały mniejszą skalę. Co więcej, ponieważ Zimowe Igrzyska Olimpijskie odbywają się podczas zwykle raczej krótkiego zimowego szczytu turystycznego, regiony przyjmujące są bardziej narażone na ograniczenia przepustowości i wypieranie niż metropolitalne regiony Letnich Igrzysk Olimpijskich.\\
+
+\end{document}
