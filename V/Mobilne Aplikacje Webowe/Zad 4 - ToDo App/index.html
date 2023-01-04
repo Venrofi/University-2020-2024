@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo - Radosław Terelak</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="./styles/homepage-style.css">
+    <script src="./js/todo.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>ToDo App!</h1>
+    </header>
+    <main>
+        <div class="newTask">
+            <input type="text" list="options" id="newTaskInput">
+            <button id="addTask">➕</button>
+            <datalist id="options"></datalist>
+        </div>
+        <div class="listOfTasks">
+            Lista ToDo:
+            <ul class="todo-list"></ul>
+        </div>
+        <div class="listOfDoneTasks">
+            Lista Done:
+            <ul class="done-list"></ul>
+        </div>
+    </main>
+    <footer>
+        <p>
+            Coded by <a href="https://venrofi.netlify.app/" target="_blank" id="footerLink">Radosław Terelak</a>
+        </p>
+    </footer> 
+</body>
+</html>

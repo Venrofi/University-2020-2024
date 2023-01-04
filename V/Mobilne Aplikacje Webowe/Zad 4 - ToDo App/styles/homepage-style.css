@@ -1,0 +1,95 @@
+@import "global.css";
+
+h1{
+    line-height: 1;
+}
+
+header{
+    padding-block: 1rem;
+}
+
+main{
+    padding-block: 2rem;
+}
+
+#newTaskInput{
+    padding: 1rem 2rem;
+    font-size: 24px;
+    width: 580px;
+}
+#addTask{
+    padding: 1rem;
+    font-size: 24px;
+}
+
+.listOfTasks, .listOfDoneTasks{
+    margin-block: 1rem;
+    display: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.todo-list, .done-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.done-list{
+    text-decoration: line-through;
+}
+
+.list-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    gap: 1rem;
+    font-weight: initial;
+    font-size: 16px;
+    list-style: none;
+    padding: 1rem 1.5rem;
+    margin-block: .25rem;
+    background-color: var(--light-blue);
+    width: 650px;
+}
+
+.list-item button{
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+footer a:hover, footer a:focus{
+    color: var(--dark-red);
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 650px){
+    header h1{
+        font-size: 2rem;
+    }
+    main{
+        margin-inline: 1rem;
+        padding-block: 1rem;
+    }
+
+    .newTask{
+        display: flex;
+    }
+
+    #newTaskInput{
+        width: 100%;
+        padding: 1rem .5rem;
+        font-size: 16px;
+    }
+    #addTask{
+        padding: 1rem;
+        font-size: 16px;
+    }
+
+    .list-item{
+        width: 100%;
+    }
+}
