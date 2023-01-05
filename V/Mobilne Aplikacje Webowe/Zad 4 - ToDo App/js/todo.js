@@ -7,25 +7,13 @@ const toDoList = document.querySelector(".todo-list");
 const doneList = document.querySelector(".done-list");
 
 let options = [];
-fetch("./php/data/suggestions.json")
-  .then((res) => res.json())
-  .then((data) => {
-    let movies = data.data.movies.map((movie) => "obejrzeć: " + movie);
-    let books = data.data.books.map((book) => "przeczytać: " + book);
-    let programmingBooks = data.data.programmingBooks.map(
-      (book) => "przeczytać: " + book
-    );
-
-    options = [
-      ...data.data.custom,
-      ...data.data.beers,
-      ...data.data.fruits,
-      ...data.data.vegetables,
-      ...books,
-      ...movies,
-      ...programmingBooks,
-    ];
-  });
+let todoTasks = [];
+let doneTasks = [];
+window.addEventListener("load", () => {
+  getSuggestions();
+  getTasks();
+  getDoneTasks();
+});
 
 input.addEventListener("input", (e) => {
   // Clear the options
@@ -58,6 +46,11 @@ addTaskButton.addEventListener("click", () => {
     toDoList.appendChild(toDoItem);
 
     addNewOption(input.value);
+    todoTasks.push(input.value);
+
+    console.log("New task added!");
+    console.log("Todo:", todoTasks, "Done:", doneTasks);
+
     input.value = "";
   }
 
@@ -66,10 +59,65 @@ addTaskButton.addEventListener("click", () => {
   }
 });
 
+function getSuggestions() {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState !== 4) return;
+
+    if (xhr.status === 200 || xhr.status === 304) {
+      try {
+        const xmlData = xhr.responseXML;
+        const data = xmlData.childNodes[0].childNodes;
+        // console.log("CUSTOM", data[5]);
+
+        //Loop through each group of suggestions
+        for (let i = 1; i < data.length; i += 2) {
+          const group = data[i].childNodes;
+
+          //Loop through each element from the group
+          for (let j = 1; j < group.length; j += 2) {
+            options.push(group[j].textContent);
+          }
+        }
+        console.log(options, options.length);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+  xhr.open("GET", "./php/getSuggestions.php", true);
+  xhr.setRequestHeader("Content-Type", " application/xml");
+  xhr.send();
+}
+
+function getTasks() {}
+
+function getDoneTasks() {}
+
+function updateTasks() {}
+
+function updateDoneTasks() {}
+
 function addNewOption(option) {
   if (!options.includes(option)) {
     options.push(option);
-    console.log("New option added!", option);
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== 4) return;
+
+      if (xhr.status === 200 || xhr.status === 304) {
+        try {
+          console.log("New option saved!", xhr.responseText, Date());
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+
+    xhr.open("POST", "./php/addNewSuggestion.php", true);
+    xhr.setRequestHeader("Content-Type", "text/plain");
+    xhr.send(option);
   }
 }
 
@@ -86,6 +134,12 @@ function moveTaskToDone(item) {
   item.appendChild(restoreButton);
   doneList.appendChild(item);
 
+  todoTasks = todoTasks.filter((task) => task !== item.firstChild.data);
+  doneTasks.push(item.firstChild.data);
+
+  console.log("Task moved to done!");
+  console.log("Todo:", todoTasks, "Done:", doneTasks);
+
   if (doneList.querySelector("li")) {
     doneListWrapper.style.display = "block";
   }
@@ -99,6 +153,11 @@ function restoreTaskFromDone(item) {
   item.appendChild(buttonsContainer);
 
   toDoList.appendChild(item);
+  todoTasks.push(item.firstChild.data);
+  doneTasks = doneTasks.filter((task) => task !== item.firstChild.data);
+
+  console.log("Task restored!");
+  console.log("Todo:", todoTasks, "Done:", doneTasks);
 
   if (toDoList.querySelector("li")) {
     toDoListWrapper.style.display = "block";
@@ -118,6 +177,11 @@ function createButtons(item) {
 
   deleteButton.addEventListener("click", () => {
     item.remove();
+
+    todoTasks = todoTasks.filter((task) => task !== item.firstChild.data);
+    console.log("Task deleted!");
+    console.log("Todo:", todoTasks, "Done:", doneTasks);
+
     if (!toDoList.querySelector("li")) {
       toDoListWrapper.style.display = "none";
     }

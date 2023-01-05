@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <beers>
+        <element>Tyskie</element>
+        <element>Żywiec</element>
+        <element>Lech</element>
+        <element>Okocim</element>
+        <element>Kompania Piwowarska</element>
+        <element>Browar Namysłów</element>
+        <element>Warka</element>
+        <element>Perła</element>
+        <element>Kozel</element>
+        <element>Piast</element>
+        <element>Lwówek</element>
+        <element>Kingpin</element>
+        <element>Łomża</element>
+        <element>Bosman</element>
+        <element>Kasztelan</element>
+        <element>Warka Strong</element>
+        <element>Browar Dojlidy</element>
+        <element>Harnaś</element>
+        <element>Kormoran</element>
+        <element>Krakus</element>
+        <element>Guinness</element>
+        <element>Browar Artezan</element>
+        <element>Pinta</element>
+        <element>Żubr</element>
+        <element>Harnaś Białe</element>
+        <element>Lech Premium</element>
+        <element>Krolewskie</element>
+        <element>Kormoran Ciemne</element>
+        <element>Zywiec Bock</element>
+        <element>Browar Amber</element>
+        <element>Maryensztadt</element>
+        <element>Browar Olimp</element>
+        <element>Wywerna</element>
+        <element>Browar Stu Mostów</element>
+        <element>Browar Fortuna</element>
+        <element>Jan Olbracht</element>
+        <element>Zywiec Porter</element>
+        <element>Kormoran Złoty</element>
+        <element>Lech Free</element>
+        <element>Kopyra</element>
+        <element>Lubuskie</element>
+    </beers>
+    <books>
+        <element>"Złodziejka książek" Markus Zusak</element>
+        <element>"Makbet" William Shakespeare</element>
+        <element>"Władca Pierścieni" J.R.R. Tolkien</element>
+        <element>"Harry Potter i Książę Półkrwi" J.K. Rowling</element>
+        <element>"Dziady" Adam Mickiewicz</element>
+        <element>"Dziennik Bridget Jones" Helen Fielding</element>
+        <element>"Oskarżony" John Grisham</element>
+        <element>"Sto lat samotności" Gabriel García Márquez</element>
+        <element>"Cień wiatru" Carlos Ruiz Zafón</element>
+        <element>"Złodziej pioruna" Rick Riordan</element>
+        <element>"Dziadek do orzechów" E.T.A. Hoffmann</element>
+        <element>"Przygody Sherlocka Holmesa" Arthur Conan Doyle</element>
+        <element>"Niezgodna" Veronica Roth</element>
+        <element>"Wiedźmin" Andrzej Sapkowski</element>
+        <element>"Opowieści z Narnii" C.S. Lewis</element>
+        <element>"Gra o tron" George R.R. Martin</element>
+        <element>"Millennium" Stieg Larsson</element>
+        <element>"Dziennik Annki" Svetlana Aleksijewicz</element>
+        <element>"Człowiek z marmuru" Andrzej Wajda</element>
+        <element>"Jądro ciemności" Joseph Conrad</element>
+        <element>"Złodziejka dusz" Neil Gaiman</element>
+        <element>"Lśnienie" Stephen King</element>
+        <element>"1984" George Orwell</element>
+        <element>"Fahrenheit 451" Ray Bradbury</element>
+        <element>"Dziennik cwaniaczka" Zoe Sugg</element>
+        <element>"Złodziej dusz" Philip Pullman</element>
+        <element>"Dziennik cwaniaczka 2" Zoe Sugg</element>
+        <element>"Hobbit" J.R.R. Tolkien</element>
+        <element>"Król Lew" Rudyard Kipling</element>
+        <element>"Złodziejka czasu" Audrey Niffenegger</element>
+        <element>"Romeo i Julia" William Shakespeare</element>
+        <element>"Władca Much" Roald Dahl</element>
+    </books>
+    <custom>
+        <element>siemano</element>
+        <element>hello</element>
+    <element>siema</element><element>siem</element><element>se</element><element>ss</element><element>ss</element><element>siem</element></custom>
+    <fruits>
+        <element>jabłka</element>
+        <element>gruszki</element>
+        <element>banany</element>
+        <element>pomarańcze</element>
+        <element>winogrona</element>
+        <element>czereśnie</element>
+        <element>brzoskwinie</element>
+        <element>arbuz</element>
+        <element>mango</element>
+        <element>ananasy</element>
+        <element>kiwi</element>
+        <element>granaty</element>
+        <element>limonki</element>
+        <element>grejpfruty</element>
+        <element>pomelo</element>
+        <element>mandarynki</element>
+        <element>figi</element>
+        <element>daktyle</element>
+        <element>śliwki</element>
+        <element>śliwki suszone</element>
+        <element>rodzynki</element>
+        <element>czarne jagody</element>
+        <element>jeżyny</element>
+        <element>borówki</element>
+        <element>maliny</element>
+        <element>jagody</element>
+        <element>truskawki</element>
+        <element>wiśnie</element>
+        <element>morele</element>
+        <element>nektarynki</element>
+        <element>czerwone porzeczki</element>
+        <element>żurawiny</element>
+        <element>owoce dzikiej róży</element>
+        <element>agrest</element>
+    </fruits>
+    <movies>
+        <element>"Matrix"</element>
+        <element>"Ojciec chrzestny"</element>
+        <element>"Pulp Fiction"</element>
+        <element>"Kochaj i tańcz"</element>
+        <element>"Nazywam się Khan"</element>
+        <element>"Forrest Gump"</element>
+        <element>"Dwunastu gniewnych ludzi"</element>
+        <element>"Siedmiu samurajów"</element>
+        <element>"Złap mnie, jeśli potrafisz"</element>
+        <element>"Chłopaki nie płaczą"</element>
+        <element>"Incepcja"</element>
+        <element>"Rocky"</element>
+        <element>"Złe psy"</element>
+        <element>"Złodziej życia"</element>
+        <element>"Avatar"</element>
+        <element>"Pociąg do Busan"</element>
+        <element>"Buntownik z wyboru"</element>
+        <element>"Skazani na Shawshank"</element>
+        <element>"Harry Potter i Kamień Filozoficzny"</element>
+        <element>"Zakochany bez pamięci"</element>
+        <element>"Lśnienie"</element>
+        <element>"Święta wojna"</element>
+        <element>"Życie jest piękne"</element>
+        <element>"Kiedy Harry poznał Sally"</element>
+        <element>"Powrót do przyszłości"</element>
+        <element>"Titanic"</element>
+        <element>"Indiana Jones i Królestwo Kryształowej Czaszki"</element>
+        <element>"Koty"</element>
+        <element>"Kraina lodu"</element>
+        <element>"Jurassic Park"</element>
+        <element>"Memento"</element>
+        <element>"Terminator 2: Dzień sądu"</element>
+        <element>"Lista Schindlera"</element>
+        <element>"Gwiezdne wojny: Część IV - Nowa nadzieja"</element>
+        <element>"Szeregowiec Ryan"</element>
+        <element>"E.T. - Książę kosmiczny"</element>
+        <element>"Król lew"</element>
+        <element>"Królestwo niebieskie"</element>
+    </movies>
+    <programmingBooks>
+        <element>"Cracking the Coding Interview" Gayle Laakmann McDowell</element>
+        <element>"Introduction to the Theory of Computation" Michael Sipser</element>
+        <element>"The C Programming Language" Brian Kernighan and Dennis Ritchie</element>
+        <element>"Programming Pearls" Jon Bentley</element>
+        <element>"Code Complete" Steve McConnell</element>
+        <element>"Design Patterns: Elements of Reusable Object-Oriented Software" Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides</element>
+        <element>"The Pragmatic Programmer" Andrew Hunt and David Thomas</element>
+        <element>"Clean Code: A Handbook of Agile Software Craftsmanship" Robert C. Martin</element>
+        <element>"Refactoring: Improving the Design of Existing Code" Martin Fowler</element>
+        <element>"Agile Software Development: Principles, Patterns, and Practices" Robert C. Martin</element>
+        <element>"The Mythical Man-Month: Essays on Software Engineering" Frederick P. Brooks Jr.</element>
+        <element>"Don't Make Me Think" Steve Krug</element>
+        <element>"About Face 3: The Essentials of Interaction Design" Alan Cooper</element>
+        <element>"The Elements of User Experience: User-Centered Design for the Web" Jesse James Garrett</element>
+        <element>"The Lean Startup" Eric Ries</element>
+        <element>"The Manager's Path" Camille Fournier</element>
+        <element>"Peopleware: Productive Projects and Teams" Tom DeMarco and Timothy Lister</element>
+        <element>"Software Estimation: Demystifying the Black Art" Steve McConnell</element>
+        <element>"The Art of Capacity Planning" John Allspaw</element>
+        <element>"The Art of Debugging" Norman Matloff and Peter J. Salzman</element>
+        <element>"The Art of Readable Code" Dustin Boswell</element>
+    </programmingBooks>
+    <vegetables>
+        <element>marchewka</element>
+        <element>ziemniaki</element>
+        <element>papryka</element>
+        <element>cukinia</element>
+        <element>brokuły</element>
+        <element>kalafior</element>
+        <element>pietruszka</element>
+        <element>seler</element>
+        <element>rzodkiewki</element>
+        <element>bakłażany</element>
+        <element>szparagi</element>
+        <element>kapusta</element>
+        <element>fasolka</element>
+        <element>groszek</element>
+        <element>soczewica</element>
+        <element>groch</element>
+        <element>fasola</element>
+        <element>bób</element>
+        <element>groszek zielony</element>
+        <element>kukurydza</element>
+        <element>pomidory</element>
+        <element>ogórki</element>
+        <element>sałata</element>
+        <element>szpinak</element>
+        <element>szczypiorek</element>
+        <element>cebula</element>
+        <element>czosnek</element>
+        <element>koperek</element>
+        <element>natka pietruszki</element>
+        <element>bazylia</element>
+        <element>kolendra</element>
+        <element>tymianek</element>
+        <element>rozmaryn</element>
+        <element>oregano</element>
+        <element>liść laurowy</element>
+        <element>koper</element>
+        <element>kminek</element>
+        <element>goździki</element>
+        <element>kardamon</element>
+        <element>gałka muszkatołowa</element>
+        <element>cynamon</element>
+        <element>kurkuma</element>
+        <element>majeranek</element>
+        <element>anyż</element>
+        <element>imbir</element>
+    </vegetables>
+</data>
