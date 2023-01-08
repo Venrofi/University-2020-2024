@@ -36,28 +36,35 @@ input.addEventListener("input", (e) => {
 
 addTaskButton.addEventListener("click", () => {
   if (input.value !== "") {
-    const toDoItem = document.createElement("li");
-
-    toDoItem.innerHTML = input.value;
-    toDoItem.classList.add("list-item");
-
-    const buttonsContainer = createButtons(toDoItem);
-    toDoItem.appendChild(buttonsContainer);
-    toDoList.appendChild(toDoItem);
-
-    addNewOption(input.value);
-    todoTasks.push(input.value);
-
-    console.log("New task added!");
-    console.log("Todo:", todoTasks, "Done:", doneTasks);
-
+    createListItem(input.value);
     input.value = "";
   }
+});
+
+function createListItem(taskName, done = false) {
+  const toDoItem = document.createElement("li");
+
+  toDoItem.innerHTML = taskName;
+  toDoItem.classList.add("list-item");
+
+  const buttonsContainer = createButtons(toDoItem);
+  toDoItem.appendChild(buttonsContainer);
+  toDoList.appendChild(toDoItem);
+
+  if (!options.includes(taskName)) {
+    addNewOption(taskName);
+  }
+
+  todoTasks.push(taskName);
 
   if (toDoList.querySelector("li")) {
     toDoListWrapper.style.display = "block";
   }
-});
+
+  if (done === true) {
+    moveTaskToDone(toDoItem);
+  }
+}
 
 function getSuggestions() {
   const xhr = new XMLHttpRequest();
@@ -68,7 +75,6 @@ function getSuggestions() {
       try {
         const xmlData = xhr.responseXML;
         const data = xmlData.childNodes[0].childNodes;
-        // console.log("CUSTOM", data[5]);
 
         //Loop through each group of suggestions
         for (let i = 1; i < data.length; i += 2) {
@@ -76,7 +82,23 @@ function getSuggestions() {
 
           //Loop through each element from the group
           for (let j = 1; j < group.length; j += 2) {
-            options.push(group[j].textContent);
+            switch (i) {
+              case 3:
+                options.push("przeczytać: " + group[j].textContent);
+                break;
+              case 7:
+                options.push("kupić: " + group[j].textContent);
+                break;
+              case 9:
+                options.push("obejrzeć: " + group[j].textContent);
+                break;
+              case 11:
+                options.push("przeczytać: " + group[j].textContent);
+                break;
+              default:
+                options.push(group[j].textContent);
+                break;
+            }
           }
         }
         console.log(options, options.length);
@@ -90,13 +112,97 @@ function getSuggestions() {
   xhr.send();
 }
 
-function getTasks() {}
+function getTasks() {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState !== 4) return;
 
-function getDoneTasks() {}
+    if (xhr.status === 200 || xhr.status === 304) {
+      try {
+        const xmlData = xhr.responseXML;
+        const tasks = xmlData.childNodes[0].childNodes;
 
-function updateTasks() {}
+        //Loop through each task & create list items
+        for (let i = 0; i < tasks.length; i += 1) {
+          if (tasks[i].innerHTML !== "") {
+            createListItem(tasks[i].innerHTML, false);
+          }
+        }
+        console.log("Received ToDo tasks:", todoTasks);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+  xhr.open("GET", "./php/getTasks.php", true);
+  xhr.setRequestHeader("Content-Type", " application/xml");
+  xhr.send();
+}
 
-function updateDoneTasks() {}
+function getDoneTasks() {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState !== 4) return;
+
+    if (xhr.status === 200 || xhr.status === 304) {
+      try {
+        const xmlData = xhr.responseXML;
+        const tasks = xmlData.childNodes[0].childNodes;
+
+        //Loop through each task & create list items
+        for (let i = 0; i < tasks.length; i += 1) {
+          if (tasks[i].innerHTML !== "") {
+            createListItem(tasks[i].innerHTML, true);
+          }
+        }
+        console.log("Received Done tasks:", doneTasks);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+  xhr.open("GET", "./php/getDoneTasks.php", true);
+  xhr.setRequestHeader("Content-Type", " application/xml");
+  xhr.send();
+}
+
+function updateTasks() {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState !== 4) return;
+
+    if (xhr.status === 200 || xhr.status === 304) {
+      try {
+        console.log("Tasks saved!", Date());
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
+  xhr.open("POST", "./php/updateTasks.php", true);
+  xhr.setRequestHeader("Content-Type", "text/plain");
+  xhr.send(todoTasks);
+}
+
+function updateDoneTasks() {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState !== 4) return;
+
+    if (xhr.status === 200 || xhr.status === 304) {
+      try {
+        console.log("Done Tasks saved!", Date());
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
+  xhr.open("POST", "./php/updateDoneTasks.php", true);
+  xhr.setRequestHeader("Content-Type", "text/plain");
+  xhr.send(doneTasks);
+}
 
 function addNewOption(option) {
   if (!options.includes(option)) {
@@ -139,6 +245,8 @@ function moveTaskToDone(item) {
 
   console.log("Task moved to done!");
   console.log("Todo:", todoTasks, "Done:", doneTasks);
+  updateTasks();
+  updateDoneTasks();
 
   if (doneList.querySelector("li")) {
     doneListWrapper.style.display = "block";
@@ -158,6 +266,8 @@ function restoreTaskFromDone(item) {
 
   console.log("Task restored!");
   console.log("Todo:", todoTasks, "Done:", doneTasks);
+  updateTasks();
+  updateDoneTasks();
 
   if (toDoList.querySelector("li")) {
     toDoListWrapper.style.display = "block";
@@ -179,6 +289,7 @@ function createButtons(item) {
     item.remove();
 
     todoTasks = todoTasks.filter((task) => task !== item.firstChild.data);
+    updateTasks();
     console.log("Task deleted!");
     console.log("Todo:", todoTasks, "Done:", doneTasks);
 
@@ -199,6 +310,3 @@ function createButtons(item) {
 
   return buttonsContainer;
 }
-
-// PHP ma 3 zbiory: lista podpowiedzi, lista to-do, lista done
-// Sprawdzać czy input jest czymś nowym, jeśli tak to dodać go do listy podpowiedzi
