@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/subjectListFragment">
+
+    <fragment
+        android:id="@+id/subjectListFragment"
+        android:name="com.example.teacherasistant.SubjectListFragment"
+        android:label="fragment_subject_list"
+        tools:layout="@layout/fragment_subject_list" >
+        <action
+            android:id="@+id/action_subjectListFragment_to_subjectCreatorFragment"
+            app:destination="@id/subjectCreatorFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_studentListFragment"
+            app:destination="@id/studentListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subjectCreatorFragment"
+        android:name="com.example.teacherasistant.SubjectCreatorFragment"
+        android:label="fragment_subject_creator"
+        tools:layout="@layout/fragment_subject_creator" />
+    <fragment
+        android:id="@+id/studentListFragment"
+        android:name="com.example.teacherasistant.StudentListFragment"
+        android:label="fragment_student_list"
+        tools:layout="@layout/fragment_student_list" >
+        <action
+            android:id="@+id/action_studentListFragment_to_studentCreatorFragment"
+            app:destination="@id/studentCreatorFragment" />
+        <action
+            android:id="@+id/action_studentListFragment_to_markListFragment2"
+            app:destination="@id/markListFragment" />
+        <argument
+            android:name="subject_id"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/markListFragment"
+        android:name="com.example.teacherasistant.MarkListFragment"
+        android:label="fragment_mark_list"
+        tools:layout="@layout/fragment_mark_list" >
+        <action
+            android:id="@+id/action_markListFragment_to_markCreatorFragment"
+            app:destination="@id/markCreatorFragment" />
+        <argument
+            android:name="subject_id"
+            app:argType="long" />
+        <argument
+            android:name="student_id"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/markCreatorFragment"
+        android:name="com.example.teacherasistant.MarkCreatorFragment"
+        android:label="fragment_mark_creator"
+        tools:layout="@layout/fragment_mark_creator" >
+        <argument
+            android:name="subject_id"
+            app:argType="long" />
+        <argument
+            android:name="student_id"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentCreatorFragment"
+        android:name="com.example.teacherasistant.StudentCreatorFragment"
+        android:label="fragment_student_creator"
+        tools:layout="@layout/fragment_student_creator" >
+        <argument
+            android:name="subject_id"
+            app:argType="long" />
+    </fragment>
+</navigation>

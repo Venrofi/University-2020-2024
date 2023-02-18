@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:background="@drawable/list_item_shape"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:id="@+id/mark_list_item_mark_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10sp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mark_list_item_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_delete"
+        app:iconGravity="textStart"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10sp"
+        app:backgroundTint="@color/dark_red"
+        tools:ignore="RelativeOverlap" />
+</RelativeLayout>

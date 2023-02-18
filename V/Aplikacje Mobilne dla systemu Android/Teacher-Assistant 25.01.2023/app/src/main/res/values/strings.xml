@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Asystent Nauczyciela</string>
+
+    <string name="go_to">Przejdź</string>
+    <string name="delete_button">Usuń</string>
+
+    // Options Menu
+    <string name="reset_button_text">Resetuj</string>
+
+    // Subject List
+    <string name="add_subject_btn">Dodaj Zajęcia</string>
+
+    // Subject List Item
+    <string name="subject_list_item_time_placeholder">%1$s-%2$s</string>
+
+    // Subject Creator
+    <string name="subject_name_placeholder">Nazwa</string>
+    <string name="subject_time_picker_separator">-</string>
+    <string name="subject_time_textview">Blok Godzinowy</string>
+    <string name="create_subject_button">Utwórz Przedmiot</string>
+
+    <string-array name="days">
+        <item>Poniedziałek</item>
+        <item>Wtorek</item>
+        <item>Środa</item>
+        <item>Czwartek</item>
+        <item>Piątek</item>
+        <item>Sobota</item>
+        <item>Niedziela</item>
+    </string-array>
+
+    // Student List
+    <string name="add_student_btn">Dodaj Studenta</string>
+
+    // Student List Item
+    <string name="student_id_textview">Nr albumu:</string>
+
+    // Student Creator
+    <string name="create_student_button">Utwórz Studenta</string>
+    <string name="new_student_radio_button_text">Nowy</string>
+    <string name="existing_student_radio_button_text">Istniejący</string>
+    <string name="firstname_hint">Imię</string>
+    <string name="lastname_hint">Nazwisko</string>
+    <string name="id_hint">Nr albumu</string>
+
+    // Existing Student List Item
+    <string name="add_existing_student_button_text">Dodaj</string>
+
+    // Mark List
+    <string name="add_mark_btn">Dodaj Ocenę</string>
+
+    // Mark Creator
+    <string name="create_mark_button">Utwórz Ocenę</string>
+    <string name="grade_radio_button">Ocena</string>
+    <string name="points_radio_button">Punkty</string>
+    <string name="points_hint">Punkty…</string>
+
+    <string-array name="grades">
+        <item>2.5</item>
+        <item>3.0</item>
+        <item>3.5</item>
+        <item>4.0</item>
+        <item>4.5</item>
+        <item>5.0</item>
+    </string-array>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MarkCreatorFragment"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/mode_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20sp">
+
+            <RadioButton
+                android:id="@+id/grade_mode_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grade_radio_button"
+                android:textSize="20sp"
+                android:layout_marginRight="10sp"
+                android:textColor="@color/city_lights"
+                android:buttonTint="@color/city_lights"/>
+
+            <RadioButton
+                android:id="@+id/points_mode_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/points_radio_button"
+                android:textSize="20sp"
+                android:textColor="@color/city_lights"
+                android:buttonTint="@color/city_lights"/>
+        </RadioGroup>
+
+        <Spinner
+            android:id="@+id/mark_creator_grade_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:backgroundTint="@color/city_lights"
+            android:paddingLeft="20sp"/>
+
+        <EditText
+            android:id="@+id/mark_creator_points_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/points_hint"
+            android:paddingLeft="10sp"
+            android:visibility="gone"
+            android:theme="@style/EditTextTheme"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/mark_creator_create_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="113dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="23dp"
+        android:text="@string/create_mark_button" />
+</RelativeLayout>
