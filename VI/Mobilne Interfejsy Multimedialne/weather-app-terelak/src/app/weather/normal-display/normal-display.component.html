@@ -1,0 +1,7 @@
+<nb-form-field>
+  <input type="text" nbInput fullWidth placeholder="Enter location" [(ngModel)]="inputValue">
+  <button nbSuffix nbButton ghost (click)="searchWeather(inputValue)">
+    <nb-icon icon="arrow-forward-outline" pack="eva"></nb-icon>
+  </button>
+</nb-form-field>
+<p>{{ searchMessage }}</p>
