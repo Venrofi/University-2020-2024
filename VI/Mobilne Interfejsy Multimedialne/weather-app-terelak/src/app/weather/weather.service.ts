@@ -12,8 +12,12 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getWeather(city: string): Observable<any> {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.API_KEY}&units=metric}`;
+  getWeather(city: string, unitType: string): Observable<any> {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.API_KEY}&units=${unitType}`;
     return this.http.get(url);
+  }
+
+  getWeatherIcon(icon: string): string {
+    return `http://openweathermap.org/img/wn/${icon}@2x.png`;
   }
 }

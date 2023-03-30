@@ -1,0 +1,47 @@
+{
+  "coord": {
+    "lon": 18.6766,
+    "lat": 50.2976
+  },
+  "weather": [
+    {
+      "id": 500,
+      "main": "Rain",
+      "description": "light rain",
+      "icon": "10d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 282.37,
+    "feels_like": 280.18,
+    "temp_min": 281.55,
+    "temp_max": 283.67,
+    "pressure": 1008,
+    "humidity": 90
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 4.02,
+    "deg": 221,
+    "gust": 7.15
+  },
+  "rain": {
+    "1h": 0.24
+  },
+  "clouds": {
+    "all": 100
+  },
+  "dt": 1680194688,
+  "sys": {
+    "type": 2,
+    "id": 2031990,
+    "country": "PL",
+    "sunrise": 1680150421,
+    "sunset": 1680196350
+  },
+  "timezone": 7200,
+  "id": 3099230,
+  "name": "Gliwice",
+  "cod": 200
+}

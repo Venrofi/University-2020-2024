@@ -4,4 +4,46 @@
     <nb-icon icon="arrow-forward-outline" pack="eva"></nb-icon>
   </button>
 </nb-form-field>
-<p>{{ searchMessage }}</p>
+
+<h4 class="text-center">{{ searchMessage }}</h4>
+<div class="text-center" *ngIf="!isWeatherDataEmpty()">
+  <img [src]="weatherIcon" alt="Weather icon">
+  <h6>{{ 'Current time: ' + getTime(weatherData?.dt) }}</h6>
+  <h6>{{ "Today's date: " + getDate(weatherData?.dt) }}</h6>
+</div>
+
+<nb-layout center *ngIf="!isWeatherDataEmpty()">
+  <nb-layout-column class="text-center">
+    <nb-toggle class="toggleImperial" [(ngModel)]="toggleImperialUnits" (ngModelChange)="onToggleChange()">Toggle Imperial Units</nb-toggle>
+    <nb-card size="small">
+      <nb-card-header><h4>Temperature 🌡</h4></nb-card-header>
+      <nb-card-body>
+        <p> <b>Minimal:</b> {{ weatherData?.main?.temp_min }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+        <p> <b>Maximal:</b> {{ weatherData?.main?.temp_max }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+        <p> <b>Current:</b> {{ weatherData?.main?.temp }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+        <p> <b>Feels like:</b> {{ weatherData?.main?.feels_like }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="tiny">
+      <nb-card-header><h4>Air 💨</h4></nb-card-header>
+      <nb-card-body>
+        <p> <b>Pressure:</b> {{ weatherData?.main?.pressure }} {{ toggleImperialUnits ? 'Hg' : 'hPa' }}</p>
+        <p> <b>Humidity:</b> {{ weatherData?.main?.humidity }}%</p>
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="tiny">
+      <nb-card-header><h4>Wind 🍃</h4></nb-card-header>
+      <nb-card-body>
+        <p> <b>Speed:</b> {{ weatherData?.wind?.speed }} {{ toggleImperialUnits ? 'mi/h' : 'm/s' }}</p>
+        <p> <b>Direction:</b> {{ weatherData?.wind?.deg }}°</p>
+      </nb-card-body>
+    </nb-card>
+    <nb-card size="tiny">
+      <nb-card-header><h4>Sun ☀</h4></nb-card-header>
+      <nb-card-body>
+        <p> <b>Sunrise:</b> {{ getTime(weatherData?.sys?.sunrise) }} </p>
+        <p> <b>Sunset:</b> {{ getTime(weatherData?.sys?.sunset) }} </p>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>
