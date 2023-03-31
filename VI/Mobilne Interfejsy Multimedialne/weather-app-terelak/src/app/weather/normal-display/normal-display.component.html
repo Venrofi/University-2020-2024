@@ -1,7 +1,7 @@
 <nb-form-field>
   <input
       [(ngModel)]="inputValue"
-      (ngModelChange)="onModelChange($event)"
+      (ngModelChange)="inputValueChange($event)"
       (keypress)="onKeyPress($event)"
       nbInput fullWidth
       type="text"
@@ -9,7 +9,7 @@
       [nbAutocomplete]="suggestions"/>
 
   <nb-autocomplete #suggestions>
-    <nb-option-group *ngFor="let group of filteredCities$ | async; trackBy: trackByFn"  [title]="group.name" >
+    <nb-option-group *ngFor="let group of filteredCities$ | async; trackBy: trackByName"  [title]="group.name" >
       <nb-option *ngFor="let city of group.cities" [value]="city" (click)="searchWeather(city)">
         {{ city }}
       </nb-option>
@@ -30,7 +30,7 @@
 
 <nb-layout center *ngIf="!isWeatherDataEmpty()">
   <nb-layout-column class="text-center">
-    <nb-toggle class="toggleImperial" [(ngModel)]="toggleImperialUnits" (ngModelChange)="onToggleChange()">Toggle Imperial Units</nb-toggle>
+    <nb-toggle class="toggleImperial" [(ngModel)]="toggleImperialUnits" (ngModelChange)="onUnitsToggleChange()">Toggle Imperial Units</nb-toggle>
     <nb-card size="small">
       <nb-card-header><h4>Temperature 🌡</h4></nb-card-header>
       <nb-card-body>
