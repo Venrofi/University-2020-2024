@@ -26,44 +26,41 @@
   <img [src]="weatherIcon" alt="Weather icon">
   <h6>{{ 'Local time of forecast: ' + getLocalTime(weatherData?.dt, weatherData?.timezone) }}</h6>
   <h6>{{ "Today's date: " + getDate(weatherData?.dt) }}</h6>
+  <nb-toggle class="toggle-imperial" [(ngModel)]="toggleImperialUnits" (ngModelChange)="onUnitsToggleChange()">Toggle Imperial Units</nb-toggle>
 </div>
 
-<nb-layout center *ngIf="!isWeatherDataEmpty()">
-  <nb-layout-column class="text-center">
-    <nb-toggle class="toggleImperial" [(ngModel)]="toggleImperialUnits" (ngModelChange)="onUnitsToggleChange()">Toggle Imperial Units</nb-toggle>
+<nb-layout-column class="text-center" *ngIf="!isWeatherDataEmpty()">
+  <nb-card size="small">
+    <nb-card-header><h4>Temperature 🌡</h4></nb-card-header>
+    <nb-card-body>
+      <p> <b>Minimal:</b> {{ weatherData?.main?.temp_min }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+      <p> <b>Maximal:</b> {{ weatherData?.main?.temp_max }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+      <p> <b>Current:</b> {{ weatherData?.main?.temp }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+      <p> <b>Feels like:</b> {{ weatherData?.main?.feels_like }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+    </nb-card-body>
+  </nb-card>
 
-    <nb-card size="small">
-      <nb-card-header><h4>Temperature 🌡</h4></nb-card-header>
-      <nb-card-body>
-        <p> <b>Minimal:</b> {{ weatherData?.main?.temp_min }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
-        <p> <b>Maximal:</b> {{ weatherData?.main?.temp_max }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
-        <p> <b>Current:</b> {{ weatherData?.main?.temp }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
-        <p> <b>Feels like:</b> {{ weatherData?.main?.feels_like }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
-      </nb-card-body>
-    </nb-card>
+  <nb-card size="tiny">
+    <nb-card-header><h4>Air 💨</h4></nb-card-header>
+    <nb-card-body>
+      <p> <b>Pressure:</b> {{ weatherData?.main?.pressure }} {{ toggleImperialUnits ? 'Hg' : 'hPa' }}</p>
+      <p> <b>Humidity:</b> {{ weatherData?.main?.humidity }}%</p>
+    </nb-card-body>
+  </nb-card>
 
-    <nb-card size="tiny">
-      <nb-card-header><h4>Air 💨</h4></nb-card-header>
-      <nb-card-body>
-        <p> <b>Pressure:</b> {{ weatherData?.main?.pressure }} {{ toggleImperialUnits ? 'Hg' : 'hPa' }}</p>
-        <p> <b>Humidity:</b> {{ weatherData?.main?.humidity }}%</p>
-      </nb-card-body>
-    </nb-card>
+  <nb-card size="tiny">
+    <nb-card-header><h4>Wind 🍃</h4></nb-card-header>
+    <nb-card-body>
+      <p> <b>Speed:</b> {{ weatherData?.wind?.speed }} {{ toggleImperialUnits ? 'mi/h' : 'm/s' }}</p>
+      <p> <b>Direction:</b> {{ weatherData?.wind?.deg }}°</p>
+    </nb-card-body>
+  </nb-card>
 
-    <nb-card size="tiny">
-      <nb-card-header><h4>Wind 🍃</h4></nb-card-header>
-      <nb-card-body>
-        <p> <b>Speed:</b> {{ weatherData?.wind?.speed }} {{ toggleImperialUnits ? 'mi/h' : 'm/s' }}</p>
-        <p> <b>Direction:</b> {{ weatherData?.wind?.deg }}°</p>
-      </nb-card-body>
-    </nb-card>
-
-    <nb-card size="tiny">
-      <nb-card-header><h4>Sun ☀</h4></nb-card-header>
-      <nb-card-body>
-        <p> <b>Sunrise:</b> {{ getLocalTime(weatherData?.sys?.sunrise, weatherData?.timezone) }} </p>
-        <p> <b>Sunset:</b> {{ getLocalTime(weatherData?.sys?.sunset, weatherData?.timezone) }} </p>
-      </nb-card-body>
-    </nb-card>
-  </nb-layout-column>
-</nb-layout>
+  <nb-card size="tiny">
+    <nb-card-header><h4>Sun ☀</h4></nb-card-header>
+    <nb-card-body>
+      <p> <b>Sunrise:</b> {{ getLocalTime(weatherData?.sys?.sunrise, weatherData?.timezone) }} </p>
+      <p> <b>Sunset:</b> {{ getLocalTime(weatherData?.sys?.sunset, weatherData?.timezone) }} </p>
+    </nb-card-body>
+  </nb-card>
+</nb-layout-column>
