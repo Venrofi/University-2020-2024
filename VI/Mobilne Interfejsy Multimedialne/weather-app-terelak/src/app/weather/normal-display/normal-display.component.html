@@ -31,6 +31,7 @@
 <nb-layout center *ngIf="!isWeatherDataEmpty()">
   <nb-layout-column class="text-center">
     <nb-toggle class="toggleImperial" [(ngModel)]="toggleImperialUnits" (ngModelChange)="onUnitsToggleChange()">Toggle Imperial Units</nb-toggle>
+
     <nb-card size="small">
       <nb-card-header><h4>Temperature 🌡</h4></nb-card-header>
       <nb-card-body>
@@ -40,6 +41,7 @@
         <p> <b>Feels like:</b> {{ weatherData?.main?.feels_like }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
       </nb-card-body>
     </nb-card>
+
     <nb-card size="tiny">
       <nb-card-header><h4>Air 💨</h4></nb-card-header>
       <nb-card-body>
@@ -47,6 +49,7 @@
         <p> <b>Humidity:</b> {{ weatherData?.main?.humidity }}%</p>
       </nb-card-body>
     </nb-card>
+
     <nb-card size="tiny">
       <nb-card-header><h4>Wind 🍃</h4></nb-card-header>
       <nb-card-body>
@@ -54,6 +57,7 @@
         <p> <b>Direction:</b> {{ weatherData?.wind?.deg }}°</p>
       </nb-card-body>
     </nb-card>
+
     <nb-card size="tiny">
       <nb-card-header><h4>Sun ☀</h4></nb-card-header>
       <nb-card-body>
@@ -63,8 +67,3 @@
     </nb-card>
   </nb-layout-column>
 </nb-layout>
-
-<button nbSuffix nbButton status="info" (click)="accessibilityMode()" fullWidth class="accessibilityButton">
-  Accessibility Mode
-  <nb-icon icon="eye-outline" pack="eva"></nb-icon>
-</button>

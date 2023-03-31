@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'weather-app-terelak';
+
+  simpleMode: boolean = false;
+
+  displayModeChange() {
+    this.simpleMode = !this.simpleMode;
+  }
 }

@@ -1,0 +1,81 @@
+<div class="font-size" *ngIf="!isWeatherDataEmpty()">
+  <input type="range" min="20" max="32" step="1" [(ngModel)]="fontSize">
+  <span>Adjust font size here</span>
+</div>
+
+<nb-form-field>
+  <input
+      [(ngModel)]="inputValue"
+      (ngModelChange)="inputValueChange($event)"
+      (keypress)="onKeyPress($event)"
+      nbInput fullWidth
+      type="text"
+      status="info"
+      fieldSize="giant"
+      placeholder="Enter location!"
+      [style.fontSize.px]="fontSize + 4"
+      [nbAutocomplete]="suggestions"/>
+
+  <nb-autocomplete #suggestions>
+    <nb-option-group *ngFor="let group of filteredCities$ | async; trackBy: trackByName"  [title]="group.name" >
+      <nb-option *ngFor="let city of group.cities" [value]="city" (click)="searchWeather(city)">
+        {{ city }}
+      </nb-option>
+    </nb-option-group>
+  </nb-autocomplete>
+
+  <button nbSuffix nbButton ghost (click)="searchWeather(inputValue)">
+    <nb-icon icon="arrow-forward-outline" pack="eva"></nb-icon>
+  </button>
+</nb-form-field>
+
+<h4 class="text-center">{{ searchMessage }}</h4>
+<div class="text-center" *ngIf="!isWeatherDataEmpty()">
+  <img [src]="weatherIcon" alt="Weather icon">
+  <h6 [style.fontSize.px]="fontSize - 8">{{ 'Local time of forecast: ' + getLocalTime(weatherData?.dt, weatherData?.timezone) }}</h6>
+  <h6 [style.fontSize.px]="fontSize - 8">{{ "Today's date: " + getDate(weatherData?.dt) }}</h6>
+</div>
+
+<nb-layout center *ngIf="!isWeatherDataEmpty()">
+  <nb-layout-column class="text-center">
+    <nb-toggle class="toggleImperial" [(ngModel)]="toggleImperialUnits" (ngModelChange)="onUnitsToggleChange()">
+      <span [style.fontSize.px]="fontSize - 8">Toggle Imperial Units</span>
+    </nb-toggle>
+
+    <nb-card size="small">
+      <nb-card-header><h4 [style.fontSize.px]="fontSize + 4">Temperature 🌡</h4></nb-card-header>
+      <nb-card-body>
+        <p [style.fontSize.px]="fontSize"> <b>Minimal:</b> {{ weatherData?.main?.temp_min }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+        <p [style.fontSize.px]="fontSize"> <b>Maximal:</b> {{ weatherData?.main?.temp_max }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+        <p [style.fontSize.px]="fontSize"> <b>Current:</b> {{ weatherData?.main?.temp }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+        <p [style.fontSize.px]="fontSize"> <b>Feels like:</b> {{ weatherData?.main?.feels_like }} {{ toggleImperialUnits ? '°F' : '°C' }} </p>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card size="tiny">
+      <nb-card-header><h4 [style.fontSize.px]="fontSize + 4">Air 💨</h4></nb-card-header>
+      <nb-card-body>
+        <p [style.fontSize.px]="fontSize"> <b>Pressure:</b> {{ weatherData?.main?.pressure }} {{ toggleImperialUnits ? 'Hg' : 'hPa' }}</p>
+        <p [style.fontSize.px]="fontSize"> <b>Humidity:</b> {{ weatherData?.main?.humidity }}%</p>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card size="tiny">
+      <nb-card-header><h4 [style.fontSize.px]="fontSize + 4">Wind 🍃</h4></nb-card-header>
+      <nb-card-body>
+        <p [style.fontSize.px]="fontSize"> <b>Speed:</b> {{ weatherData?.wind?.speed }} {{ toggleImperialUnits ? 'mi/h' : 'm/s' }}</p>
+        <p [style.fontSize.px]="fontSize"> <b>Direction:</b> {{ weatherData?.wind?.deg }}°</p>
+      </nb-card-body>
+    </nb-card>
+
+    <nb-card size="tiny">
+      <nb-card-header><h4 [style.fontSize.px]="fontSize + 4">Sun ☀</h4></nb-card-header>
+      <nb-card-body>
+        <p [style.fontSize.px]="fontSize"> <b>Sunrise:</b> {{ getLocalTime(weatherData?.sys?.sunrise, weatherData?.timezone) }} </p>
+        <p [style.fontSize.px]="fontSize"> <b>Sunset:</b> {{ getLocalTime(weatherData?.sys?.sunset, weatherData?.timezone) }} </p>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>
+
+

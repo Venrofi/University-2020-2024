@@ -4,8 +4,18 @@
   </nb-layout-header>
 
   <nb-layout-column>
-    <app-normal-display></app-normal-display>
+    <button nbSuffix nbButton status="info" fullWidth class="accessibilityButton" (click)="displayModeChange()">
+      {{ simpleMode ? 'Normal Mode' : 'Accessibility Mode' }}
+      <nb-icon icon="{{ simpleMode ? 'arrowhead-up-outline' : 'eye-outline' }}" pack="eva"></nb-icon>
+    </button>
+
+    <ng-container *ngIf="simpleMode; else normalMode">
       <app-simple-display></app-simple-display>
+    </ng-container>
+
+    <ng-template #normalMode>
+      <app-normal-display></app-normal-display>
+    </ng-template>
   </nb-layout-column>
 
   <nb-layout-footer>Radosław Terelak - 2023 ®</nb-layout-footer>
