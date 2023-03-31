@@ -1,5 +1,21 @@
 <nb-form-field>
-  <input type="text" nbInput fullWidth placeholder="Enter location" [(ngModel)]="inputValue">
+  <input
+      [(ngModel)]="inputValue"
+      (ngModelChange)="onModelChange($event)"
+      (keypress)="onKeyPress($event)"
+      nbInput fullWidth
+      type="text"
+      placeholder="Enter location!"
+      [nbAutocomplete]="suggestions"/>
+
+  <nb-autocomplete #suggestions>
+    <nb-option-group *ngFor="let group of filteredCities$ | async; trackBy: trackByFn"  [title]="group.name" >
+      <nb-option *ngFor="let city of group.cities" [value]="city" (click)="searchWeather(city)">
+        {{ city }}
+      </nb-option>
+    </nb-option-group>
+  </nb-autocomplete>
+
   <button nbSuffix nbButton ghost (click)="searchWeather(inputValue)">
     <nb-icon icon="arrow-forward-outline" pack="eva"></nb-icon>
   </button>
@@ -8,7 +24,7 @@
 <h4 class="text-center">{{ searchMessage }}</h4>
 <div class="text-center" *ngIf="!isWeatherDataEmpty()">
   <img [src]="weatherIcon" alt="Weather icon">
-  <h6>{{ 'Current time: ' + getTime(weatherData?.dt) }}</h6>
+  <h6>{{ 'Local time of forecast: ' + getLocalTime(weatherData?.dt, weatherData?.timezone) }}</h6>
   <h6>{{ "Today's date: " + getDate(weatherData?.dt) }}</h6>
 </div>
 
@@ -41,9 +57,14 @@
     <nb-card size="tiny">
       <nb-card-header><h4>Sun ☀</h4></nb-card-header>
       <nb-card-body>
-        <p> <b>Sunrise:</b> {{ getTime(weatherData?.sys?.sunrise) }} </p>
-        <p> <b>Sunset:</b> {{ getTime(weatherData?.sys?.sunset) }} </p>
+        <p> <b>Sunrise:</b> {{ getLocalTime(weatherData?.sys?.sunrise, weatherData?.timezone) }} </p>
+        <p> <b>Sunset:</b> {{ getLocalTime(weatherData?.sys?.sunset, weatherData?.timezone) }} </p>
       </nb-card-body>
     </nb-card>
   </nb-layout-column>
 </nb-layout>
+
+<button nbSuffix nbButton status="info" (click)="accessibilityMode()" fullWidth class="accessibilityButton">
+  Accessibility Mode
+  <nb-icon icon="eye-outline" pack="eva"></nb-icon>
+</button>
