@@ -1,0 +1,28 @@
+﻿  Lab1_Terelak.cpp
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89,44): warning C4307: „*”: przepełnienie stałej całkowitej ze znakiem
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<6,1816214400>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<7,259459200>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<8,32432400>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<9,3603600>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<10,360360>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<11,32760>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<12,2730>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<13,210>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(89): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<14,15>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(210): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Factorial2<15,1>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(178,35): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(177): message : podczas kompilowania funkcji składowej „float Sine<32,5>::sin(void)” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(235): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „float Sine<32,5>::sin(void)” funkcji szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(235): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Sine<32,5>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(160,18): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(159): message : podczas kompilowania funkcji składowej „float SineSeries<32,5,10,0>::accumulate(void)” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(178): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „float SineSeries<32,5,10,0>::accumulate(void)” funkcji szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(178): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „SineSeries<32,5,10,0>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(177): message : podczas kompilowania funkcji składowej „float Sine<32,5>::sin(void)” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(235): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „float Sine<32,5>::sin(void)” funkcji szablon
+  Trwa generowanie kodu
+  1 of 61 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Zakończono generowanie kodu
+  Lab1_Terelak.vcxproj -> C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\x64\Release\Lab1_Terelak.exe

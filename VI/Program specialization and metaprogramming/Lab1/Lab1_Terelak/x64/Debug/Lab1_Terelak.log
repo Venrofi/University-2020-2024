@@ -1,0 +1,12 @@
+﻿  Lab1_Terelak.cpp
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(177,35): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(176): message : podczas kompilowania funkcji składowej „float Sine<32,5>::sin(void)” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(244): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „float Sine<32,5>::sin(void)” funkcji szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(244): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „Sine<32,5>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(159,18): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(158): message : podczas kompilowania funkcji składowej „float SineSeries<32,5,10,0>::accumulate(void)” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(177): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „float SineSeries<32,5,10,0>::accumulate(void)” funkcji szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(177): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „SineSeries<32,5,10,0>” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(176): message : podczas kompilowania funkcji składowej „float Sine<32,5>::sin(void)” klasy klasa szablon
+C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\Lab1_Terelak\Lab1_Terelak.cpp(244): message : zobacz odwołanie do kompilowanego tworzenia wystąpienia „float Sine<32,5>::sin(void)” funkcji szablon
+  Lab1_Terelak.vcxproj -> C:\Users\User\Desktop\Program specialization and metaprogramming\Lab1 12.03.2023\Lab1_Terelak\x64\Debug\Lab1_Terelak.exe
