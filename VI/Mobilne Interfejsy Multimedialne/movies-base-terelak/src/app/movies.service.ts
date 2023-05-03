@@ -16,8 +16,9 @@ export class MoviesService {
     this.movies = this.moviesCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
+          const id = a.payload.doc.id;
           const data = a.payload.doc.data() as Movie;
-          return data;
+          return { id, ...data };
         });
       })
     );

@@ -1,0 +1,45 @@
+<div mat-dialog-title>
+  <h1>Movie form</h1>
+</div>
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" required>
+      <mat-error *ngIf="movieForm.controls['title'].invalid && (movieForm.controls['title'].dirty || movieForm.controls['title'].touched)">
+        <span *ngIf="movieForm.controls['title'].hasError('required')">Title is required</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Year</mat-label>
+      <input matInput type="number" [min]="1920" [max]="currentYear + 3" formControlName="year" required>
+      <mat-error *ngIf="movieForm.controls['year'].invalid && (movieForm.controls['year'].dirty || movieForm.controls['year'].touched)">
+        <span *ngIf="movieForm.controls['year'].hasError('required')">Year is required</span>
+        <span *ngIf="movieForm.controls['year'].hasError('min') || movieForm.controls['year'].hasError('max')">
+          Please enter a valid year between 1920 and {{ currentYear + 3 }}</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Director</mat-label>
+      <input matInput formControlName="director" required>
+      <mat-error *ngIf="movieForm.controls['director'].invalid && (movieForm.controls['director'].dirty || movieForm.controls['director'].touched)">
+        <span *ngIf="movieForm.controls['director'].hasError('required')">Director is required</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Genre</mat-label>
+      <mat-select formControlName="genre" required>
+        <mat-option *ngFor="let genre of movieGenres" [value]="genre">{{ genre }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="movieForm.controls['genre'].invalid && (movieForm.controls['genre'].dirty || movieForm.controls['genre'].touched)">
+        <span *ngIf="movieForm.controls['genre'].hasError('required')">Genre is required</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-checkbox formControlName="watched">I've watched this movie!</mat-checkbox>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close style="flex: 1">Cancel</button>
+    <button mat-raised-button color="primary" style="flex: 2" type="submit" [disabled]="movieForm.invalid">Save</button>
+  </div>
+</form>
