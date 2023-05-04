@@ -6,6 +6,10 @@ export interface Movie {
   watched?: boolean;
 }
 
+export interface MovieWithId extends Movie {
+  id: string;
+}
+
 export function movieMapper(movie: Movie) {
   return {
     ...movie,

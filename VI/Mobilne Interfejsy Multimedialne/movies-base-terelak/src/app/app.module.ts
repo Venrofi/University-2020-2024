@@ -17,16 +17,19 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { AddEditMovieComponent } from './add-edit-movie/add-edit-movie.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { OperationInfoSnackComponent } from './operation-info-snack/operation-info-snack.component';
 @NgModule({
   declarations: [
     AppComponent,
     AddEditMovieComponent,
-    MovieListComponent
+    MovieListComponent,
+    OperationInfoSnackComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     MatPaginatorModule,
     MatIconModule,
     MatSortModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

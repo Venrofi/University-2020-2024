@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { AddEditMovieComponent } from '../add-edit-movie/add-edit-movie.component';
 import { MoviesService } from '../movies.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Movie } from '../movie.model';
 
 @Component({
@@ -14,7 +14,7 @@ import { Movie } from '../movie.model';
 })
 
 export class MovieListComponent implements OnInit {
-  displayedColumns: string[] = ['title', 'year', 'watched'];
+  displayedColumns: string[] = ['title', 'year', 'director', 'watched'];
   dataSource: MatTableDataSource<Movie>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -40,8 +40,13 @@ export class MovieListComponent implements OnInit {
     });
   }
 
-  openEditMovieDialog() {
-    this.dialog.open(AddEditMovieComponent);
+  openEditMovieDialog(movie: Movie) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      operation: 'EDIT',
+      movie: movie
+    };
+    this.dialog.open(AddEditMovieComponent, dialogConfig);
   }
 
   applyFilter(event: Event) {

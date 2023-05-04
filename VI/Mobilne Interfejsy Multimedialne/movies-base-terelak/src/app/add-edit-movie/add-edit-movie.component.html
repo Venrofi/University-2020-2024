@@ -1,5 +1,5 @@
 <div mat-dialog-title>
-  <h1>Movie form</h1>
+  <h1>{{ data.operation === 'EDIT' ? 'Edit existing movie' : 'Add new movie' }}</h1>
 </div>
 <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
   <div mat-dialog-content>
@@ -39,7 +39,10 @@
   </div>
 
   <div mat-dialog-actions>
-    <button mat-raised-button mat-dialog-close style="flex: 1">Cancel</button>
-    <button mat-raised-button color="primary" style="flex: 2" type="submit" [disabled]="movieForm.invalid">Save</button>
+    <button mat-raised-button mat-dialog-close color="warn" class="mt-2" (click)="deleteMovie()" *ngIf="data.operation === 'EDIT'">Delete movie from the base 💥</button>
+    <div class="my-4">
+      <button mat-raised-button mat-dialog-close style="flex: 1">Cancel</button>
+      <button mat-raised-button color="primary" style="flex: 2" type="submit" [disabled]="movieForm.invalid"> {{ data.operation === 'EDIT' ? 'Save' : 'Add' }} </button>
+    </div>
   </div>
 </form>
