@@ -1,8 +1,6 @@
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MoviesService } from './movies.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AddEditMovieComponent } from './add-edit-movie/add-edit-movie.component';
-import { initialMovies } from 'src/data/initial-movies';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +12,7 @@ export class AppComponent {
 
   constructor(private dialog: MatDialog) {}
 
-  openAddEMovieDialog() {
+  openAddMovieDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
       operation: 'ADD'
