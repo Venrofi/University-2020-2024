@@ -1,0 +1,31 @@
+.filter-input {
+  background-color: #5B5B66;
+  color: white;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  height: 6rem;
+}
+
+.mat-row > .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover > .mat-cell {
+  border-color: white;
+  font-weight: bold;
+}
+
+/* Touch effects for mobile */
+@media (hover: none) {
+  .mat-row:active > .mat-cell {
+    border-color: white;
+    font-weight: bold;
+  }
+}

@@ -13,14 +13,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
 
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { AddEditMovieComponent } from './add-edit-movie/add-edit-movie.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AddEditMovieComponent
+    AddEditMovieComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,10 @@ import { AddEditMovieComponent } from './add-edit-movie/add-edit-movie.component
     MatInputModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

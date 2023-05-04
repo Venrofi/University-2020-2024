@@ -9,24 +9,12 @@ import { initialMovies } from 'src/data/initial-movies';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'movies-base-terelak';
 
-  constructor(private moviesService: MoviesService, private dialog: MatDialog) {}
-
-  ngOnInit() {
-    // initialMovies.forEach(movie => {
-    //   this.moviesService.addMovie(movie);
-    //   console.log('Movie added: ', movie);
-    // });
-
-    this.moviesService.getMovies().subscribe(movies => {
-      console.log('Movies: ', movies);
-    });
-  }
+  constructor(private dialog: MatDialog) {}
 
   openAddEditMovieDialog() {
     this.dialog.open(AddEditMovieComponent);
   }
-
 }

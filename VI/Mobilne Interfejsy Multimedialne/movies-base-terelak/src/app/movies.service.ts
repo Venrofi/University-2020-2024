@@ -2,7 +2,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Movie } from './movie.model';
+import { Movie, movieMapper } from './movie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,9 @@ export class MoviesService {
       map(actions => {
         return actions.map(a => {
           const id = a.payload.doc.id;
-          const data = a.payload.doc.data() as Movie;
+          let data = a.payload.doc.data() as Movie;
+          data = movieMapper(data);
+
           return { id, ...data };
         });
       })
