@@ -1,5 +1,6 @@
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +19,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
@@ -36,6 +38,7 @@ import { OperationInfoSnackComponent } from './operation-info-snack/operation-in
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatToolbarModule,
@@ -49,7 +52,8 @@ import { OperationInfoSnackComponent } from './operation-info-snack/operation-in
     MatPaginatorModule,
     MatIconModule,
     MatSortModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

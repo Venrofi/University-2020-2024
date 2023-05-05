@@ -38,8 +38,8 @@
     <mat-checkbox formControlName="watched">I've watched this movie!</mat-checkbox>
   </div>
 
-  <div mat-dialog-actions>
-    <button mat-raised-button mat-dialog-close color="warn" class="mt-2" (click)="deleteMovie()" *ngIf="data.operation === 'EDIT'">Delete movie from the base 💥</button>
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close color="warn" class="mx-sm-5" (click)="deleteMovie()" *ngIf="data.operation === 'EDIT'">Delete movie from the base 💥</button>
     <div class="my-4">
       <button mat-raised-button mat-dialog-close style="flex: 1">Cancel</button>
       <button mat-raised-button color="primary" style="flex: 2" type="submit" [disabled]="movieForm.invalid"> {{ data.operation === 'EDIT' ? 'Save' : 'Add' }} </button>

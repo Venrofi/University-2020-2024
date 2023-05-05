@@ -1,26 +1,38 @@
 <mat-toolbar color="primary">
   <span>Movies Base</span>
-  <span class="example-spacer"></span>
-  <button mat-raised-button (click)="openAddMovieDialog()"> Add movie </button>
+  <span class="spacer"></span>
+  <button mat-raised-button (click)="openAddMovieDialog()" *ngIf="auth.user | async as user"> Add movie </button>
 </mat-toolbar>
 
-<app-movie-list></app-movie-list>
+<div *ngIf="auth.user | async as user; else authenticate">
+  <app-movie-list></app-movie-list>
+</div>
 
-<footer class="bg-secondary text-white py-3">
+<ng-template #authenticate>
+  <mat-card class="m-3">
+    <mat-card-header>
+      <mat-card-title>Hello!</mat-card-title>
+      <mat-card-subtitle>Please authenticate to access the Movies Base! 🤠</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="d-flex justify-content-center">
+      <button mat-raised-button mat-dialog-close (click)="login()" class="mx-1">
+        <span>Login via E-mail</span>
+      </button>
+      <button mat-raised-button mat-dialog-close (click)="loginWithGoogle()">
+        <span>Login with Google</span>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+
+<footer class="bg-secondary text-white py-3" [ngClass]="(auth.user | async) ? '' : 'fixed-bottom'">
   <div class="container text-center">
-    <span>Radosław Terelak - 2023 &copy;</span>
+    <div *ngIf="auth.user | async as user; else defaultFooter" class="d-flex flex-column justify-content-center align-items-center">
+      <span>Logged in as: <i>{{ user.email }}</i></span>
+      <button mat-raised-button (click)="logout()" class="mt-2" color="primary">Logout</button>
+    </div>
+    <ng-template #defaultFooter>
+      <span>Radosław Terelak - 2023 &copy;</span>
+    </ng-template>
   </div>
 </footer>
-
-<!-- Podział na komponenty:
-  - header:
-    - dodawanie filmu,
-    - modal z formularzem,
-  - main:
-    - filtry
-    - lista filmów
-    - komponent list item każdego filmu
-    - paginacja
-  - footer:
-    - imie i nazwisko autora
-  -->
