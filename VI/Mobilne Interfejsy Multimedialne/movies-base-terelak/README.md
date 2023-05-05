@@ -2,6 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.11.
 
+This is a simple movies database build with Angular & Firebase.
+
+Features:
+
+- Email & Google Authentication
+- Angular Material interface
+- Add new movie as a pop-up dialog with form fields validation
+- Edit or Delete existing movies
+- Movie list sorting
+- Filter list of movies by query
+- Pagination
+
+[Live demo](https://movie-base-venrofi.netlify.app/)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
